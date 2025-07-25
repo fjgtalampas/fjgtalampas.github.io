@@ -69,10 +69,11 @@
 
         .header-container .name {
             margin: 0;
-            font-size: 1.8em;
+            font-size: 2.0em;
             font-weight: bold;
             color: var(--header-text-color);
             white-space: nowrap;
+            padding-bottom: 20px;
         }
 
         .header-container .contact-info-line {
@@ -178,10 +179,10 @@
         }
 
         #summary p {
-            text-align: center;
+            text-align: justify;
             max-width: 700px;
             margin: 0 auto;
-            font-size: 1.15em;
+            font-size: 1em;
             color: var(--text-color);
         }
 
@@ -258,21 +259,25 @@
 
         /* Styling for nested bullets */
         .experience-tasks ul ul {
-            list-style-type: disc;
-            padding-left: 20px;
-            margin-top: 3px;
-            margin-bottom: 3px;
+            /* padding-left: 20px; */
+            margin-top: 5px;
+            margin-bottom: 5px;
         }
 
         .experience-tasks ul ul li {
-            padding-left: 0;
+            position: relative;
+            padding-left: 15px;
             margin-bottom: 4px;
-            font-size: 0.95em;
-            line-height: 1.4;
+            line-height: 1.5;
         }
 
         .experience-tasks ul ul li::before {
-            content: none;
+            content: '\25E6';
+            color: var(--primary-accent);
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            top: 0;
         }
 
 
@@ -355,17 +360,27 @@
             justify-content: space-between;
             align-items: baseline;
         }
+        
+        .certification-details {
+            text-align: left;
+        }
 
         .certification-item .title {
             font-weight: bold;
             color: var(--secondary-accent);
             font-size: 1.05em;
+            margin-bottom: 2px; /* Adjusted margin */
+        }
+        
+        .certification-item .provider {
+            color: #555;
+            font-size: 0.95em;
+            margin-top: 0;
         }
 
         .certification-item .date {
-            font-style: italic;
             color: #6c757d;
-            font-size: 0.9em;
+            font-size: 0.95em;
         }
 
         /* Education Section */
@@ -401,7 +416,6 @@
         }
 
         .education-degree-details .education-date {
-            font-style: italic;
             color: #6c757d;
         }
 
@@ -471,7 +485,7 @@
             #summary .profile-picture {
                 width: 120px;
                 height: 120px;
-                margin-bottom: 10px;
+                margin-bottom: 20px;
             }
 
             #summary p {
@@ -580,15 +594,15 @@
     <header class="header-container">
         <div class="header-content-wrapper">
             <div class="header-left">
-                <p class="name">Your Full Name</p>
+                <p class="name">FRANCIS JASON TALAMPAS</p>
             </div>
             <div class="header-right">
                 <p class="contact-info-line">
-                    your.email@example.com <span>|</span> +1 (123) 456-7890
+                    fjgtalampas@outlook.com <span>|</span> +63 960 399 9935
                 </p>
                 <div class="social-links">
-                    <a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/fjgtalampas" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/fjgtalampas" target="_blank" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
                 </div>
             </div>
         </div>
@@ -605,10 +619,21 @@
     <section id="summary" class="section">
         <h2>Summary</h2>
         <img src="https://placehold.co/180x180/005451/F2F2F2?text=Profile" alt="Your Profile Picture" class="profile-picture">
+        <br>
         <p>
-            Highly motivated and results-oriented professional with X years of experience in [Your Industry/Field].
-            Passionate about [Your Passion] and dedicated to [Your Goal/Contribution].
-            Seeking to leverage expertise in [Key Skill 1] and [Key Skill 2] to contribute to innovative projects.
+            I am a versatile and experienced engineer with a 10+ year track record of success in both software development and DevOps across diverse industries like Manufacturing, Supply Chain, and Accounting. My career is a story of two passions: crafting clean, robust back-end code and building the automated systems that bring that code to life reliably and efficiently.
+        </p>
+        <br>
+        <p>
+            As a developer, my strength lies in the back-end, from building RESTful services to writing complex database logic. As a DevOps professional, I specialize in IaC and CI/CD, turning manual processes into streamlined, automated workflows. I have successfully led ground-up development projects, refactored legacy systems, and currently spearhead my team's entire CI/CD process, including the management of our containerized environments.
+        </p>
+        <br>
+        <p>
+            I am a natural initiator, consistently seeking out opportunities to improve day-to-day processes and leading mini-projects to success, both independently and within team settings. I am driven by technical challenges and the opportunity to learn something new, whether it's a new technology stack or a more effective way to solve a problem.
+        </p>
+        <br>
+        <p>
+            My enthusiasm for learning is matched by my dedication to delivering results. If you are looking for an engineer who not only writes clean code but also builds the resilient, automated systems to support it, I am ready to contribute from day one. I look forward to the opportunity to demonstrate how my blend of software and DevOps expertise can be a key asset to your organization and help you achieve your goals.
         </p>
     </section>
 
@@ -618,27 +643,32 @@
 
         <div class="experience-item">
             <div class="experience-header">
-                <span class="company">Tech Solutions Inc.</span>
-                <span class="domain">Software Development</span>
+                <span class="company">FINASTRA</span>
+                <span class="domain">Full Stack Development - KTP Corporate Treasury Innovation</span>
             </div>
 
             <!-- Senior Software Engineer Role -->
             <div class="role-entry">
                 <div class="experience-details">
                     <span class="role">Senior Software Engineer</span>
-                    <span class="work-years">Jan 2022 - Present</span>
+                    <span class="work-years">November 2023 - Present</span>
                 </div>
                 <div class="experience-tasks">
                     <ul>
-                        <li>Led the development of scalable backend services using Node.js and microservices architecture, improving system response time by 20%.</li>
-                        <li>Designed and implemented robust APIs for mobile and web applications, supporting over 1 million daily active users.</li>
-                        <li><strong>Node.js Ergonomic Project:</strong> Developed a new Node.js service to streamline data processing workflows.
+                        <li><strong>Development CI/CD Lead</strong>
                             <ul>
-                                <li>Optimized existing data parsing logic, reducing processing time by 30%.</li>
-                                <li>Integrated with external APIs to fetch real-time data, enhancing data freshness.</li>
+                                <li>Coordinated migration of Bitbucket repositories to GitHub, delivering a robust go-live framework to stakeholders</li>
+                                <li>Led conversion of front-end framework package build from Jenkins to GitHub Actions</li>
+                                <li>Orchestrated containerized development infrastructure with preconfigured automations, encompassing virtual databases, tools, and local and servers for building and hosting multi-branch application stacks</li>
+                                <li>Managed task backlogs and development releases while mentoring peers for setup, issues and trainings to CI/CD stack</li>
                             </ul>
                         </li>
-                        <li>Mentored junior developers and conducted code reviews, fostering a culture of high-quality code and best practices.</li>
+                        <li><strong>E-Payment Factory Project</strong>
+                            <ul>
+                                <li>Implemented non-functional requirements to Spring Boot services including management of configuration properties, Maven build and release packaging via GitHub Actions integrations, Jasypt encryption, integration of Okta UAA</li>
+                                <li>Developed payment management services and UI, enabling PAIN message processing and bank transmission</li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -647,14 +677,18 @@
             <div class="role-entry" style="margin-top: 20px; border-top: 1px dashed var(--border-color); padding-top: 15px;">
                 <div class="experience-details">
                     <span class="role">Software Engineer</span>
-                    <span class="work-years">Jan 2020 - Dec 2021</span>
+                    <span class="work-years">November 2020 - March 2022</span>
                 </div>
                 <div class="experience-tasks">
                     <ul>
-                        <li>Developed and maintained web applications using front-end and back-end technologies.</li>
-                        <li>Collaborated with senior engineers to design and implement new features.</li>
-                        <li>Participated in code reviews and contributed to improving code quality and team processes.</li>
-                        <li>Assisted in debugging and resolving software defects to ensure application stability.</li>
+                        <li><strong>PostgreSQL Integration Project</strong>
+                            <ul>
+                                <li>Automated Oracle and Postgres database setup using ORA2PG and Docker containers with custom import scripts</li>
+                                <li>Developed PostgreSQL API implementations, data bindings and configuration properties; scripted equivalent PL/pgSQLs</li>
+                            </ul>
+                        </li>
+                        <li>Incorporated refactoring efforts and OWASP security practices to remedy vulnerabilities, integrating minification and obfuscation into the package deployment process of Node.js front-end framework via Gulp utility scripts</li>
+                        <li>Implemented UI and backend enhancements, and resolved defects in Reporting and Market Data modules</li>
                     </ul>
                 </div>
             </div>
@@ -662,36 +696,56 @@
 
         <div class="experience-item">
             <div class="experience-header">
-                <span class="company">Innovate Corp.</span>
-                <span class="domain">Data Analytics</span>
+                <span class="company">ORACLE NETSUITE</span>
+                <span class="domain">Infrastructure Operations - Performance</span>
             </div>
             <div class="experience-details">
-                <span class="role">Data Analyst</span>
-                <span class="work-years">Mar 2019 - Dec 2021</span>
+                <span class="role">Software Engineer in Test</span>
+                <span class="work-years">April 2022 - October 2023</span>
             </div>
             <div class="experience-tasks">
                 <ul>
-                    <li>Analyzed large datasets to identify key trends and insights, leading to a 15% optimization in marketing campaign performance.</li>
-                    <li>Developed interactive dashboards using Tableau, providing stakeholders with real-time data visualization.</li>
-                    <li>Collaborated with cross-functional teams to define data requirements and ensure data integrity.</li>
+                    <li>Automated and optimized performance benchmarks for NetSuite Order Management by refactoring scripts for JMeter parameterized tests, integrating to TeamCity and visualizing via OpenSearch dashboards</li>
+                    <li>Provisioned Netsuite stack on Oracle Cloud Infrastructure, leveraging pre-configured Ansible and Terraform automations</li>
                 </ul>
             </div>
         </div>
 
         <div class="experience-item">
             <div class="experience-header">
-                <span class="company">Global Services Ltd.</span>
-                <span class="domain">Customer Support</span>
+                <span class="company">DELTEK</span>
+                <span class="domain">Backend Development - Costpoint Materials Management</span>
             </div>
             <div class="experience-details">
-                <span class="role">Technical Support Specialist</span>
-                <span class="work-years">Jun 2017 - Feb 2019</span>
+                <span class="role">Software Engineer</span>
+                <span class="work-years">March 2016 - October 2020</span>
             </div>
             <div class="experience-tasks">
                 <ul>
-                    <li>Provided technical assistance to clients, resolving complex software and hardware issues.</li>
-                    <li>Maintained a high customer satisfaction rate of 95% through effective problem-solving and communication.</li>
-                    <li>Contributed to the creation of a comprehensive knowledge base, reducing ticket resolution time by 10%.</li>
+                    <li><strong>Innovation Summit 2020:</strong> Accelerated test data setup by utilizing SOAP Web Services + LoadRunner</li>
+                    <li><strong>Innovation Summit 2017:</strong> Integrated open-source OCR for reading receipts in expense module</li>
+                    <li>Implemented Standard Costing to inventory and ordering modules</li>
+                    <li>Implemented user-role organizational data security to materials management modules</li>
+                    <li>Implemented data auto-loading features to improve UI experience</li>
+                    <li>Migrated Oracle/MS SQL stored procedures to JDBC API calls to optimize maintainability and testing</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <span class="company">PHILTECH</span>
+                <span class="domain">Supply Chain Operations</span>
+            </div>
+            <div class="experience-details">
+                <span class="role">Site Reliability Engineer</span>
+                <span class="work-years">August 2013 - March 2016</span>
+            </div>
+            <div class="experience-tasks">
+                <ul>
+                    <li>Managed and optimized critical ordering and forecasting services by fine-tuning application configurations, scripts and job scheduling, resulting to lesser abnormal ends and improved system stability</li>
+                    <li>Provided and executed maintenance plan for interface and database upgrades</li>
+                    <li>Resolved client-reported data inconsistencies in orders and forecasts</li>
                 </ul>
             </div>
         </div>
@@ -706,15 +760,15 @@
             <h3>Languages & Frameworks</h3>
             <div class="skill-list">
                 <div class="skill-item"><i class="fab fa-java"></i> Java</div>
-                <div class="skill-item"><i class="fab fa-js-square"></i> Javascript</div>
+                <div class="skill-item"><i class="fas fa-leaf"></i> Spring Boot</div>
                 <div class="skill-item"><i class="fas fa-database"></i> SQL</div>
+                <div class="skill-item"><i class="fas fa-exchange-alt"></i> REST APIs</div>
+                <div class="skill-item"><i class="fab fa-js-square"></i> Javascript</div>
+                <div class="skill-item"><i class="fab fa-node-js"></i> Node.js</div>
                 <div class="skill-item"><i class="fab fa-html5"></i> HTML</div>
                 <div class="skill-item"><i class="fab fa-css3-alt"></i> CSS</div>
-                <div class="skill-item"><i class="fas fa-terminal"></i> Powershell</div>
                 <div class="skill-item"><i class="fas fa-terminal"></i> Bash</div>
-                <div class="skill-item"><i class="fas fa-exchange-alt"></i> REST APIs</div>
-                <div class="skill-item"><i class="fas fa-leaf"></i> Spring Boot</div>
-                <div class="skill-item"><i class="fab fa-node-js"></i> Node.js</div>
+                <div class="skill-item"><i class="fas fa-terminal"></i> Powershell</div>
             </div>
         </div>
 
@@ -770,34 +824,25 @@
 
     </section>
 
-    <!-- Trainings and Certifications Section -->
     <section id="certifications" class="section">
         <h2>Trainings & Certifications</h2>
 
         <div class="certification-item">
             <div class="certification-content">
-                <p class="title">AWS Certified Solutions Architect – Associate</p>
-                <p class="date">Issued: March 2023</p>
+                <div class="certification-details">
+                    <p class="title">Oracle Cloud Infrastructure Foundations 2021 Certified Associate</p>
+                    <p class="provider">Oracle</p>
+                </div>
+                <p class="date">Issued: March 2022</p>
             </div>
         </div>
 
         <div class="certification-item">
             <div class="certification-content">
-                <p class="title">Google Project Management Certificate</p>
-                <p class="date">Completed: January 2022</p>
-            </div>
-        </div>
-
-        <div class="certification-item">
-            <div class="certification-content">
-                <p class="title">Certified ScrumMaster (CSM)</p>
-                <p class="date">Issued: November 2021</p>
-            </div>
-        </div>
-
-        <div class="certification-item">
-            <div class="certification-content">
-                <p class="title">Responsive Web Design - freeCodeCamp</p>
+                <div class="certification-details">
+                    <p class="title">Master Agile Software Development</p>
+                    <p class="provider">Udemy</p>
+                </div>
                 <p class="date">Completed: July 2020</p>
             </div>
         </div>
@@ -809,18 +854,18 @@
         <h2>Education</h2>
 
         <div class="education-item">
-            <p class="institution">University of Example</p>
+            <p class="institution">University of Santo Tomas</p>
             <div class="education-degree-details">
-                <p class="degree">Bachelor of Science in Computer Science</p>
-                <p class="education-date">May 2017</p>
+                <p class="degree">Bachelor of Science in Information Technology</p>
+                <p class="education-date">March 2013</p>
             </div>
         </div>
 
         <div class="education-item">
-            <p class="institution">Another University/College</p>
+            <p class="institution">Don Bosco Technical Institute</p>
             <div class="education-degree-details">
-                <p class="degree">Master of Business Administration</p>
-                <p class="education-date">December 2020</p>
+                <p class="degree">High School (4-Year Preparatory Technician Course in Computer Technology)</p>
+                <p class="education-date">March 2009</p>
             </div>
         </div>
 
