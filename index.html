@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Personal Portfolio</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Inter', sans-serif; /* Keeping Inter as it's a modern, readable font */
+            margin: 0;
+            padding: 0;
+            background-color: #F2F2F2; /* Base background */
+            color: #333; /* Dark grey text */
+            line-height: 1.6;
+            /* Removed scroll-behavior: smooth; as we're no longer scrolling to anchors */
+        }
+
+        /* New Color Scheme */
+        :root {
+            --primary-accent: #005451; /* Main color accent */
+            --secondary-accent: #003D3B; /* Darker shade of main accent */
+            --shading-shadow: #2C3E50; /* For shading and shadows, used for dark header */
+            --base-background: #F2F2F2; /* Base background */
+            --text-color: #333; /* General body text color */
+            --header-bg: var(--primary-accent); /* Updated to use primary-accent for header background */
+            --header-text-color: #F2F2F2; /* Light text for dark header */
+            --border-color: #E0E0E0; /* Softer, lighter grey for borders */
+            --section-bg: #ffffff; /* Pure white for sections */
+        }
+
+        /* Header - Fixed Navigation */
+        .header-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--header-bg); /* Dark header background */
+            padding: 15px 0;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2); /* Softer shadow */
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color); /* Softer border */
+            height: auto; /* Allow header to adjust height based on content */
+            box-sizing: border-box; /* Include padding in height calculation */
+        }
+
+        .header-content-wrapper {
+            display: flex;
+            justify-content: space-between; /* Pushes items to far ends */
+            align-items: center; /* Aligns items vertically in the middle */
+            max-width: 900px; /* Consistent with sections */
+            margin: 0 auto; /* Center the wrapper */
+            padding: 0 25px; /* Add horizontal padding to match section padding */
+            box-sizing: border-box; /* Include padding in width */
+        }
+
+        .header-left {
+            text-align: left;
+            flex-shrink: 0;
+            margin-top: 0; /* Ensure no extra top margin */
+        }
+
+        .header-right {
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .header-container .name {
+            margin: 0;
+            font-size: 1.8em;
+            font-weight: bold;
+            color: var(--header-text-color);
+            white-space: nowrap;
+        }
+
+        .header-container .contact-info-line {
+            margin: 0;
+            font-size: 0.95em;
+            color: var(--header-text-color);
+        }
+
+        .header-container .contact-info-line span {
+            padding: 0 10px;
+        }
+
+        .header-container .social-links {
+            margin-top: 5px;
+        }
+
+        .header-container .social-links a {
+            color: var(--header-text-color);
+            font-size: 1.4em;
+            margin: 0 12px;
+            transition: color 0.3s ease;
+        }
+
+        .header-container .social-links a:hover {
+            color: var(--base-background); /* Change to base background color on hover for visibility */
+        }
+
+        .header-container .nav-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 8px;
+            padding-bottom: 5px; /* Add some padding at the bottom of nav buttons */
+        }
+
+        .header-container .nav-buttons button {
+            background-color: var(--base-background);
+            color: var(--primary-accent);
+            border: 1px solid var(--primary-accent);
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.2s ease;
+            display: block;
+            width: auto;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Softer button shadow */
+        }
+
+        .header-container .nav-buttons button:hover {
+            background-color: var(--primary-accent);
+            color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow on hover */
+        }
+
+        /* Main Content Sections */
+        .section {
+            padding: 20px 25px;
+            margin-bottom: 15px;
+            background-color: var(--section-bg);
+            border-radius: 8px;
+            box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05); /* Softer section shadow */
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid var(--border-color); /* Softer border for sections */
+            text-align: center;
+            display: none; /* Hidden by default */
+            /* Removed scroll-margin-top as we're using padding-top on body */
+        }
+
+        .section.active {
+            display: block; /* Show active section */
+        }
+
+        /* Adjust padding-top for the body to make space for the fixed header */
+        body {
+            padding-top: 170px; /* This will be set dynamically by JS on load */
+        }
+
+
+        .section h2 {
+            color: var(--secondary-accent);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--primary-accent); /* Slightly thinner border */
+            padding-bottom: 8px;
+            display: inline-block;
+            width: fit-content;
+            font-size: 2em;
+        }
+
+        /* Summary Section */
+        #summary .profile-picture {
+            display: block;
+            margin: 0 auto 15px auto;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-accent); /* Slightly thinner border */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Softer shadow */
+        }
+
+        #summary p {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.15em;
+            color: var(--text-color);
+        }
+
+        /* Work Experience Section */
+        .experience-item {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color); /* Softer border */
+            text-align: left;
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .experience-header .company {
+            font-weight: bold;
+            color: var(--secondary-accent);
+            font-size: 1.25em;
+        }
+
+        .experience-header .domain {
+            font-style: italic;
+            color: #6c757d;
+            font-size: 1em;
+        }
+
+        .experience-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+            font-size: 1em;
+            color: #555;
+        }
+
+        .experience-details .role {
+            font-weight: 600;
+            color: var(--text-color);
+            font-size: 1.1em;
+        }
+
+        .experience-tasks ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 8px;
+        }
+
+        .experience-tasks ul li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 6px;
+            font-size: 1em;
+            line-height: 1.5;
+        }
+
+        .experience-tasks ul li::before {
+            content: '\2022';
+            color: var(--primary-accent);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            position: absolute;
+            left: 10px;
+            top: 0;
+        }
+
+        /* Styling for nested bullets */
+        .experience-tasks ul ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-top: 3px;
+            margin-bottom: 3px;
+        }
+
+        .experience-tasks ul ul li {
+            padding-left: 0;
+            margin-bottom: 4px;
+            font-size: 0.95em;
+            line-height: 1.4;
+        }
+
+        .experience-tasks ul ul li::before {
+            content: none;
+        }
+
+
+        /* Skills Section */
+        .skill-category {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color); /* Softer border */
+            text-align: center;
+        }
+
+        .skill-category:last-child {
+            border-bottom: none;
+        }
+
+        .skill-category h3 {
+            color: var(--secondary-accent);
+            margin-bottom: 10px;
+            font-size: 1.3em;
+            border-bottom: 2px solid var(--primary-accent);
+            padding-bottom: 5px;
+            display: inline-block;
+            width: fit-content;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            max-width: fit-content;
+            margin: 0 auto;
+        }
+
+        .skill-item {
+            background-color: var(--base-background);
+            border: 1px solid var(--primary-accent);
+            color: var(--secondary-accent);
+            padding: 7px 15px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            box-shadow: none;
+        }
+
+        .skill-item:hover {
+            background-color: var(--primary-accent);
+            color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-item i {
+            color: var(--primary-accent);
+            font-size: 1em;
+            margin-right: 6px;
+        }
+
+        .skill-item:hover i {
+            color: white;
+        }
+
+        /* Certifications Section */
+        .certification-item {
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color); /* Softer border */
+            text-align: left;
+        }
+
+        .certification-item:last-child {
+            border-bottom: none;
+        }
+
+        .certification-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .certification-item .title {
+            font-weight: bold;
+            color: var(--secondary-accent);
+            font-size: 1.05em;
+        }
+
+        .certification-item .date {
+            font-style: italic;
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+
+        /* Education Section */
+        .education-item {
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color); /* Softer border */
+            text-align: left;
+        }
+
+        .education-item:last-child {
+            border-bottom: none;
+        }
+
+        .education-item .institution {
+            font-weight: bold;
+            color: var(--secondary-accent);
+            font-size: 1.05em;
+            margin-bottom: 3px;
+            display: block;
+        }
+
+        .education-degree-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 0.95em;
+            color: #666;
+        }
+
+        .education-degree-details .degree {
+            /* No specific styles needed, will inherit from parent */
+        }
+
+        .education-degree-details .education-date {
+            font-style: italic;
+            color: #6c757d;
+        }
+
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 10px 0;
+            }
+
+            .header-content-wrapper {
+                flex-direction: column;
+                align-items: center;
+                padding: 0 15px;
+            }
+
+            .header-left, .header-right {
+                width: 100%;
+                text-align: center;
+            }
+
+            .header-container .name {
+                font-size: 1.5em;
+                margin-bottom: 5px;
+            }
+
+            .header-container .contact-info-line {
+                font-size: 0.85em;
+                margin-bottom: 5px;
+            }
+            .header-container .contact-info-line span {
+                padding: 0 5px;
+            }
+
+            .header-container .social-links a {
+                font-size: 1.1em;
+                margin: 0 10px;
+            }
+
+            .header-container .nav-buttons {
+                flex-direction: column;
+                gap: 8px;
+                padding: 0 15px;
+            }
+
+            .header-container .nav-buttons button {
+                width: 95%;
+                margin: 0 auto;
+                font-size: 0.95em;
+                padding: 9px 18px;
+            }
+
+            body {
+                /* padding-top will be set dynamically by JS on load */
+            }
+
+            .section {
+                padding: 15px 15px;
+                margin-bottom: 10px;
+            }
+
+            .section h2 {
+                font-size: 1.6em;
+                margin-bottom: 15px;
+            }
+
+            #summary .profile-picture {
+                width: 120px;
+                height: 120px;
+                margin-bottom: 10px;
+            }
+
+            #summary p {
+                font-size: 0.95em;
+            }
+
+            .experience-item {
+                margin-bottom: 15px;
+                padding-bottom: 10px;
+            }
+
+            .experience-header,
+            .experience-details {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .experience-header .domain,
+            .experience-details .work-years {
+                margin-top: 3px;
+                font-size: 0.9em;
+            }
+
+            .experience-tasks ul li {
+                padding-left: 20px;
+                margin-bottom: 5px;
+                font-size: 0.9em;
+            }
+
+            .experience-tasks ul li::before {
+                left: 5px;
+            }
+
+            .skill-item {
+                font-size: 0.85em;
+                padding: 6px 10px;
+                gap: 5px;
+            }
+
+            .skill-category h3 {
+                font-size: 1.1em;
+            }
+
+            .certification-content,
+            .education-degree-details {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .certification-item .date,
+            .education-degree-details .education-date {
+                margin-top: 3px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-container .name {
+                font-size: 1.3em;
+            }
+
+            .header-container .contact-info-line {
+                font-size: 0.8em;
+            }
+            .header-container .contact-info-line span {
+                padding: 0 3px;
+            }
+
+            .header-container .social-links a {
+                font-size: 1em;
+                margin: 0 8px;
+            }
+
+            .header-container .nav-buttons button {
+                font-size: 0.85em;
+                padding: 7px 12px;
+            }
+
+            body {
+                /* padding-top will be set dynamically by JS on load */
+            }
+
+            .section h2 {
+                font-size: 1.4em;
+            }
+
+            .experience-item .company,
+            .experience-item .role {
+                font-size: 1em;
+            }
+
+            .skill-item {
+                font-size: 0.8em;
+                padding: 5px 8px;
+                gap: 4px;
+            }
+
+            .certification-item p {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header - Navigation Section -->
+    <header class="header-container">
+        <div class="header-content-wrapper">
+            <div class="header-left">
+                <p class="name">Your Full Name</p>
+            </div>
+            <div class="header-right">
+                <p class="contact-info-line">
+                    your.email@example.com <span>|</span> +1 (123) 456-7890
+                </p>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <nav class="nav-buttons">
+            <button onclick="showSection('summary')">Summary</button>
+            <button onclick="showSection('experience')">Work Experience</button>
+            <button onclick="showSection('skills')">Skills</button>
+            <button onclick="showSection('certifications')">Certifications</button>
+            <button onclick="showSection('education')">Education</button>
+        </nav>
+    </header>
+
+    <!-- Summary Section -->
+    <section id="summary" class="section">
+        <h2>Summary</h2>
+        <img src="https://placehold.co/180x180/005451/F2F2F2?text=Profile" alt="Your Profile Picture" class="profile-picture">
+        <p>
+            Highly motivated and results-oriented professional with X years of experience in [Your Industry/Field].
+            Passionate about [Your Passion] and dedicated to [Your Goal/Contribution].
+            Seeking to leverage expertise in [Key Skill 1] and [Key Skill 2] to contribute to innovative projects.
+        </p>
+    </section>
+
+    <!-- Work Experience Section -->
+    <section id="experience" class="section">
+        <h2>Work Experience</h2>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <span class="company">Tech Solutions Inc.</span>
+                <span class="domain">Software Development</span>
+            </div>
+
+            <!-- Senior Software Engineer Role -->
+            <div class="role-entry">
+                <div class="experience-details">
+                    <span class="role">Senior Software Engineer</span>
+                    <span class="work-years">Jan 2022 - Present</span>
+                </div>
+                <div class="experience-tasks">
+                    <ul>
+                        <li>Led the development of scalable backend services using Node.js and microservices architecture, improving system response time by 20%.</li>
+                        <li>Designed and implemented robust APIs for mobile and web applications, supporting over 1 million daily active users.</li>
+                        <li><strong>Node.js Ergonomic Project:</strong> Developed a new Node.js service to streamline data processing workflows.
+                            <ul>
+                                <li>Optimized existing data parsing logic, reducing processing time by 30%.</li>
+                                <li>Integrated with external APIs to fetch real-time data, enhancing data freshness.</li>
+                            </ul>
+                        </li>
+                        <li>Mentored junior developers and conducted code reviews, fostering a culture of high-quality code and best practices.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Software Engineer Role (promoted from) -->
+            <div class="role-entry" style="margin-top: 20px; border-top: 1px dashed var(--border-color); padding-top: 15px;">
+                <div class="experience-details">
+                    <span class="role">Software Engineer</span>
+                    <span class="work-years">Jan 2020 - Dec 2021</span>
+                </div>
+                <div class="experience-tasks">
+                    <ul>
+                        <li>Developed and maintained web applications using front-end and back-end technologies.</li>
+                        <li>Collaborated with senior engineers to design and implement new features.</li>
+                        <li>Participated in code reviews and contributed to improving code quality and team processes.</li>
+                        <li>Assisted in debugging and resolving software defects to ensure application stability.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <span class="company">Innovate Corp.</span>
+                <span class="domain">Data Analytics</span>
+            </div>
+            <div class="experience-details">
+                <span class="role">Data Analyst</span>
+                <span class="work-years">Mar 2019 - Dec 2021</span>
+            </div>
+            <div class="experience-tasks">
+                <ul>
+                    <li>Analyzed large datasets to identify key trends and insights, leading to a 15% optimization in marketing campaign performance.</li>
+                    <li>Developed interactive dashboards using Tableau, providing stakeholders with real-time data visualization.</li>
+                    <li>Collaborated with cross-functional teams to define data requirements and ensure data integrity.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <span class="company">Global Services Ltd.</span>
+                <span class="domain">Customer Support</span>
+            </div>
+            <div class="experience-details">
+                <span class="role">Technical Support Specialist</span>
+                <span class="work-years">Jun 2017 - Feb 2019</span>
+            </div>
+            <div class="experience-tasks">
+                <ul>
+                    <li>Provided technical assistance to clients, resolving complex software and hardware issues.</li>
+                    <li>Maintained a high customer satisfaction rate of 95% through effective problem-solving and communication.</li>
+                    <li>Contributed to the creation of a comprehensive knowledge base, reducing ticket resolution time by 10%.</li>
+                </ul>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <h2>Skills</h2>
+
+        <div class="skill-category">
+            <h3>Languages & Frameworks</h3>
+            <div class="skill-list">
+                <div class="skill-item"><i class="fab fa-java"></i> Java</div>
+                <div class="skill-item"><i class="fab fa-js-square"></i> Javascript</div>
+                <div class="skill-item"><i class="fas fa-database"></i> SQL</div>
+                <div class="skill-item"><i class="fab fa-html5"></i> HTML</div>
+                <div class="skill-item"><i class="fab fa-css3-alt"></i> CSS</div>
+                <div class="skill-item"><i class="fas fa-terminal"></i> Powershell</div>
+                <div class="skill-item"><i class="fas fa-terminal"></i> Bash</div>
+                <div class="skill-item"><i class="fas fa-exchange-alt"></i> REST APIs</div>
+                <div class="skill-item"><i class="fas fa-leaf"></i> Spring Boot</div>
+                <div class="skill-item"><i class="fab fa-node-js"></i> Node.js</div>
+            </div>
+        </div>
+
+        <div class="skill-category">
+            <h3>Databases</h3>
+            <div class="skill-list">
+                <div class="skill-item"><i class="fas fa-database"></i> Oracle</div>
+                <div class="skill-item"><i class="fas fa-database"></i> PostgreSQL</div>
+            </div>
+        </div>
+
+        <div class="skill-category">
+            <h3>Tools</h3>
+            <div class="skill-list">
+                <div class="skill-item"><i class="fab fa-git-alt"></i> Git</div>
+                <div class="skill-item"><i class="fas fa-box"></i> Maven</div>
+                <div class="skill-item"><i class="fas fa-wrench"></i> Jenkins</div>
+                <div class="skill-item"><i class="fab fa-github"></i> GitHub Actions</div>
+                <div class="skill-item"><i class="fas fa-cloud"></i> TeamCity</div>
+                <div class="skill-item"><i class="fas fa-paper-plane"></i> Postman</div>
+                <div class="skill-item"><i class="fab fa-jira"></i> Jira</div>
+                <div class="skill-item"><i class="fab fa-confluence"></i> Confluence</div>
+                <div class="skill-item"><i class="fas fa-code"></i> Visual Studio Code</div>
+                <div class="skill-item"><i class="fas fa-lightbulb"></i> Jetbrains IntelliJ IDEA</div>
+            </div>
+        </div>
+
+        <div class="skill-category">
+            <h3>Platforms</h3>
+            <div class="skill-list">
+                <div class="skill-item"><i class="fab fa-windows"></i> Windows</div>
+                <div class="skill-item"><i class="fab fa-apple"></i> macOS</div>
+                <div class="skill-item"><i class="fab fa-linux"></i> Linux</div>
+                <div class="skill-item"><i class="fab fa-ubuntu"></i> Ubuntu</div>
+                <div class="skill-item"><i class="fas fa-l"></i> Red Hat Enterprise Linux</div>
+                <div class="skill-item"><i class="fas fa-terminal"></i> Windows Subsystem for Linux</div>
+                <div class="skill-item"><i class="fab fa-docker"></i> Docker</div>
+                <div class="skill-item"><i class="fas fa-cloud"></i> Oracle Cloud Infrastructure</div>
+            </div>
+        </div>
+
+        <div class="skill-category">
+            <h3>Methodologies</h3>
+            <div class="skill-list">
+                <div class="skill-item"><i class="fas fa-project-diagram"></i> SDLC</div>
+                <div class="skill-item"><i class="fas fa-sitemap"></i> System Architecture</div>
+                <div class="skill-item"><i class="fas fa-cogs"></i> DevOps</div>
+                <div class="skill-item"><i class="fas fa-sync-alt"></i> CI/CD</div>
+                <div class="skill-item"><i class="fas fa-book"></i> ITIL</div>
+                <div class="skill-item"><i class="fas fa-users"></i> Agile</div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Trainings and Certifications Section -->
+    <section id="certifications" class="section">
+        <h2>Trainings & Certifications</h2>
+
+        <div class="certification-item">
+            <div class="certification-content">
+                <p class="title">AWS Certified Solutions Architect – Associate</p>
+                <p class="date">Issued: March 2023</p>
+            </div>
+        </div>
+
+        <div class="certification-item">
+            <div class="certification-content">
+                <p class="title">Google Project Management Certificate</p>
+                <p class="date">Completed: January 2022</p>
+            </div>
+        </div>
+
+        <div class="certification-item">
+            <div class="certification-content">
+                <p class="title">Certified ScrumMaster (CSM)</p>
+                <p class="date">Issued: November 2021</p>
+            </div>
+        </div>
+
+        <div class="certification-item">
+            <div class="certification-content">
+                <p class="title">Responsive Web Design - freeCodeCamp</p>
+                <p class="date">Completed: July 2020</p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <h2>Education</h2>
+
+        <div class="education-item">
+            <p class="institution">University of Example</p>
+            <div class="education-degree-details">
+                <p class="degree">Bachelor of Science in Computer Science</p>
+                <p class="education-date">May 2017</p>
+            </div>
+        </div>
+
+        <div class="education-item">
+            <p class="institution">Another University/College</p>
+            <div class="education-degree-details">
+                <p class="degree">Master of Business Administration</p>
+                <p class="education-date">December 2020</p>
+            </div>
+        </div>
+
+    </section>
+
+    <script>
+        // Function to show a specific section and hide others
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active'); // Hide all sections
+            });
+
+            const activeSection = document.getElementById(sectionId);
+            if (activeSection) {
+                activeSection.classList.add('active'); // Show the selected section
+                // Scroll to the top of the page to ensure the section starts at the top of the content area
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Function to set dynamic padding-top on the body
+        function adjustBodyPadding() {
+            const header = document.querySelector('.header-container');
+            if (!header) return;
+
+            // Get the computed height of the header
+            const headerHeight = header.offsetHeight;
+            // Set padding-top on the body to push content down
+            document.body.style.paddingTop = `${headerHeight + 20}px`; // Add 20px for extra visual space
+        }
+
+        // Initial adjustment on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            adjustBodyPadding(); // Set initial padding
+            showSection('summary'); // Show summary by default
+        });
+
+        // Re-adjust on window resize to handle responsive header height changes
+        window.addEventListener('resize', adjustBodyPadding);
+    </script>
+</body>
+</html>
