@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Personal Portfolio</title>
-    <!-- Font Awesome for icons -->
+    <title>Francis Jason Talampas - Personal Profile</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Global Styles */
@@ -15,7 +14,6 @@
             background-color: #F2F2F2; /* Base background */
             color: #333; /* Dark grey text */
             line-height: 1.6;
-            /* Removed scroll-behavior: smooth; as we're no longer scrolling to anchors */
         }
 
         /* New Color Scheme */
@@ -48,23 +46,12 @@
 
         .header-content-wrapper {
             display: flex;
-            justify-content: space-between; /* Pushes items to far ends */
+            justify-content: center; /* Center the content */
             align-items: center; /* Aligns items vertically in the middle */
             max-width: 900px; /* Consistent with sections */
             margin: 0 auto; /* Center the wrapper */
             padding: 0 25px; /* Add horizontal padding to match section padding */
             box-sizing: border-box; /* Include padding in width */
-        }
-
-        .header-left {
-            text-align: left;
-            flex-shrink: 0;
-            margin-top: 0; /* Ensure no extra top margin */
-        }
-
-        .header-right {
-            text-align: right;
-            flex-shrink: 0;
         }
 
         .header-container .name {
@@ -73,32 +60,8 @@
             font-weight: bold;
             color: var(--header-text-color);
             white-space: nowrap;
-            padding-bottom: 20px;
-        }
-
-        .header-container .contact-info-line {
-            margin: 0;
-            font-size: 0.95em;
-            color: var(--header-text-color);
-        }
-
-        .header-container .contact-info-line span {
-            padding: 0 10px;
-        }
-
-        .header-container .social-links {
-            margin-top: 5px;
-        }
-
-        .header-container .social-links a {
-            color: var(--header-text-color);
-            font-size: 1.4em;
-            margin: 0 12px;
-            transition: color 0.3s ease;
-        }
-
-        .header-container .social-links a:hover {
-            color: var(--base-background); /* Change to base background color on hover for visibility */
+            padding-bottom: 10px; /* Adjusted padding */
+            text-align: center;
         }
 
         .header-container .nav-buttons {
@@ -130,6 +93,37 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow on hover */
         }
 
+        /* Footer - New Sticky Footer Section */
+        .footer-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--header-bg); /* Match header background */
+            color: var(--header-text-color); /* Match header text color */
+            padding: 10px 0;
+            box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2); /* Shadow on top */
+            z-index: 1001; /* Ensure it's above other content */
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .footer-container .contact-info-line {
+            margin: 5px 0 5px 0;
+            font-size: 0.9em;
+        }
+
+        .footer-container .social-links a {
+            color: var(--header-text-color);
+            font-size: 1.4em;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-container .social-links a:hover {
+            color: var(--base-background);
+        }
+
         /* Main Content Sections */
         .section {
             padding: 20px 25px;
@@ -143,18 +137,18 @@
             border: 1px solid var(--border-color); /* Softer border for sections */
             text-align: center;
             display: none; /* Hidden by default */
-            /* Removed scroll-margin-top as we're using padding-top on body */
         }
 
         .section.active {
             display: block; /* Show active section */
         }
 
-        /* Adjust padding-top for the body to make space for the fixed header */
+        /* Adjust padding for the body to make space for the fixed header and footer */
         body {
-            padding-top: 170px; /* This will be set dynamically by JS on load */
+            /* These will be set dynamically by JS on load */
+            padding-top: 150px;
+            padding-bottom: 80px; 
         }
-
 
         .section h2 {
             color: var(--secondary-accent);
@@ -259,7 +253,6 @@
 
         /* Styling for nested bullets */
         .experience-tasks ul ul {
-            /* padding-left: 20px; */
             margin-top: 5px;
             margin-bottom: 5px;
         }
@@ -432,27 +425,9 @@
                 padding: 0 15px;
             }
 
-            .header-left, .header-right {
-                width: 100%;
-                text-align: center;
-            }
-
             .header-container .name {
                 font-size: 1.5em;
                 margin-bottom: 5px;
-            }
-
-            .header-container .contact-info-line {
-                font-size: 0.85em;
-                margin-bottom: 5px;
-            }
-            .header-container .contact-info-line span {
-                padding: 0 5px;
-            }
-
-            .header-container .social-links a {
-                font-size: 1.1em;
-                margin: 0 10px;
             }
 
             .header-container .nav-buttons {
@@ -468,8 +443,14 @@
                 padding: 9px 18px;
             }
 
-            body {
-                /* padding-top will be set dynamically by JS on load */
+            .footer-container .contact-info-line {
+                font-size: 0.75em;
+                margin-bottom: 5px;
+            }
+
+            .footer-container .social-links a {
+                font-size: 1.2em;
+                margin: 0 10px;
             }
 
             .section {
@@ -546,27 +527,20 @@
                 font-size: 1.3em;
             }
 
-            .header-container .contact-info-line {
-                font-size: 0.8em;
-            }
-            .header-container .contact-info-line span {
-                padding: 0 3px;
-            }
-
-            .header-container .social-links a {
-                font-size: 1em;
-                margin: 0 8px;
-            }
-
             .header-container .nav-buttons button {
                 font-size: 0.85em;
                 padding: 7px 12px;
             }
 
-            body {
-                /* padding-top will be set dynamically by JS on load */
+            .footer-container .contact-info-line {
+                font-size: 0.8em;
             }
 
+            .footer-container .social-links a {
+                font-size: 1.1em;
+                margin: 0 8px;
+            }
+            
             .section h2 {
                 font-size: 1.4em;
             }
@@ -590,21 +564,9 @@
 </head>
 <body>
 
-    <!-- Header - Navigation Section -->
     <header class="header-container">
         <div class="header-content-wrapper">
-            <div class="header-left">
-                <p class="name">FRANCIS JASON TALAMPAS</p>
-            </div>
-            <div class="header-right">
-                <p class="contact-info-line">
-                    fjgtalampas@outlook.com <span>|</span> +63 960 399 9935
-                </p>
-                <div class="social-links">
-                    <a href="https://linkedin.com/in/fjgtalampas" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/fjgtalampas" target="_blank" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
-                </div>
-            </div>
+            <p class="name">FRANCIS JASON TALAMPAS</p>
         </div>
         <nav class="nav-buttons">
             <button onclick="showSection('summary')">Summary</button>
@@ -615,7 +577,6 @@
         </nav>
     </header>
 
-    <!-- Summary Section -->
     <section id="summary" class="section">
         <h2>Summary</h2>
         <img src="https://placehold.co/180x180/005451/F2F2F2?text=Profile" alt="Your Profile Picture" class="profile-picture">
@@ -637,7 +598,6 @@
         </p>
     </section>
 
-    <!-- Work Experience Section -->
     <section id="experience" class="section">
         <h2>Work Experience</h2>
 
@@ -647,7 +607,6 @@
                 <span class="domain">Full Stack Development - KTP Corporate Treasury Innovation</span>
             </div>
 
-            <!-- Senior Software Engineer Role -->
             <div class="role-entry">
                 <div class="experience-details">
                     <span class="role">Senior Software Engineer</span>
@@ -673,7 +632,6 @@
                 </div>
             </div>
 
-            <!-- Software Engineer Role (promoted from) -->
             <div class="role-entry" style="margin-top: 20px; border-top: 1px dashed var(--border-color); padding-top: 15px;">
                 <div class="experience-details">
                     <span class="role">Software Engineer</span>
@@ -752,7 +710,6 @@
 
     </section>
 
-    <!-- Skills Section -->
     <section id="skills" class="section">
         <h2>Skills</h2>
 
@@ -849,7 +806,6 @@
 
     </section>
 
-    <!-- Education Section -->
     <section id="education" class="section">
         <h2>Education</h2>
 
@@ -870,6 +826,16 @@
         </div>
 
     </section>
+    
+    <footer class="footer-container">
+        <p class="contact-info-line">
+            fjgtalampas@outlook.com
+        </p>
+        <div class="social-links">
+            <a href="https://linkedin.com/in/fjgtalampas" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/fjgtalampas" target="_blank" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+        </div>
+    </footer>
 
     <script>
         // Function to show a specific section and hide others
@@ -887,15 +853,19 @@
             }
         }
 
-        // Function to set dynamic padding-top on the body
+        // Function to set dynamic padding-top and padding-bottom on the body
         function adjustBodyPadding() {
             const header = document.querySelector('.header-container');
-            if (!header) return;
+            const footer = document.querySelector('.footer-container');
 
-            // Get the computed height of the header
-            const headerHeight = header.offsetHeight;
-            // Set padding-top on the body to push content down
-            document.body.style.paddingTop = `${headerHeight + 20}px`; // Add 20px for extra visual space
+            if (header) {
+                const headerHeight = header.offsetHeight;
+                document.body.style.paddingTop = `${headerHeight + 20}px`; // Add 20px for extra visual space
+            }
+            if (footer) {
+                const footerHeight = footer.offsetHeight;
+                document.body.style.paddingBottom = `${footerHeight + 20}px`; // Add 20px for extra visual space
+            }
         }
 
         // Initial adjustment on page load
@@ -904,7 +874,7 @@
             showSection('summary'); // Show summary by default
         });
 
-        // Re-adjust on window resize to handle responsive header height changes
+        // Re-adjust on window resize to handle responsive header/footer height changes
         window.addEventListener('resize', adjustBodyPadding);
     </script>
 </body>
