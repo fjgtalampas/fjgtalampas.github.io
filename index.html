@@ -46,6 +46,7 @@
 
         .header-content-wrapper {
             display: flex;
+            flex-direction: column; /* Stack name and email vertically */
             justify-content: center; /* Center the content */
             align-items: center; /* Aligns items vertically in the middle */
             max-width: 900px; /* Consistent with sections */
@@ -60,8 +61,18 @@
             font-weight: bold;
             color: var(--header-text-color);
             white-space: nowrap;
-            padding-bottom: 10px; /* Adjusted padding */
+            padding-bottom: 5px; /* Adjusted padding */
             text-align: center;
+        }
+
+        /* New style for the email in the header */
+        .header-container .header-email {
+            margin: 0;
+            padding-bottom: 5px; /* Space before nav buttons */
+            font-size: 0.8em;
+            font-weight: normal;
+            color: var(--header-text-color);
+            opacity: 0.9;
         }
 
         .header-container .nav-buttons {
@@ -106,11 +117,6 @@
             z-index: 1001; /* Ensure it's above other content */
             text-align: center;
             box-sizing: border-box;
-        }
-
-        .footer-container .contact-info-line {
-            margin: 5px 0 5px 0;
-            font-size: 0.9em;
         }
 
         .footer-container .social-links a {
@@ -420,7 +426,7 @@
             }
 
             .header-content-wrapper {
-                flex-direction: column;
+                /* flex-direction is already column */
                 align-items: center;
                 padding: 0 15px;
             }
@@ -428,6 +434,11 @@
             .header-container .name {
                 font-size: 1.5em;
                 margin-bottom: 5px;
+            }
+
+            .header-container .header-email {
+                font-size: 0.8em;
+                padding-bottom: 5px;
             }
 
             .header-container .nav-buttons {
@@ -441,11 +452,6 @@
                 margin: 0 auto;
                 font-size: 0.95em;
                 padding: 9px 18px;
-            }
-
-            .footer-container .contact-info-line {
-                font-size: 0.75em;
-                margin-bottom: 5px;
             }
 
             .footer-container .social-links a {
@@ -527,13 +533,13 @@
                 font-size: 1.3em;
             }
 
+            .header-container .header-email {
+                font-size: 0.8em;
+            }
+            
             .header-container .nav-buttons button {
                 font-size: 0.85em;
                 padding: 7px 12px;
-            }
-
-            .footer-container .contact-info-line {
-                font-size: 0.8em;
             }
 
             .footer-container .social-links a {
@@ -567,6 +573,7 @@
     <header class="header-container">
         <div class="header-content-wrapper">
             <p class="name">FRANCIS JASON TALAMPAS</p>
+            <p class="header-email">fjgtalampas@outlook.com</p>
         </div>
         <nav class="nav-buttons">
             <button onclick="showSection('summary')">Summary</button>
@@ -828,9 +835,6 @@
     </section>
     
     <footer class="footer-container">
-        <p class="contact-info-line">
-            fjgtalampas@outlook.com
-        </p>
         <div class="social-links">
             <a href="https://linkedin.com/in/fjgtalampas" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
             <a href="https://github.com/fjgtalampas" target="_blank" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
