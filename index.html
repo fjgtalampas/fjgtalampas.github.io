@@ -61,18 +61,36 @@
             font-weight: bold;
             color: var(--header-text-color);
             white-space: nowrap;
-            padding-bottom: 5px; /* Adjusted padding */
             text-align: center;
+            cursor: pointer; /* Make name clickable */
         }
 
         /* New style for the email in the header */
         .header-container .header-email {
             margin: 0;
-            padding-bottom: 5px; /* Space before nav buttons */
-            font-size: 0.8em;
+            padding-bottom: 5px; /* Space before social links */
+            font-size: 0.9em;
             font-weight: normal;
             color: var(--header-text-color);
             opacity: 0.9;
+        }
+
+        /* Social Links in Header */
+        .header-content-wrapper .social-links {
+            padding-top: 5px; /* Space after email */
+        }
+
+        .header-content-wrapper .social-links a {
+            color: var(--header-text-color);
+            font-size: 1.4em;
+            margin: 0 10px;
+            transition: color 0.3s ease, opacity 0.3s ease;
+            opacity: 0.9;
+        }
+
+        .header-content-wrapper .social-links a:hover {
+            color: var(--base-background);
+            opacity: 1;
         }
 
         .header-container .nav-buttons {
@@ -80,7 +98,7 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 8px;
-            margin-top: 8px;
+            margin-top: 10px; /* Adjusted margin-top */
             padding-bottom: 5px; /* Add some padding at the bottom of nav buttons */
         }
 
@@ -104,32 +122,6 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow on hover */
         }
 
-        /* Footer - New Sticky Footer Section */
-        .footer-container {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: var(--header-bg); /* Match header background */
-            color: var(--header-text-color); /* Match header text color */
-            padding: 10px 0;
-            box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2); /* Shadow on top */
-            z-index: 1001; /* Ensure it's above other content */
-            text-align: center;
-            box-sizing: border-box;
-        }
-
-        .footer-container .social-links a {
-            color: var(--header-text-color);
-            font-size: 1.4em;
-            margin: 0 10px;
-            transition: color 0.3s ease;
-        }
-
-        .footer-container .social-links a:hover {
-            color: var(--base-background);
-        }
-
         /* Main Content Sections */
         .section {
             padding: 20px 25px;
@@ -149,18 +141,18 @@
             display: block; /* Show active section */
         }
 
-        /* Adjust padding for the body to make space for the fixed header and footer */
+        /* Adjust padding for the body to make space for the fixed header */
         body {
-            /* These will be set dynamically by JS on load */
+            /* padding-top is set dynamically by JS on load */
             padding-top: 150px;
-            padding-bottom: 80px; 
+            padding-bottom: 20px; /* Add some space at the very bottom of the page */
         }
 
         .section h2 {
             color: var(--secondary-accent);
-            margin-bottom: 15px;
+            margin-bottom: 25px; /* Increased margin for better separation */
             border-bottom: 2px solid var(--primary-accent); /* Slightly thinner border */
-            padding-bottom: 8px;
+            padding-bottom: 5px;
             display: inline-block;
             width: fit-content;
             font-size: 2em;
@@ -341,13 +333,37 @@
         .skill-item:hover i {
             color: white;
         }
+        
+        /* Styles for Credentials Section */
+        .subsection-container {
+            margin-bottom: 10px; 
+        }
 
-        /* Certifications Section */
+        .subsection-container:last-child {
+            margin-bottom: 0; 
+        }
+        
+        .subsection-title {
+            color: var(--secondary-accent);
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            border-bottom: 2px solid var(--primary-accent);
+            padding-bottom: 5px;
+            display: inline-block;
+            width: fit-content;
+        }
+
+        .list-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        /* Certifications Section Items*/
         .certification-item {
             margin-bottom: 10px;
             padding-bottom: 8px;
             border-bottom: 1px solid var(--border-color); /* Softer border */
-            text-align: left;
         }
 
         .certification-item:last-child {
@@ -382,12 +398,11 @@
             font-size: 0.95em;
         }
 
-        /* Education Section */
+        /* Education Section Items */
         .education-item {
             margin-bottom: 10px;
             padding-bottom: 8px;
             border-bottom: 1px solid var(--border-color); /* Softer border */
-            text-align: left;
         }
 
         .education-item:last-child {
@@ -454,11 +469,6 @@
                 padding: 9px 18px;
             }
 
-            .footer-container .social-links a {
-                font-size: 1.2em;
-                margin: 0 10px;
-            }
-
             .section {
                 padding: 15px 15px;
                 margin-bottom: 10px;
@@ -466,7 +476,7 @@
 
             .section h2 {
                 font-size: 1.6em;
-                margin-bottom: 15px;
+                margin-bottom: 20px;
             }
 
             #summary .profile-picture {
@@ -512,10 +522,11 @@
                 gap: 5px;
             }
 
-            .skill-category h3 {
+            .skill-category h3,
+            .subsection-title {
                 font-size: 1.1em;
             }
-
+            
             .certification-content,
             .education-degree-details {
                 flex-direction: column;
@@ -540,11 +551,6 @@
             .header-container .nav-buttons button {
                 font-size: 0.85em;
                 padding: 7px 12px;
-            }
-
-            .footer-container .social-links a {
-                font-size: 1.1em;
-                margin: 0 8px;
             }
             
             .section h2 {
@@ -572,15 +578,17 @@
 
     <header class="header-container">
         <div class="header-content-wrapper">
-            <p class="name">FRANCIS JASON TALAMPAS</p>
+            <p class="name" onclick="showSection('summary')">FRANCIS JASON TALAMPAS</p>
             <p class="header-email">fjgtalampas@outlook.com</p>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/fjgtalampas" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/fjgtalampas" target="_blank" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+            </div>
         </div>
         <nav class="nav-buttons">
-            <button onclick="showSection('summary')">Summary</button>
             <button onclick="showSection('experience')">Work Experience</button>
             <button onclick="showSection('skills')">Skills</button>
-            <button onclick="showSection('certifications')">Certifications</button>
-            <button onclick="showSection('education')">Education</button>
+            <button onclick="showSection('education-certs')">Credentials</button>
         </nav>
     </header>
 
@@ -787,59 +795,61 @@
         </div>
 
     </section>
-
-    <section id="certifications" class="section">
-        <h2>Trainings & Certifications</h2>
-
-        <div class="certification-item">
-            <div class="certification-content">
-                <div class="certification-details">
-                    <p class="title">Oracle Cloud Infrastructure Foundations 2021 Certified Associate</p>
-                    <p class="provider">Oracle</p>
-                </div>
-                <p class="date">Issued: March 2022</p>
-            </div>
-        </div>
-
-        <div class="certification-item">
-            <div class="certification-content">
-                <div class="certification-details">
-                    <p class="title">Master Agile Software Development</p>
-                    <p class="provider">Udemy</p>
-                </div>
-                <p class="date">Completed: July 2020</p>
-            </div>
-        </div>
-
-    </section>
-
-    <section id="education" class="section">
-        <h2>Education</h2>
-
-        <div class="education-item">
-            <p class="institution">University of Santo Tomas</p>
-            <div class="education-degree-details">
-                <p class="degree">Bachelor of Science in Information Technology</p>
-                <p class="education-date">March 2013</p>
-            </div>
-        </div>
-
-        <div class="education-item">
-            <p class="institution">Don Bosco Technical Institute</p>
-            <div class="education-degree-details">
-                <p class="degree">High School (4-Year Preparatory Technician Course in Computer Technology)</p>
-                <p class="education-date">March 2009</p>
-            </div>
-        </div>
-
-    </section>
     
-    <footer class="footer-container">
-        <div class="social-links">
-            <a href="https://linkedin.com/in/fjgtalampas" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/fjgtalampas" target="_blank" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+    <section id="education-certs" class="section">
+        <h2>Credentials</h2>
+    
+        <div class="subsection-container">
+            <h3 class="subsection-title">Certifications</h3>
+            <div class="list-container">
+                <div class="certification-item">
+                    <div class="certification-content">
+                        <div class="certification-details">
+                            <p class="title">Oracle Cloud Infrastructure Foundations 2021 Certified Associate</p>
+                            <p class="provider">Oracle</p>
+                        </div>
+                        <p class="date">Issued: March 2022</p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </footer>
+    
+        <div class="subsection-container">
+            <h3 class="subsection-title">Trainings</h3>
+            <div class="list-container">
+                <div class="certification-item">
+                    <div class="certification-content">
+                        <div class="certification-details">
+                            <p class="title">Master Agile Software Development</p>
+                            <p class="provider">Linkedin Learning</p>
+                        </div>
+                        <p class="date">Completed: July 2020</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="subsection-container">
+            <h3 class="subsection-title">Education</h3>
+            <div class="list-container">
+                <div class="education-item">
+                    <p class="institution">University of Santo Tomas</p>
+                    <div class="education-degree-details">
+                        <p class="degree">Bachelor of Science in Information Technology</p>
+                        <p class="education-date">Graduated: March 2013</p>
+                    </div>
+                </div>
+        
+                <div class="education-item">
+                    <p class="institution">Don Bosco Technical Institute</p>
+                    <div class="education-degree-details">
+                        <p class="degree">High School (4-Year Preparatory Technician Course in Computer Technology)</p>
+                        <p class="education-date">Graduated: March 2009</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <script>
         // Function to show a specific section and hide others
@@ -857,18 +867,13 @@
             }
         }
 
-        // Function to set dynamic padding-top and padding-bottom on the body
+        // Function to set dynamic padding-top on the body
         function adjustBodyPadding() {
             const header = document.querySelector('.header-container');
-            const footer = document.querySelector('.footer-container');
 
             if (header) {
                 const headerHeight = header.offsetHeight;
                 document.body.style.paddingTop = `${headerHeight + 20}px`; // Add 20px for extra visual space
-            }
-            if (footer) {
-                const footerHeight = footer.offsetHeight;
-                document.body.style.paddingBottom = `${footerHeight + 20}px`; // Add 20px for extra visual space
             }
         }
 
@@ -878,7 +883,7 @@
             showSection('summary'); // Show summary by default
         });
 
-        // Re-adjust on window resize to handle responsive header/footer height changes
+        // Re-adjust on window resize to handle responsive header height changes
         window.addEventListener('resize', adjustBodyPadding);
     </script>
 </body>
