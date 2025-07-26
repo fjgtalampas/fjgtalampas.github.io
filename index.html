@@ -87,6 +87,11 @@
             color: var(--text-header);
             cursor: pointer;
             letter-spacing: -1px;
+            transition: transform 0.2s ease;
+        }
+        
+        .header-container .name:active {
+            transform: scale(0.98);
         }
 
         .header-container .header-email {
@@ -106,7 +111,8 @@
             font-size: 0.9em;
         }
 
-        .header-container .header-email:hover {
+        .header-container .header-email:hover,
+        .header-container .header-email:active {
             color: var(--accent-color);
         }
 
@@ -116,11 +122,18 @@
             margin: 0 12px;
             opacity: 0.8;
             transition: all 0.3s ease;
+            display: inline-block; /* Needed for transform */
         }
 
         .header-content-wrapper .social-links a:hover {
             opacity: 1;
             transform: translateY(-2px);
+            color: var(--accent-color);
+        }
+
+        .header-content-wrapper .social-links a:active {
+            transform: scale(0.9);
+            opacity: 1;
             color: var(--accent-color);
         }
 
@@ -148,6 +161,14 @@
             background-color: var(--accent-color);
             border-color: var(--accent-color);
             color: var(--header-bg);
+        }
+
+        .header-container .nav-buttons button:active {
+            transform: translateY(1px) scale(0.98);
+            background-color: var(--accent-hover);
+            border-color: var(--accent-hover);
+            color: var(--header-bg);
+            transition: transform 0.1s ease, background-color 0.1s ease;
         }
 
         /* 4. Main Content Sections */
