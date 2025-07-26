@@ -5,208 +5,247 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Francis Jason Talampas - Personal Profile</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Global Styles */
+        /* Modern Look & Feel Redesign */
+
+        /* 1. Root Variables & Color Palette */
+        :root {
+            --primary-bg: #f8f9fa;       /* Very light grey background */
+            --section-bg: #ffffff;       /* White for content sections */
+            --header-bg: #212F3D;        /* Deep, dark slate blue */
+            --accent-color: #48C9B0;     /* Vibrant teal for accents */
+            --accent-hover: #40B39E;     /* Darker teal for hover */
+            --text-primary: #2C3E50;     /* Dark, soft blue for main text */
+            --text-secondary: #5D6D7E;   /* Lighter grey for secondary text */
+            --text-header: #fdfdfd;       /* White/off-white for header text */
+            --border-color: #e9ecef;     /* Subtle light grey for borders */
+            --shadow-color: rgba(44, 62, 80, 0.1); /* Soft shadow color */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 2. Global Styles */
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Inter', sans-serif; /* Keeping Inter as it's a modern, readable font */
+            font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #F2F2F2; /* Base background */
-            color: #333; /* Dark grey text */
-            line-height: 1.6;
+            background-color: var(--primary-bg);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-weight: 400;
         }
 
-        /* New Color Scheme */
-        :root {
-            --primary-accent: #005451; /* Main color accent */
-            --secondary-accent: #003D3B; /* Darker shade of main accent */
-            --shading-shadow: #2C3E50; /* For shading and shadows, used for dark header */
-            --base-background: #F2F2F2; /* Base background */
-            --text-color: #333; /* General body text color */
-            --header-bg: var(--primary-accent); /* Updated to use primary-accent for header background */
-            --header-text-color: #F2F2F2; /* Light text for dark header */
-            --border-color: #E0E0E0; /* Softer, lighter grey for borders */
-            --section-bg: #ffffff; /* Pure white for sections */
+        /* Adjust padding for the body to make space for the fixed header */
+        body {
+            /* padding-top is set dynamically by JS on load */
+            padding-bottom: 40px; /* Add some space at the very bottom of the page */
         }
 
-        /* Header - Fixed Navigation */
+        /* 3. Header */
         .header-container {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background-color: var(--header-bg); /* Dark header background */
-            padding: 15px 0;
-            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2); /* Softer shadow */
+            background-color: var(--header-bg);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px var(--shadow-color);
             z-index: 1000;
-            border-bottom: 1px solid var(--border-color); /* Softer border */
-            height: auto; /* Allow header to adjust height based on content */
-            box-sizing: border-box; /* Include padding in height calculation */
+            transition: padding 0.3s ease;
         }
 
         .header-content-wrapper {
             display: flex;
-            flex-direction: column; /* Stack name and email vertically */
-            justify-content: center; /* Center the content */
-            align-items: center; /* Aligns items vertically in the middle */
-            max-width: 900px; /* Consistent with sections */
-            margin: 0 auto; /* Center the wrapper */
-            padding: 0 25px; /* Add horizontal padding to match section padding */
-            box-sizing: border-box; /* Include padding in width */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 25px;
         }
 
         .header-container .name {
             margin: 0;
-            font-size: 2.0em;
-            font-weight: bold;
-            color: var(--header-text-color);
-            white-space: nowrap;
-            text-align: center;
-            cursor: pointer; /* Make name clickable */
+            font-size: 2.2em;
+            font-weight: 700;
+            color: var(--text-header);
+            cursor: pointer;
+            letter-spacing: -1px;
         }
 
-        /* New style for the email in the header */
         .header-container .header-email {
-            margin: 0;
-            padding-bottom: 5px; /* Space before social links */
+            display: inline-flex;
+            align-items: center;
+            margin: 4px 0 10px 0;
+            font-size: 1em;
+            font-weight: 400;
+            color: rgba(253, 253, 253, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+        
+        .header-container .header-email i {
+            margin-right: 8px;
             font-size: 0.9em;
-            font-weight: normal;
-            color: var(--header-text-color);
-            opacity: 0.9;
         }
 
-        /* Social Links in Header */
-        .header-content-wrapper .social-links {
-            padding-top: 5px; /* Space after email */
+        .header-container .header-email:hover {
+            color: var(--accent-color);
         }
 
         .header-content-wrapper .social-links a {
-            color: var(--header-text-color);
-            font-size: 1.4em;
-            margin: 0 10px;
-            transition: color 0.3s ease, opacity 0.3s ease;
-            opacity: 0.9;
+            color: var(--text-header);
+            font-size: 1.5em;
+            margin: 0 12px;
+            opacity: 0.8;
+            transition: all 0.3s ease;
         }
 
         .header-content-wrapper .social-links a:hover {
-            color: var(--base-background);
             opacity: 1;
+            transform: translateY(-2px);
+            color: var(--accent-color);
         }
 
         .header-container .nav-buttons {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 8px;
-            margin-top: 10px; /* Adjusted margin-top */
-            padding-bottom: 5px; /* Add some padding at the bottom of nav buttons */
+            gap: 12px;
+            margin-top: 15px;
         }
 
         .header-container .nav-buttons button {
-            background-color: var(--base-background);
-            color: var(--primary-accent);
-            border: 1px solid var(--primary-accent);
-            padding: 8px 15px;
-            border-radius: 5px;
+            background-color: transparent;
+            color: var(--text-header);
+            border: 1px solid rgba(253, 253, 253, 0.5);
+            padding: 8px 20px;
+            border-radius: 50px; /* pill shape */
             cursor: pointer;
             font-size: 0.9em;
-            transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.2s ease;
-            display: block;
-            width: auto;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Softer button shadow */
+            font-weight: 500;
+            transition: all 0.3s ease;
         }
 
         .header-container .nav-buttons button:hover {
-            background-color: var(--primary-accent);
-            color: white;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow on hover */
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: var(--header-bg);
         }
 
-        /* Main Content Sections */
+        /* 4. Main Content Sections */
         .section {
-            padding: 20px 25px;
-            margin-bottom: 15px;
+            padding: 40px;
+            margin-bottom: 20px;
             background-color: var(--section-bg);
-            border-radius: 8px;
-            box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05); /* Softer section shadow */
+            border-radius: 12px;
+            box-shadow: 0 5px 25px var(--shadow-color);
             max-width: 900px;
             margin-left: auto;
             margin-right: auto;
-            border: 1px solid var(--border-color); /* Softer border for sections */
+            border: 1px solid var(--border-color);
             text-align: center;
             display: none; /* Hidden by default */
         }
 
         .section.active {
             display: block; /* Show active section */
-        }
-
-        /* Adjust padding for the body to make space for the fixed header */
-        body {
-            /* padding-top is set dynamically by JS on load */
-            padding-top: 150px;
-            padding-bottom: 20px; /* Add some space at the very bottom of the page */
+            animation: fadeIn 0.6s ease-out;
         }
 
         .section h2 {
-            color: var(--secondary-accent);
-            margin-bottom: 25px; /* Increased margin for better separation */
-            border-bottom: 2px solid var(--primary-accent); /* Slightly thinner border */
-            padding-bottom: 5px;
+            color: var(--text-primary);
+            margin-top: 0;
+            margin-bottom: 40px;
+            padding-bottom: 10px;
+            font-size: 2.5em;
+            font-weight: 700;
+            position: relative;
             display: inline-block;
-            width: fit-content;
-            font-size: 2em;
+            letter-spacing: -0.5px;
+        }
+        
+        /* Underline effect for section headers */
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
         }
 
+        /* 5. Specific Section Styling */
+        
         /* Summary Section */
         #summary .profile-picture {
             display: block;
-            margin: 0 auto 15px auto;
+            margin: 0 auto 30px auto;
             width: 180px;
             height: 180px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid var(--primary-accent); /* Slightly thinner border */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Softer shadow */
+            border: 5px solid var(--accent-color);
+            padding: 5px;
+            background-color: white;
+            box-shadow: 0 4px 15px var(--shadow-color);
         }
 
         #summary p {
-            text-align: justify;
-            max-width: 700px;
-            margin: 0 auto;
-            font-size: 1em;
-            color: var(--text-color);
+            text-align: left;
+            max-width: 750px;
+            margin: 0 auto 1.5em auto;
+            font-size: 1.1em;
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+        
+        #summary p:last-child {
+            margin-bottom: 0;
         }
 
         /* Work Experience Section */
         .experience-item {
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid var(--border-color); /* Softer border */
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--border-color);
             text-align: left;
         }
 
-        .experience-item:last-child {
-            border-bottom: none;
-        }
-
-        .experience-header {
+        .experience-item:last-child { border-bottom: none; }
+        
+        .experience-header, .education-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
             margin-bottom: 5px;
+            flex-wrap: wrap;
         }
 
         .experience-header .company {
-            font-weight: bold;
-            color: var(--secondary-accent);
-            font-size: 1.25em;
-        }
-
-        .experience-header .domain {
-            font-style: italic;
-            color: #6c757d;
-            font-size: 1em;
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 1.3em;
         }
 
         .experience-details {
@@ -215,362 +254,196 @@
             align-items: baseline;
             margin-bottom: 10px;
             font-size: 1em;
-            color: #555;
+            color: var(--text-secondary);
+            flex-wrap: wrap;
         }
 
         .experience-details .role {
-            font-weight: 600;
-            color: var(--text-color);
-            font-size: 1.1em;
+            font-weight: 500;
+            color: var(--text-primary);
+            font-size: 1.15em;
         }
-
+        
         .experience-tasks ul {
             list-style-type: none;
-            padding-left: 0;
-            margin-top: 8px;
+            padding-left: 10px;
+            margin-top: 12px;
         }
-
+        
         .experience-tasks ul li {
             position: relative;
-            padding-left: 30px;
-            margin-bottom: 6px;
+            padding-left: 25px;
+            margin-bottom: 8px;
             font-size: 1em;
-            line-height: 1.5;
+            color: var(--text-secondary);
         }
 
         .experience-tasks ul li::before {
-            content: '\2022';
-            color: var(--primary-accent);
-            font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            position: absolute;
-            left: 10px;
-            top: 0;
-        }
-
-        /* Styling for nested bullets */
-        .experience-tasks ul ul {
-            margin-top: 5px;
-            margin-bottom: 5px;
-        }
-
-        .experience-tasks ul ul li {
-            position: relative;
-            padding-left: 15px;
-            margin-bottom: 4px;
-            line-height: 1.5;
-        }
-
-        .experience-tasks ul ul li::before {
-            content: '\25E6';
-            color: var(--primary-accent);
-            display: inline-block;
+            content: '\f058'; /* Font Awesome check-circle icon */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--accent-color);
             position: absolute;
             left: 0;
-            top: 0;
+            top: 3px;
+            font-size: 0.9em;
         }
-
+        
+        .experience-tasks ul ul { margin-top: 8px; margin-bottom: 8px; }
+        .experience-tasks ul ul li::before { content: '\f105'; /* fa-chevron-right */ }
 
         /* Skills Section */
         .skill-category {
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid var(--border-color); /* Softer border */
+            margin-bottom: 30px;
             text-align: center;
         }
 
-        .skill-category:last-child {
-            border-bottom: none;
-        }
+        .skill-category:last-child { border-bottom: none; padding-bottom: 0; }
 
         .skill-category h3 {
-            color: var(--secondary-accent);
-            margin-bottom: 10px;
-            font-size: 1.3em;
-            border-bottom: 2px solid var(--primary-accent);
-            padding-bottom: 5px;
-            display: inline-block;
-            width: fit-content;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            font-size: 1.4em;
+            font-weight: 600;
         }
 
         .skill-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 12px;
             justify-content: center;
-            max-width: fit-content;
-            margin: 0 auto;
         }
 
         .skill-item {
-            background-color: var(--base-background);
-            border: 1px solid var(--primary-accent);
-            color: var(--secondary-accent);
-            padding: 7px 15px;
-            border-radius: 25px;
-            font-size: 0.9em;
+            background-color: var(--primary-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 8px 18px;
+            border-radius: 8px;
+            font-size: 0.95em;
+            font-weight: 500;
             display: flex;
             align-items: center;
-            box-sizing: border-box;
-            white-space: nowrap;
             transition: all 0.3s ease;
-            box-shadow: none;
-        }
-
-        .skill-item:hover {
-            background-color: var(--primary-accent);
-            color: white;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .skill-item i {
-            color: var(--primary-accent);
-            font-size: 1em;
-            margin-right: 6px;
-        }
-
-        .skill-item:hover i {
-            color: white;
         }
         
-        /* Styles for Credentials Section */
-        .subsection-container {
-            margin-bottom: 10px; 
+        .skill-item:hover {
+            transform: translateY(-3px);
+            background-color: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+            box-shadow: 0 4px 10px rgba(72, 201, 176, 0.4);
         }
+        
+        .skill-item i {
+            color: var(--accent-color);
+            font-size: 1em;
+            margin-right: 8px;
+            transition: color 0.3s ease;
+        }
+        
+        .skill-item:hover i { color: white; }
 
-        .subsection-container:last-child {
-            margin-bottom: 0; 
-        }
+        /* Credentials Section */
+        .subsection-container { margin-bottom: 30px; }
+        .subsection-container:last-child { margin-bottom: 0; }
         
         .subsection-title {
-            color: var(--secondary-accent);
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            font-size: 1.4em;
+            font-weight: 600;
+        }
+        
+        .list-container { max-width: 800px; margin: 0 auto; text-align: left; }
+        
+        .certification-item, .education-item {
             margin-bottom: 15px;
-            font-size: 1.3em;
-            border-bottom: 2px solid var(--primary-accent);
-            padding-bottom: 5px;
-            display: inline-block;
-            width: fit-content;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
         }
+        
+        .certification-item:last-child, .education-item:last-child { border-bottom: none; }
 
-        .list-container {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: left;
+        .certification-item .title, .education-item .institution {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 1.1em;
         }
-
-        /* Certifications Section Items*/
-        .certification-item {
-            margin-bottom: 10px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid var(--border-color); /* Softer border */
-        }
-
-        .certification-item:last-child {
-            border-bottom: none;
-        }
-
+        
         .certification-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
+             display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;
+        }
+
+        /* Consistent styling for all text-based metadata */
+        .experience-header .domain,
+        .certification-item .provider,
+        .degree {
+            font-style: normal;
+            font-weight: 500;
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         
-        .certification-details {
-            text-align: left;
-        }
-
-        .certification-item .title {
-            font-weight: bold;
-            color: var(--secondary-accent);
-            font-size: 1.05em;
-            margin-bottom: 2px; /* Adjusted margin */
-        }
-        
-        .certification-item .provider {
-            color: #555;
-            font-size: 0.95em;
-            margin-top: 0;
-        }
-
-        .certification-item .date {
-            color: #6c757d;
-            font-size: 0.95em;
-        }
-
-        /* Education Section Items */
-        .education-item {
-            margin-bottom: 10px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid var(--border-color); /* Softer border */
-        }
-
-        .education-item:last-child {
-            border-bottom: none;
-        }
-
-        .education-item .institution {
-            font-weight: bold;
-            color: var(--secondary-accent);
-            font-size: 1.05em;
-            margin-bottom: 3px;
-            display: block;
-        }
-
-        .education-degree-details {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            font-size: 0.95em;
-            color: #666;
-        }
-
-        .education-degree-details .degree {
-            /* No specific styles needed, will inherit from parent */
-        }
-
-        .education-degree-details .education-date {
-            color: #6c757d;
+        .degree {
+            margin-top: 4px;
         }
 
 
-        /* Responsive Adjustments */
+        /* Consistent styling for all date metadata */
+        .experience-details .work-years,
+        .certification-item .date,
+        .education-date {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+
+        /* 6. Responsive Adjustments */
         @media (max-width: 768px) {
-            .header-container {
-                padding: 10px 0;
-            }
-
-            .header-content-wrapper {
-                /* flex-direction is already column */
-                align-items: center;
-                padding: 0 15px;
-            }
-
-            .header-container .name {
-                font-size: 1.5em;
-                margin-bottom: 5px;
-            }
-
-            .header-container .header-email {
-                font-size: 0.8em;
-                padding-bottom: 5px;
-            }
-
-            .header-container .nav-buttons {
-                flex-direction: column;
-                gap: 8px;
-                padding: 0 15px;
-            }
-
-            .header-container .nav-buttons button {
-                width: 95%;
-                margin: 0 auto;
-                font-size: 0.95em;
-                padding: 9px 18px;
-            }
-
-            .section {
-                padding: 15px 15px;
-                margin-bottom: 10px;
-            }
-
-            .section h2 {
-                font-size: 1.6em;
-                margin-bottom: 20px;
-            }
-
-            #summary .profile-picture {
-                width: 120px;
-                height: 120px;
-                margin-bottom: 20px;
-            }
-
-            #summary p {
-                font-size: 0.95em;
-            }
-
-            .experience-item {
-                margin-bottom: 15px;
-                padding-bottom: 10px;
-            }
-
-            .experience-header,
-            .experience-details {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .experience-header .domain,
-            .experience-details .work-years {
-                margin-top: 3px;
-                font-size: 0.9em;
-            }
-
-            .experience-tasks ul li {
-                padding-left: 20px;
-                margin-bottom: 5px;
-                font-size: 0.9em;
-            }
-
-            .experience-tasks ul li::before {
-                left: 5px;
-            }
-
-            .skill-item {
-                font-size: 0.85em;
-                padding: 6px 10px;
-                gap: 5px;
-            }
-
-            .skill-category h3,
-            .subsection-title {
-                font-size: 1.1em;
-            }
+            body { line-height: 1.6; }
+            .header-container .name { font-size: 1.8em; }
+            .header-container { padding: 15px 0; }
             
-            .certification-content,
-            .education-degree-details {
+            .header-container .nav-buttons {
+                gap: 8px;
+                margin-top: 15px;
+            }
+             .header-container .nav-buttons button { padding: 7px 15px; font-size: 0.85em;}
+            
+            .section { padding: 25px; }
+            .section h2 { font-size: 2em; margin-bottom: 30px; }
+
+            #summary .profile-picture { width: 140px; height: 140px; }
+            #summary p { font-size: 1em; line-height: 1.7; }
+
+            .experience-header, .experience-details, .certification-content, .education-header {
                 flex-direction: column;
                 align-items: flex-start;
-            }
-
-            .certification-item .date,
-            .education-degree-details .education-date {
-                margin-top: 3px;
+                gap: 5px;
             }
         }
 
         @media (max-width: 480px) {
-            .header-container .name {
-                font-size: 1.3em;
-            }
+            .header-container .name { font-size: 1.5em; }
+            .header-container .header-email { font-size: 0.9em; }
 
-            .header-container .header-email {
-                font-size: 0.8em;
-            }
+            .header-container .nav-buttons { flex-direction: column; align-items: center; width: 100%;}
+            .header-container .nav-buttons button { width: 80%; text-align: center; }
+
+            .section { padding: 20px 15px; }
+            .section h2 { font-size: 1.8em; }
+
+            #summary .profile-picture { width: 120px; height: 120px; }
             
-            .header-container .nav-buttons button {
-                font-size: 0.85em;
-                padding: 7px 12px;
-            }
-            
-            .section h2 {
-                font-size: 1.4em;
-            }
-
-            .experience-item .company,
-            .experience-item .role {
-                font-size: 1em;
-            }
-
-            .skill-item {
-                font-size: 0.8em;
-                padding: 5px 8px;
-                gap: 4px;
-            }
-
-            .certification-item p {
-                font-size: 0.9em;
-            }
+            .experience-header .company { font-size: 1.2em; }
+            .experience-details .role { font-size: 1.1em; }
         }
     </style>
 </head>
@@ -579,7 +452,9 @@
     <header class="header-container">
         <div class="header-content-wrapper">
             <p class="name" onclick="showSection('summary')">FRANCIS JASON TALAMPAS</p>
-            <p class="header-email">fjgtalampas@outlook.com</p>
+            <a href="mailto:fjgtalampas@outlook.com" class="header-email">
+                <i class="fas fa-envelope"></i> fjgtalampas@outlook.com
+            </a>
             <div class="social-links">
                 <a href="https://linkedin.com/in/fjgtalampas" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
                 <a href="https://github.com/fjgtalampas" target="_blank" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
@@ -594,22 +469,15 @@
 
     <section id="summary" class="section">
         <h2>Summary</h2>
-        <img src="https://placehold.co/180x180/005451/F2F2F2?text=Profile" alt="Your Profile Picture" class="profile-picture">
-        <br>
+        <img src="https://placehold.co/180x180/48C9B0/212F3D?text=FJT" alt="Profile Picture" class="profile-picture">
         <p>
             I am a versatile and experienced engineer with a 10+ year track record of success in both software development and DevOps across diverse industries like Manufacturing, Supply Chain, and Accounting. My career is a story of two passions: crafting clean, robust back-end code and building the automated systems that bring that code to life reliably and efficiently.
         </p>
-        <br>
         <p>
             As a developer, my strength lies in the back-end, from building RESTful services to writing complex database logic. As a DevOps professional, I specialize in IaC and CI/CD, turning manual processes into streamlined, automated workflows. I have successfully led ground-up development projects, refactored legacy systems, and currently spearhead my team's entire CI/CD process, including the management of our containerized environments.
         </p>
-        <br>
         <p>
-            I am a natural initiator, consistently seeking out opportunities to improve day-to-day processes and leading mini-projects to success, both independently and within team settings. I am driven by technical challenges and the opportunity to learn something new, whether it's a new technology stack or a more effective way to solve a problem.
-        </p>
-        <br>
-        <p>
-            My enthusiasm for learning is matched by my dedication to delivering results. If you are looking for an engineer who not only writes clean code but also builds the resilient, automated systems to support it, I am ready to contribute from day one. I look forward to the opportunity to demonstrate how my blend of software and DevOps expertise can be a key asset to your organization and help you achieve your goals.
+            I am a natural initiator, consistently seeking out opportunities to improve day-to-day processes and leading mini-projects to success. Driven by technical challenges and the opportunity to learn, I thrive in environments that value both innovation and execution. If you are looking for an engineer who not only writes clean code but also builds the resilient, automated systems to support it, I am ready to contribute from day one.
         </p>
     </section>
 
@@ -724,7 +592,7 @@
         </div>
 
     </section>
-
+    
     <section id="skills" class="section">
         <h2>Skills</h2>
 
@@ -833,19 +701,19 @@
             <h3 class="subsection-title">Education</h3>
             <div class="list-container">
                 <div class="education-item">
-                    <p class="institution">University of Santo Tomas</p>
-                    <div class="education-degree-details">
-                        <p class="degree">Bachelor of Science in Information Technology</p>
+                    <div class="education-header">
+                        <p class="institution">University of Santo Tomas</p>
                         <p class="education-date">Graduated: March 2013</p>
                     </div>
+                    <p class="degree">Bachelor of Science in Information Technology</p>
                 </div>
         
                 <div class="education-item">
-                    <p class="institution">Don Bosco Technical Institute</p>
-                    <div class="education-degree-details">
-                        <p class="degree">High School (4-Year Preparatory Technician Course in Computer Technology)</p>
+                     <div class="education-header">
+                        <p class="institution">Don Bosco Technical Institute</p>
                         <p class="education-date">Graduated: March 2009</p>
                     </div>
+                    <p class="degree">High School (4-Year Preparatory Technician Course in Computer Technology)</p>
                 </div>
             </div>
         </div>
@@ -856,30 +724,29 @@
         function showSection(sectionId) {
             const sections = document.querySelectorAll('.section');
             sections.forEach(section => {
-                section.classList.remove('active'); // Hide all sections
+                section.classList.remove('active');
             });
 
             const activeSection = document.getElementById(sectionId);
             if (activeSection) {
-                activeSection.classList.add('active'); // Show the selected section
-                // Scroll to the top of the page to ensure the section starts at the top of the content area
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                activeSection.classList.add('active');
+                // Scroll to the top of the content area
+                document.body.parentElement.scrollTo({ top: 0, behavior: 'smooth' });
             }
         }
 
         // Function to set dynamic padding-top on the body
         function adjustBodyPadding() {
             const header = document.querySelector('.header-container');
-
             if (header) {
                 const headerHeight = header.offsetHeight;
-                document.body.style.paddingTop = `${headerHeight + 20}px`; // Add 20px for extra visual space
+                document.body.style.paddingTop = `${headerHeight + 20}px`;
             }
         }
 
         // Initial adjustment on page load
         document.addEventListener('DOMContentLoaded', () => {
-            adjustBodyPadding(); // Set initial padding
+            adjustBodyPadding();
             showSection('summary'); // Show summary by default
         });
 
