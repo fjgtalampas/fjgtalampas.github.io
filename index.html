@@ -9,20 +9,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Modern Look & Feel Redesign */
-
-        /* 1. Root Variables & Color Palette */
         :root {
-            --primary-bg: #f8f9fa;       /* Very light grey background */
-            --section-bg: #ffffff;       /* White for content sections */
-            --header-bg: #212F3D;        /* Deep, dark slate blue */
-            --accent-color: #48C9B0;     /* Vibrant teal for accents */
-            --accent-hover: #40B39E;     /* Darker teal for hover */
-            --text-primary: #2C3E50;     /* Dark, soft blue for main text */
-            --text-secondary: #5D6D7E;   /* Lighter grey for secondary text */
-            --text-header: #fdfdfd;       /* White/off-white for header text */
-            --border-color: #e9ecef;     /* Subtle light grey for borders */
-            --shadow-color: rgba(44, 62, 80, 0.1); /* Soft shadow color */
+            --primary-bg: #f8f9fa;
+            --section-bg: #ffffff;
+            --header-bg: #212F3D;
+            --accent-color: #48C9B0;
+            --accent-hover: #40B39E;
+            --text-primary: #2C3E50;
+            --text-secondary: #5D6D7E;
+            --text-header: #fdfdfd;
+            --border-color: #e9ecef;
+            --shadow-color: rgba(44, 62, 80, 0.1);
         }
 
         @keyframes fadeIn {
@@ -51,13 +48,10 @@
             font-weight: 400;
         }
 
-        /* Adjust padding for the body to make space for the fixed header */
         body {
-            /* padding-top is set dynamically by JS on load */
-            padding-bottom: 40px; /* Add some space at the very bottom of the page */
+            padding-bottom: 40px;
         }
 
-        /* 3. Header */
         .header-container {
             position: fixed;
             top: 0;
@@ -171,7 +165,6 @@
             transition: transform 0.1s ease, background-color 0.1s ease;
         }
 
-        /* 4. Main Content Sections */
         .section {
             padding: 40px;
             margin-bottom: 20px;
@@ -183,11 +176,11 @@
             margin-right: auto;
             border: 1px solid var(--border-color);
             text-align: center;
-            display: none; /* Hidden by default */
+            display: none;
         }
 
         .section.active {
-            display: block; /* Show active section */
+            display: block;
             animation: fadeIn 0.6s ease-out;
         }
 
@@ -216,9 +209,6 @@
             border-radius: 2px;
         }
 
-        /* 5. Specific Section Styling */
-        
-        /* Summary Section */
         #summary .profile-picture {
             display: block;
             margin: 0 auto 30px auto;
@@ -245,7 +235,6 @@
             margin-bottom: 0;
         }
 
-        /* Work Experience Section */
         .experience-item {
             margin-bottom: 30px;
             padding-bottom: 30px;
@@ -300,7 +289,7 @@
         }
 
         .experience-tasks ul li::before {
-            content: '\f058'; /* Font Awesome check-circle icon */
+            content: '\f058';
             font-family: 'Font Awesome 6 Free';
             font-weight: 900;
             color: var(--accent-color);
@@ -311,9 +300,8 @@
         }
         
         .experience-tasks ul ul { margin-top: 8px; margin-bottom: 8px; }
-        .experience-tasks ul ul li::before { content: '\f105'; /* fa-chevron-right */ }
+        .experience-tasks ul ul li::before { content: '\f105'; }
 
-        /* Skills Section */
         .skill-category {
             margin-bottom: 30px;
             text-align: center;
@@ -365,7 +353,6 @@
         
         .skill-item:hover i { color: white; }
 
-        /* Credentials Section */
         .subsection-container { margin-bottom: 30px; }
         .subsection-container:last-child { margin-bottom: 0; }
         
@@ -396,7 +383,6 @@
              display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;
         }
 
-        /* Consistent styling for all text-based metadata */
         .experience-header .domain,
         .certification-item .provider,
         .degree {
@@ -412,8 +398,6 @@
             margin-top: 4px;
         }
 
-
-        /* Consistent styling for all date metadata */
         .experience-details .work-years,
         .certification-item .date,
         .education-date {
@@ -426,7 +410,6 @@
         }
 
 
-        /* 6. Responsive Adjustments */
         @media (max-width: 768px) {
             body { line-height: 1.6; }
             .header-container .name { font-size: 1.8em; }
@@ -741,7 +724,6 @@
     </section>
 
     <script>
-        // Function to show a specific section and hide others
         function showSection(sectionId) {
             const sections = document.querySelectorAll('.section');
             sections.forEach(section => {
@@ -751,12 +733,10 @@
             const activeSection = document.getElementById(sectionId);
             if (activeSection) {
                 activeSection.classList.add('active');
-                // Scroll to the top of the content area
                 document.body.parentElement.scrollTo({ top: 0, behavior: 'smooth' });
             }
         }
 
-        // Function to set dynamic padding-top on the body
         function adjustBodyPadding() {
             const header = document.querySelector('.header-container');
             if (header) {
@@ -765,13 +745,11 @@
             }
         }
 
-        // Initial adjustment on page load
         document.addEventListener('DOMContentLoaded', () => {
             adjustBodyPadding();
-            showSection('summary'); // Show summary by default
+            showSection('summary');
         });
 
-        // Re-adjust on window resize to handle responsive header height changes
         window.addEventListener('resize', adjustBodyPadding);
     </script>
 </body>
