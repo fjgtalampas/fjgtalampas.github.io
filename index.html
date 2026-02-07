@@ -3,12 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Francis Jason Talampas - Personal Profile</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="description" content="Senior Software Engineer with 12+ years of experience in full-stack development, DevOps, and enterprise solutions.">
+    <title>Francis Jason Talampas - Senior Software Engineer</title>
+    
+    <!-- Preconnect to external resources for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Stylesheets -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRQisZI+yWKuden2vPVU0crH860YV6ssRs+YWH8xvCjV9Q==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    
     <style>
+        /* ========== CSS VARIABLES & THEMING ========== */
         :root {
             --primary-bg: #f8f9fa;
             --section-bg: #ffffff;
@@ -20,8 +28,12 @@
             --text-header: #fdfdfd;
             --border-color: #e9ecef;
             --shadow-color: rgba(44, 62, 80, 0.1);
+            --transition-duration: 0.3s;
+            --transition-timing: ease;
+            --border-radius: 12px;
         }
 
+        /* ========== ANIMATIONS ========== */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -32,8 +44,8 @@
                 transform: translateY(0);
             }
         }
-        
-        /* 2. Global Styles */
+
+        /* ========== GLOBAL STYLES ========== */
         html {
             scroll-behavior: smooth;
         }
@@ -42,16 +54,14 @@
             font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
+            padding-bottom: 40px;
             background-color: var(--primary-bg);
             color: var(--text-primary);
             line-height: 1.7;
             font-weight: 400;
         }
 
-        body {
-            padding-bottom: 40px;
-        }
-
+        /* ========== HEADER ========== */
         .header-container {
             position: fixed;
             top: 0;
@@ -61,7 +71,7 @@
             padding: 20px 0;
             box-shadow: 0 2px 10px var(--shadow-color);
             z-index: 1000;
-            transition: padding 0.3s ease;
+            transition: padding var(--transition-duration) var(--transition-timing);
         }
 
         .header-content-wrapper {
@@ -74,17 +84,17 @@
             padding: 0 25px;
         }
 
-        .header-container .name {
+        .header-container h1 {
             margin: 0;
             font-size: 2.2em;
             font-weight: 700;
             color: var(--text-header);
             cursor: pointer;
             letter-spacing: -1px;
-            transition: transform 0.2s ease;
+            transition: transform 0.2s var(--transition-timing);
         }
         
-        .header-container .name:active {
+        .header-container h1:active {
             transform: scale(0.98);
         }
 
@@ -96,7 +106,7 @@
             font-weight: 400;
             color: rgba(253, 253, 253, 0.8);
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: all var(--transition-duration) var(--transition-timing);
             letter-spacing: 0.5px;
         }
         
@@ -110,13 +120,19 @@
             color: var(--accent-color);
         }
 
+        .header-content-wrapper .social-links {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
         .header-content-wrapper .social-links a {
             color: var(--text-header);
             font-size: 1.5em;
-            margin: 0 12px;
             opacity: 0.8;
-            transition: all 0.3s ease;
-            display: inline-block; /* Needed for transform */
+            transition: all var(--transition-duration) var(--transition-timing);
+            display: inline-block;
+            text-decoration: none;
         }
 
         .header-content-wrapper .social-links a:hover {
@@ -144,11 +160,11 @@
             color: var(--text-header);
             border: 1px solid rgba(253, 253, 253, 0.5);
             padding: 8px 20px;
-            border-radius: 50px; /* pill shape */
+            border-radius: 50px;
             cursor: pointer;
             font-size: 0.9em;
             font-weight: 500;
-            transition: all 0.3s ease;
+            transition: all var(--transition-duration) var(--transition-timing);
         }
 
         .header-container .nav-buttons button:hover {
@@ -162,14 +178,14 @@
             background-color: var(--accent-hover);
             border-color: var(--accent-hover);
             color: var(--header-bg);
-            transition: transform 0.1s ease, background-color 0.1s ease;
         }
 
+        /* ========== SECTIONS ========== */
         .section {
             padding: 40px;
             margin-bottom: 20px;
             background-color: var(--section-bg);
-            border-radius: 12px;
+            border-radius: var(--border-radius);
             box-shadow: 0 5px 25px var(--shadow-color);
             max-width: 900px;
             margin-left: auto;
@@ -196,7 +212,6 @@
             letter-spacing: -0.5px;
         }
         
-        /* Underline effect for section headers */
         .section h2::after {
             content: '';
             position: absolute;
@@ -209,6 +224,7 @@
             border-radius: 2px;
         }
 
+        /* ========== SUMMARY SECTION ========== */
         #summary .profile-picture {
             display: block;
             margin: 0 auto 30px auto;
@@ -235,6 +251,12 @@
             margin-bottom: 0;
         }
 
+        #summary p strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* ========== EXPERIENCE SECTION ========== */
         .experience-item {
             margin-bottom: 30px;
             padding-bottom: 30px;
@@ -242,20 +264,34 @@
             text-align: left;
         }
 
-        .experience-item:last-child { border-bottom: none; }
+        .experience-item:last-child { 
+            border-bottom: none; 
+        }
         
-        .experience-header, .education-header {
+        .experience-header, 
+        .education-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
             margin-bottom: 5px;
             flex-wrap: wrap;
+            gap: 10px;
         }
 
         .experience-header .company {
             font-weight: 600;
             color: var(--text-primary);
             font-size: 1.3em;
+        }
+
+        .experience-header .domain,
+        .certification-item .provider {
+            font-style: normal;
+            font-weight: 500;
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .experience-details {
@@ -266,6 +302,7 @@
             font-size: 1em;
             color: var(--text-secondary);
             flex-wrap: wrap;
+            gap: 10px;
         }
 
         .experience-details .role {
@@ -274,10 +311,32 @@
             font-size: 1.15em;
         }
         
+        .experience-details .work-years,
+        .certification-item .date,
+        .education-date {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        .role-entry {
+            margin-top: 0;
+        }
+
+        .role-entry:not(:last-child) {
+            margin-top: 20px;
+            border-top: 1px dashed var(--border-color);
+            padding-top: 15px;
+        }
+        
         .experience-tasks ul {
             list-style-type: none;
             padding-left: 10px;
             margin-top: 12px;
+            margin-bottom: 0;
         }
         
         .experience-tasks ul li {
@@ -299,15 +358,24 @@
             font-size: 0.9em;
         }
         
-        .experience-tasks ul ul { margin-top: 8px; margin-bottom: 8px; }
-        .experience-tasks ul ul li::before { content: '\f105'; }
+        .experience-tasks ul ul { 
+            margin-top: 8px; 
+            margin-bottom: 8px; 
+        }
 
+        .experience-tasks ul ul li::before { 
+            content: '\f105'; 
+        }
+
+        /* ========== SKILLS SECTION ========== */
         .skill-category {
             margin-bottom: 30px;
             text-align: center;
         }
 
-        .skill-category:last-child { border-bottom: none; padding-bottom: 0; }
+        .skill-category:last-child { 
+            margin-bottom: 0;
+        }
 
         .skill-category h3 {
             color: var(--text-primary);
@@ -333,7 +401,7 @@
             font-weight: 500;
             display: flex;
             align-items: center;
-            transition: all 0.3s ease;
+            transition: all var(--transition-duration) var(--transition-timing);
         }
         
         .skill-item:hover {
@@ -348,13 +416,21 @@
             color: var(--accent-color);
             font-size: 1em;
             margin-right: 8px;
-            transition: color 0.3s ease;
+            transition: color var(--transition-duration) var(--transition-timing);
         }
         
-        .skill-item:hover i { color: white; }
+        .skill-item:hover i { 
+            color: white; 
+        }
 
-        .subsection-container { margin-bottom: 30px; }
-        .subsection-container:last-child { margin-bottom: 0; }
+        /* ========== CREDENTIALS SECTION ========== */
+        .subsection-container { 
+            margin-bottom: 30px; 
+        }
+
+        .subsection-container:last-child { 
+            margin-bottom: 0; 
+        }
         
         .subsection-title {
             color: var(--text-primary);
@@ -363,383 +439,456 @@
             font-weight: 600;
         }
         
-        .list-container { max-width: 800px; margin: 0 auto; text-align: left; }
+        .list-container { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            text-align: left; 
+        }
         
-        .certification-item, .education-item {
+        .certification-item, 
+        .education-item {
             margin-bottom: 15px;
             padding-bottom: 15px;
             border-bottom: 1px solid var(--border-color);
         }
         
-        .certification-item:last-child, .education-item:last-child { border-bottom: none; }
+        .certification-item:last-child, 
+        .education-item:last-child { 
+            border-bottom: none; 
+        }
 
-        .certification-item .title, .education-item .institution {
+        .certification-item .title, 
+        .education-item .institution {
             font-weight: 600;
             color: var(--text-primary);
             font-size: 1.1em;
+            margin-bottom: 4px;
         }
         
         .certification-content {
-             display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;
+            display: flex; 
+            justify-content: space-between; 
+            align-items: baseline; 
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
-        .experience-header .domain,
-        .certification-item .provider,
-        .degree {
-            font-style: normal;
-            font-weight: 500;
-            color: var(--text-secondary);
-            font-size: 0.9em;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .certification-details {
+            flex: 1;
         }
-        
+
+        .certification-details p {
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .certification-details p.provider {
+            margin-top: 4px;
+            font-size: 0.9em;
+        }
+
         .degree {
             margin-top: 4px;
-        }
-
-        .experience-details .work-years,
-        .certification-item .date,
-        .education-date {
+            font-size: 0.95em;
             color: var(--text-secondary);
-            font-size: 0.9em;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            white-space: nowrap;
         }
 
-
+        /* ========== RESPONSIVE DESIGN ========== */
         @media (max-width: 768px) {
-            body { line-height: 1.6; }
-            .header-container .name { font-size: 1.8em; }
-            .header-container { padding: 15px 0; }
+            body { 
+                line-height: 1.6; 
+            }
+
+            .header-container h1 { 
+                font-size: 1.8em; 
+            }
+
+            .header-container { 
+                padding: 15px 0; 
+            }
             
             .header-container .nav-buttons {
                 gap: 8px;
                 margin-top: 15px;
             }
-             .header-container .nav-buttons button { padding: 7px 15px; font-size: 0.85em;}
+
+            .header-container .nav-buttons button { 
+                padding: 7px 15px; 
+                font-size: 0.85em;
+            }
             
-            .section { padding: 25px; }
-            .section h2 { font-size: 2em; margin-bottom: 30px; }
+            .section { 
+                padding: 25px; 
+            }
 
-            #summary .profile-picture { width: 140px; height: 140px; }
-            #summary p { font-size: 1em; line-height: 1.7; }
+            .section h2 { 
+                font-size: 2em; 
+                margin-bottom: 30px; 
+            }
 
-            .experience-header, .experience-details, .certification-content, .education-header {
+            #summary .profile-picture { 
+                width: 140px; 
+                height: 140px; 
+            }
+
+            #summary p { 
+                font-size: 1em; 
+                line-height: 1.7; 
+            }
+
+            .experience-header, 
+            .experience-details, 
+            .certification-content, 
+            .education-header {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 5px;
             }
         }
 
         @media (max-width: 480px) {
-            .header-container .name { font-size: 1.5em; }
-            .header-container .header-email { font-size: 0.9em; }
+            .header-container h1 { 
+                font-size: 1.5em; 
+            }
 
-            .header-container .nav-buttons { flex-direction: column; align-items: center; width: 100%;}
-            .header-container .nav-buttons button { width: 80%; text-align: center; }
+            .header-container .header-email { 
+                font-size: 0.9em; 
+            }
 
-            .section { padding: 20px 15px; }
-            .section h2 { font-size: 1.8em; }
+            .header-container .nav-buttons { 
+                flex-direction: column; 
+                align-items: center; 
+                width: 100%;
+            }
 
-            #summary .profile-picture { width: 120px; height: 120px; }
+            .header-container .nav-buttons button { 
+                width: 80%; 
+                text-align: center; 
+            }
+
+            .section { 
+                padding: 20px 15px; 
+            }
+
+            .section h2 { 
+                font-size: 1.8em; 
+            }
+
+            #summary .profile-picture { 
+                width: 120px; 
+                height: 120px; 
+            }
             
-            .experience-header .company { font-size: 1.2em; }
-            .experience-details .role { font-size: 1.1em; }
+            .experience-header .company { 
+                font-size: 1.2em; 
+            }
+
+            .experience-details .role { 
+                font-size: 1.1em; 
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Skip to Main Content Link for Accessibility -->
+    <a href="#main-content" style="position: absolute; top: -40px; left: 0; background: var(--accent-color); color: white; padding: 8px; border-radius: 0 0 4px 0; z-index: 100;">Skip to main content</a>
 
-    <header class="header-container">
+    <header class="header-container" role="banner">
         <div class="header-content-wrapper">
-            <p class="name" onclick="showSection('summary')">FRANCIS JASON TALAMPAS</p>
-            <a href="mailto:fjgtalampas@outlook.com" class="header-email">
-                <i class="fas fa-envelope"></i> fjgtalampas@outlook.com
+            <h1 onclick="showSection('summary')" tabindex="0" role="button" aria-label="Francis Jason Talampas - Click to view summary">
+                FRANCIS JASON TALAMPAS
+            </h1>
+            <a href="mailto:fjgtalampas@outlook.com" class="header-email" aria-label="Send email to fjgtalampas@outlook.com">
+                <i class="fas fa-envelope" aria-hidden="true"></i> fjgtalampas@outlook.com
             </a>
-            <div class="social-links">
-                <!-- <a href="https://linkedin.com/in/fjgtalampas" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a> -->
-                <a href="https://github.com/fjgtalampas" target="_blank" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
-            </div>
+            <nav class="social-links" aria-label="Social media links">
+                <a href="https://github.com/fjgtalampas" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                </a>
+            </nav>
         </div>
-        <nav class="nav-buttons">
-            <button onclick="showSection('experience')">Work Experience</button>
-            <button onclick="showSection('skills')">Skills</button>
-            <button onclick="showSection('education-certs')">Credentials</button>
+        <nav class="nav-buttons" aria-label="Main navigation">
+            <button onclick="showSection('experience')" aria-label="View work experience section">Work Experience</button>
+            <button onclick="showSection('skills')" aria-label="View skills section">Skills</button>
+            <button onclick="showSection('education-certs')" aria-label="View credentials section">Credentials</button>
         </nav>
     </header>
 
-    <section id="summary" class="section">
-        <h2>Summary</h2>
-        <!-- <img src="https://placehold.co/180x180/48C9B0/212F3D?text=FJT" alt="Profile Picture" class="profile-picture"> -->
-        <img src="images/profile.png" alt="Profile Picture" class="profile-picture">
-        <p>
-            Results-driven Senior Software Engineer with over 12 years of experience building robust, scalable solutions in enterprise software, fintech, and supply chain environments. I bring deep expertise in full-stack and backend development, with a strong focus on modern DevOps practices that enable teams to deliver high-quality software faster and more reliably.
-        </p>
-        <p>
-            I specialize in designing and implementing end-to-end automation — including CI/CD pipelines, containerized development environments, secure configuration management, and cloud infrastructure. These initiatives consistently reduce development friction, eliminate environment-related bottlenecks, accelerate onboarding, and strengthen overall system security and reliability, allowing teams to focus on innovation rather than repetitive tasks.
-        </p>
-        <p>
-            My approach blends technical depth with pragmatic execution: I modernize legacy systems, introduce cleaner and more maintainable architectures, enhance security standards, and deliver business-critical features that users depend on. I prioritize high-impact improvements, collaborate effectively to amplify team results, and maintain a sustainable pace without compromising quality.
-        </p>
-        <p>
-            Passionate about continuous improvement and clean design, I thrive in environments that value clear communication, decisive progress, and measurable outcomes — building the processes and infrastructure that help great teams perform at their best.
-        </p>
-        <p>
-            <strong>Core Strengths:</strong>
-            Backend &amp; Full-Stack Development • CI/CD Design &amp; Automation • GitHub Actions • Containerization &amp; Reproducible Environments • Cloud Infrastructure &amp; Workflows • Legacy System Modernization • Clean Architecture • High-Impact Process Improvement • Team Enablement &amp; Mentoring
-        </p>
-    </section>
+    <main id="main-content" role="main">
+        <section id="summary" class="section">
+            <h2>Summary</h2>
+            <img src="images/profile.png" alt="Profile picture of Francis Jason Talampas" class="profile-picture">
+            <p>
+                Results-driven Senior Software Engineer with over 12 years of experience building robust, scalable solutions in enterprise software, fintech, and supply chain environments. I bring deep expertise in full-stack and backend development, with a strong focus on modern DevOps practices that enable teams to deliver high-quality software faster and more reliably.
+            </p>
+            <p>
+                I specialize in designing and implementing end-to-end automation — including CI/CD pipelines, containerized development environments, secure configuration management, and cloud infrastructure. These initiatives consistently reduce development friction, eliminate environment-related bottlenecks, accelerate onboarding, and strengthen overall system security and reliability, allowing teams to focus on innovation rather than repetitive tasks.
+            </p>
+            <p>
+                My approach blends technical depth with pragmatic execution: I modernize legacy systems, introduce cleaner and more maintainable architectures, enhance security standards, and deliver business-critical features that users depend on. I prioritize high-impact improvements, collaborate effectively to amplify team results, and maintain a sustainable pace without compromising quality.
+            </p>
+            <p>
+                Passionate about continuous improvement and clean design, I thrive in environments that value clear communication, decisive progress, and measurable outcomes — building the processes and infrastructure that help great teams perform at their best.
+            </p>
+            <p>
+                <strong>Core Strengths:</strong>
+                Backend &amp; Full-Stack Development • CI/CD Design &amp; Automation • GitHub Actions • Containerization &amp; Reproducible Environments • Cloud Infrastructure &amp; Workflows • Legacy System Modernization • Clean Architecture • High-Impact Process Improvement • Team Enablement &amp; Mentoring
+            </p>
+        </section>
 
-    <section id="experience" class="section">
-        <h2>Work Experience</h2>
+        <section id="experience" class="section">
+            <h2>Work Experience</h2>
 
-        <div class="experience-item">
-            <div class="experience-header">
-                <span class="company">FINASTRA</span>
-                <span class="domain">Full Stack Development - KTP Corporate Treasury Innovation</span>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="company">FINASTRA</span>
+                    <span class="domain">Full Stack Development - KTP Corporate Treasury Innovation</span>
+                </div>
+
+                <div class="role-entry">
+                    <div class="experience-details">
+                        <span class="role">Senior Software Engineer</span>
+                        <span class="work-years">November 2023 - Present</span>
+                    </div>
+                    <div class="experience-tasks">
+                        <ul>
+                            <li><strong>Development CI/CD Lead</strong>
+                                <ul>
+                                    <li>Coordinated migration of Bitbucket repositories to GitHub, delivering a robust go-live framework to stakeholders</li>
+                                    <li>Led conversion of front-end framework package build from Jenkins to GitHub Actions</li>
+                                    <li>Orchestrated containerized development infrastructure with preconfigured automations, encompassing virtual databases, tools, and local and servers for building and hosting multi-branch application stacks</li>
+                                    <li>Managed task backlogs and development releases while mentoring peers for setup, issues and trainings to CI/CD stack</li>
+                                </ul>
+                            </li>
+                            <li><strong>E-Payment Factory Project</strong>
+                                <ul>
+                                    <li>Implemented non-functional requirements to Spring Boot services including management of configuration properties, Maven build and release packaging via GitHub Actions integrations, Jasypt encryption, integration of Okta UAA</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="role-entry">
+                    <div class="experience-details">
+                        <span class="role">Software Engineer</span>
+                        <span class="work-years">November 2020 - March 2022</span>
+                    </div>
+                    <div class="experience-tasks">
+                        <ul>
+                            <li><strong>PostgreSQL Integration Project</strong>
+                                <ul>
+                                    <li>Automated Oracle and Postgres database setup using ORA2PG and Docker containers with custom import scripts</li>
+                                    <li>Developed PostgreSQL API implementations, data bindings and configuration properties; scripted equivalent PL/pgSQLs</li>
+                                </ul>
+                            </li>
+                            <li>Incorporated refactoring efforts and OWASP security practices to remedy vulnerabilities, integrating minification and obfuscation into the package deployment process of Node.js front-end framework via Gulp utility scripts</li>
+                            <li>Implemented UI and backend enhancements, and resolved defects in Reporting and Market Data modules</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
-            <div class="role-entry">
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="company">ORACLE NETSUITE</span>
+                    <span class="domain">Infrastructure Operations - Performance</span>
+                </div>
                 <div class="experience-details">
-                    <span class="role">Senior Software Engineer</span>
-                    <span class="work-years">November 2023 - Present</span>
+                    <span class="role">Software Engineer in Test</span>
+                    <span class="work-years">April 2022 - October 2023</span>
                 </div>
                 <div class="experience-tasks">
                     <ul>
-                        <li><strong>Development CI/CD Lead</strong>
-                            <ul>
-                                <li>Coordinated migration of Bitbucket repositories to GitHub, delivering a robust go-live framework to stakeholders</li>
-                                <li>Led conversion of front-end framework package build from Jenkins to GitHub Actions</li>
-                                <li>Orchestrated containerized development infrastructure with preconfigured automations, encompassing virtual databases, tools, and local and servers for building and hosting multi-branch application stacks</li>
-                                <li>Managed task backlogs and development releases while mentoring peers for setup, issues and trainings to CI/CD stack</li>
-                            </ul>
-                        </li>
-                        <li><strong>E-Payment Factory Project</strong>
-                            <ul>
-                                <li>Implemented non-functional requirements to Spring Boot services including management of configuration properties, Maven build and release packaging via GitHub Actions integrations, Jasypt encryption, integration of Okta UAA</li>
-                            </ul>
-                        </li>
+                        <li>Automated and optimized performance benchmarks for NetSuite Order Management by refactoring scripts for JMeter parameterized tests, integrating to TeamCity and visualizing via OpenSearch dashboards</li>
+                        <li>Provisioned Netsuite stack on Oracle Cloud Infrastructure, leveraging pre-configured Ansible and Terraform automations</li>
                     </ul>
                 </div>
             </div>
 
-            <div class="role-entry" style="margin-top: 20px; border-top: 1px dashed var(--border-color); padding-top: 15px;">
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="company">DELTEK</span>
+                    <span class="domain">Backend Development - Costpoint Materials Management</span>
+                </div>
                 <div class="experience-details">
                     <span class="role">Software Engineer</span>
-                    <span class="work-years">November 2020 - March 2022</span>
+                    <span class="work-years">March 2016 - October 2020</span>
                 </div>
                 <div class="experience-tasks">
                     <ul>
-                        <li><strong>PostgreSQL Integration Project</strong>
-                            <ul>
-                                <li>Automated Oracle and Postgres database setup using ORA2PG and Docker containers with custom import scripts</li>
-                                <li>Developed PostgreSQL API implementations, data bindings and configuration properties; scripted equivalent PL/pgSQLs</li>
-                            </ul>
-                        </li>
-                        <li>Incorporated refactoring efforts and OWASP security practices to remedy vulnerabilities, integrating minification and obfuscation into the package deployment process of Node.js front-end framework via Gulp utility scripts</li>
-                        <li>Implemented UI and backend enhancements, and resolved defects in Reporting and Market Data modules</li>
+                        <li><strong>Innovation Summit 2020:</strong> Accelerated test data setup by utilizing SOAP Web Services + LoadRunner</li>
+                        <li><strong>Innovation Summit 2017:</strong> Integrated open-source OCR for reading receipts in expense module</li>
+                        <li>Implemented Standard Costing to inventory and ordering modules</li>
+                        <li>Implemented user-role organizational data security to materials management modules</li>
+                        <li>Implemented data auto-loading features to improve UI experience</li>
+                        <li>Migrated Oracle/MS SQL stored procedures to JDBC API calls to optimize maintainability and testing</li>
                     </ul>
                 </div>
             </div>
-        </div>
 
-        <div class="experience-item">
-            <div class="experience-header">
-                <span class="company">ORACLE NETSUITE</span>
-                <span class="domain">Infrastructure Operations - Performance</span>
-            </div>
-            <div class="experience-details">
-                <span class="role">Software Engineer in Test</span>
-                <span class="work-years">April 2022 - October 2023</span>
-            </div>
-            <div class="experience-tasks">
-                <ul>
-                    <li>Automated and optimized performance benchmarks for NetSuite Order Management by refactoring scripts for JMeter parameterized tests, integrating to TeamCity and visualizing via OpenSearch dashboards</li>
-                    <li>Provisioned Netsuite stack on Oracle Cloud Infrastructure, leveraging pre-configured Ansible and Terraform automations</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="experience-item">
-            <div class="experience-header">
-                <span class="company">DELTEK</span>
-                <span class="domain">Backend Development - Costpoint Materials Management</span>
-            </div>
-            <div class="experience-details">
-                <span class="role">Software Engineer</span>
-                <span class="work-years">March 2016 - October 2020</span>
-            </div>
-            <div class="experience-tasks">
-                <ul>
-                    <li><strong>Innovation Summit 2020:</strong> Accelerated test data setup by utilizing SOAP Web Services + LoadRunner</li>
-                    <li><strong>Innovation Summit 2017:</strong> Integrated open-source OCR for reading receipts in expense module</li>
-                    <li>Implemented Standard Costing to inventory and ordering modules</li>
-                    <li>Implemented user-role organizational data security to materials management modules</li>
-                    <li>Implemented data auto-loading features to improve UI experience</li>
-                    <li>Migrated Oracle/MS SQL stored procedures to JDBC API calls to optimize maintainability and testing</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="experience-item">
-            <div class="experience-header">
-                <span class="company">PHILTECH</span>
-                <span class="domain">Supply Chain Operations</span>
-            </div>
-            <div class="experience-details">
-                <span class="role">Site Reliability Engineer</span>
-                <span class="work-years">August 2013 - March 2016</span>
-            </div>
-            <div class="experience-tasks">
-                <ul>
-                    <li>Managed and optimized critical ordering and forecasting services by fine-tuning application configurations, scripts and job scheduling, resulting to lesser abnormal ends and improved system stability</li>
-                    <li>Provided and executed maintenance plan for interface and database upgrades</li>
-                    <li>Resolved client-reported data inconsistencies in orders and forecasts</li>
-                </ul>
-            </div>
-        </div>
-
-    </section>
-    
-    <section id="skills" class="section">
-        <h2>Skills</h2>
-
-        <div class="skill-category">
-            <h3>Languages & Frameworks</h3>
-            <div class="skill-list">
-                <div class="skill-item"><i class="fab fa-java"></i> Java</div>
-                <div class="skill-item"><i class="fas fa-leaf"></i> Spring Boot</div>
-                <div class="skill-item"><i class="fas fa-database"></i> SQL</div>
-                <div class="skill-item"><i class="fas fa-exchange-alt"></i> REST APIs</div>
-                <div class="skill-item"><i class="fab fa-js-square"></i> Javascript</div>
-                <div class="skill-item"><i class="fab fa-node-js"></i> Node.js</div>
-                <div class="skill-item"><i class="fab fa-html5"></i> HTML</div>
-                <div class="skill-item"><i class="fab fa-css3-alt"></i> CSS</div>
-                <div class="skill-item"><i class="fas fa-terminal"></i> Bash</div>
-                <div class="skill-item"><i class="fas fa-terminal"></i> Powershell</div>
-            </div>
-        </div>
-
-        <div class="skill-category">
-            <h3>Databases</h3>
-            <div class="skill-list">
-                <div class="skill-item"><i class="fas fa-database"></i> Oracle</div>
-                <div class="skill-item"><i class="fas fa-database"></i> PostgreSQL</div>
-            </div>
-        </div>
-
-        <div class="skill-category">
-            <h3>Tools</h3>
-            <div class="skill-list">
-                <div class="skill-item"><i class="fab fa-git-alt"></i> Git</div>
-                <div class="skill-item"><i class="fas fa-box"></i> Maven</div>
-                <div class="skill-item"><i class="fas fa-wrench"></i> Jenkins</div>
-                <div class="skill-item"><i class="fab fa-github"></i> GitHub Actions</div>
-                <div class="skill-item"><i class="fas fa-cloud"></i> TeamCity</div>
-                <div class="skill-item"><i class="fas fa-paper-plane"></i> Postman</div>
-                <div class="skill-item"><i class="fab fa-jira"></i> Jira</div>
-                <div class="skill-item"><i class="fab fa-confluence"></i> Confluence</div>
-                <div class="skill-item"><i class="fas fa-code"></i> Visual Studio Code</div>
-                <div class="skill-item"><i class="fas fa-lightbulb"></i> Jetbrains IntelliJ IDEA</div>
-            </div>
-        </div>
-
-        <div class="skill-category">
-            <h3>Platforms</h3>
-            <div class="skill-list">
-                <div class="skill-item"><i class="fab fa-windows"></i> Windows</div>
-                <div class="skill-item"><i class="fab fa-apple"></i> macOS</div>
-                <div class="skill-item"><i class="fab fa-linux"></i> Linux</div>
-                <div class="skill-item"><i class="fab fa-ubuntu"></i> Ubuntu</div>
-                <div class="skill-item"><i class="fas fa-l"></i> Red Hat Enterprise Linux</div>
-                <div class="skill-item"><i class="fas fa-terminal"></i> Windows Subsystem for Linux</div>
-                <div class="skill-item"><i class="fab fa-docker"></i> Docker</div>
-                <div class="skill-item"><i class="fas fa-cloud"></i> Oracle Cloud Infrastructure</div>
-            </div>
-        </div>
-
-        <div class="skill-category">
-            <h3>Methodologies</h3>
-            <div class="skill-list">
-                <div class="skill-item"><i class="fas fa-project-diagram"></i> SDLC</div>
-                <div class="skill-item"><i class="fas fa-sitemap"></i> System Architecture</div>
-                <div class="skill-item"><i class="fas fa-cogs"></i> DevOps</div>
-                <div class="skill-item"><i class="fas fa-sync-alt"></i> CI/CD</div>
-                <div class="skill-item"><i class="fas fa-book"></i> ITIL</div>
-                <div class="skill-item"><i class="fas fa-users"></i> Agile</div>
-            </div>
-        </div>
-
-    </section>
-    
-    <section id="education-certs" class="section">
-        <h2>Credentials</h2>
-    
-        <div class="subsection-container">
-            <h3 class="subsection-title">Certifications</h3>
-            <div class="list-container">
-                <div class="certification-item">
-                    <div class="certification-content">
-                        <div class="certification-details">
-                            <p class="title">Oracle Cloud Infrastructure Foundations 2021 Certified Associate</p>
-                            <p class="provider">Oracle</p>
-                        </div>
-                        <p class="date">Issued: March 2022</p>
-                    </div>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="company">PHILTECH</span>
+                    <span class="domain">Supply Chain Operations</span>
+                </div>
+                <div class="experience-details">
+                    <span class="role">Site Reliability Engineer</span>
+                    <span class="work-years">August 2013 - March 2016</span>
+                </div>
+                <div class="experience-tasks">
+                    <ul>
+                        <li>Managed and optimized critical ordering and forecasting services by fine-tuning application configurations, scripts and job scheduling, resulting to lesser abnormal ends and improved system stability</li>
+                        <li>Provided and executed maintenance plan for interface and database upgrades</li>
+                        <li>Resolved client-reported data inconsistencies in orders and forecasts</li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    
-        <div class="subsection-container">
-            <h3 class="subsection-title">Trainings</h3>
-            <div class="list-container">
-                <div class="certification-item">
-                    <div class="certification-content">
-                        <div class="certification-details">
-                            <p class="title">Generative AI Foundations</p>
-                            <p class="provider">Pluralsight</p>
-                        </div>
-                        <p class="date">Completed: October 2025</p>
-                    </div>
-                </div>
-                <div class="certification-item">
-                    <div class="certification-content">
-                        <div class="certification-details">
-                            <p class="title">Master Agile Software Development</p>
-                            <p class="provider">Linkedin Learning</p>
-                        </div>
-                        <p class="date">Completed: July 2020</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-        <div class="subsection-container">
-            <h3 class="subsection-title">Education</h3>
-            <div class="list-container">
-                <div class="education-item">
-                    <div class="education-header">
-                        <p class="institution">University of Santo Tomas</p>
-                        <p class="education-date">Graduated: March 2013</p>
-                    </div>
-                    <p class="degree">Bachelor of Science in Information Technology</p>
-                </div>
+        </section>
         
-                <div class="education-item">
-                     <div class="education-header">
-                        <p class="institution">Don Bosco Technical Institute</p>
-                        <p class="education-date">Graduated: March 2009</p>
-                    </div>
-                    <p class="degree">High School (4-Year Preparatory Technician Course in Computer Technology)</p>
+        <section id="skills" class="section">
+            <h2>Skills</h2>
+
+            <div class="skill-category">
+                <h3>Languages & Frameworks</h3>
+                <div class="skill-list">
+                    <div class="skill-item"><i class="fab fa-java" aria-hidden="true"></i> Java</div>
+                    <div class="skill-item"><i class="fas fa-leaf" aria-hidden="true"></i> Spring Boot</div>
+                    <div class="skill-item"><i class="fas fa-database" aria-hidden="true"></i> SQL</div>
+                    <div class="skill-item"><i class="fas fa-exchange-alt" aria-hidden="true"></i> REST APIs</div>
+                    <div class="skill-item"><i class="fab fa-js-square" aria-hidden="true"></i> Javascript</div>
+                    <div class="skill-item"><i class="fab fa-node-js" aria-hidden="true"></i> Node.js</div>
+                    <div class="skill-item"><i class="fab fa-html5" aria-hidden="true"></i> HTML</div>
+                    <div class="skill-item"><i class="fab fa-css3-alt" aria-hidden="true"></i> CSS</div>
+                    <div class="skill-item"><i class="fas fa-terminal" aria-hidden="true"></i> Bash</div>
+                    <div class="skill-item"><i class="fas fa-terminal" aria-hidden="true"></i> Powershell</div>
                 </div>
             </div>
-        </div>
-    </section>
+
+            <div class="skill-category">
+                <h3>Databases</h3>
+                <div class="skill-list">
+                    <div class="skill-item"><i class="fas fa-database" aria-hidden="true"></i> Oracle</div>
+                    <div class="skill-item"><i class="fas fa-database" aria-hidden="true"></i> PostgreSQL</div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Tools</h3>
+                <div class="skill-list">
+                    <div class="skill-item"><i class="fab fa-git-alt" aria-hidden="true"></i> Git</div>
+                    <div class="skill-item"><i class="fas fa-box" aria-hidden="true"></i> Maven</div>
+                    <div class="skill-item"><i class="fas fa-wrench" aria-hidden="true"></i> Jenkins</div>
+                    <div class="skill-item"><i class="fab fa-github" aria-hidden="true"></i> GitHub Actions</div>
+                    <div class="skill-item"><i class="fas fa-cloud" aria-hidden="true"></i> TeamCity</div>
+                    <div class="skill-item"><i class="fas fa-paper-plane" aria-hidden="true"></i> Postman</div>
+                    <div class="skill-item"><i class="fab fa-jira" aria-hidden="true"></i> Jira</div>
+                    <div class="skill-item"><i class="fab fa-confluence" aria-hidden="true"></i> Confluence</div>
+                    <div class="skill-item"><i class="fas fa-code" aria-hidden="true"></i> Visual Studio Code</div>
+                    <div class="skill-item"><i class="fas fa-lightbulb" aria-hidden="true"></i> Jetbrains IntelliJ IDEA</div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Platforms</h3>
+                <div class="skill-list">
+                    <div class="skill-item"><i class="fab fa-windows" aria-hidden="true"></i> Windows</div>
+                    <div class="skill-item"><i class="fab fa-apple" aria-hidden="true"></i> macOS</div>
+                    <div class="skill-item"><i class="fab fa-linux" aria-hidden="true"></i> Linux</div>
+                    <div class="skill-item"><i class="fab fa-ubuntu" aria-hidden="true"></i> Ubuntu</div>
+                    <div class="skill-item"><i class="fas fa-l" aria-hidden="true"></i> Red Hat Enterprise Linux</div>
+                    <div class="skill-item"><i class="fas fa-terminal" aria-hidden="true"></i> Windows Subsystem for Linux</div>
+                    <div class="skill-item"><i class="fab fa-docker" aria-hidden="true"></i> Docker</div>
+                    <div class="skill-item"><i class="fas fa-cloud" aria-hidden="true"></i> Oracle Cloud Infrastructure</div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Methodologies</h3>
+                <div class="skill-list">
+                    <div class="skill-item"><i class="fas fa-project-diagram" aria-hidden="true"></i> SDLC</div>
+                    <div class="skill-item"><i class="fas fa-sitemap" aria-hidden="true"></i> System Architecture</div>
+                    <div class="skill-item"><i class="fas fa-cogs" aria-hidden="true"></i> DevOps</div>
+                    <div class="skill-item"><i class="fas fa-sync-alt" aria-hidden="true"></i> CI/CD</div>
+                    <div class="skill-item"><i class="fas fa-book" aria-hidden="true"></i> ITIL</div>
+                    <div class="skill-item"><i class="fas fa-users" aria-hidden="true"></i> Agile</div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="education-certs" class="section">
+            <h2>Credentials</h2>
+        
+            <div class="subsection-container">
+                <h3 class="subsection-title">Certifications</h3>
+                <div class="list-container">
+                    <div class="certification-item">
+                        <div class="certification-content">
+                            <div class="certification-details">
+                                <p class="title">Oracle Cloud Infrastructure Foundations 2021 Certified Associate</p>
+                                <p class="provider">Oracle</p>
+                            </div>
+                            <p class="date">Issued: March 2022</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="subsection-container">
+                <h3 class="subsection-title">Trainings</h3>
+                <div class="list-container">
+                    <div class="certification-item">
+                        <div class="certification-content">
+                            <div class="certification-details">
+                                <p class="title">Generative AI Foundations</p>
+                                <p class="provider">Pluralsight</p>
+                            </div>
+                            <p class="date">Completed: October 2025</p>
+                        </div>
+                    </div>
+                    <div class="certification-item">
+                        <div class="certification-content">
+                            <div class="certification-details">
+                                <p class="title">Master Agile Software Development</p>
+                                <p class="provider">Linkedin Learning</p>
+                            </div>
+                            <p class="date">Completed: July 2020</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="subsection-container">
+                <h3 class="subsection-title">Education</h3>
+                <div class="list-container">
+                    <div class="education-item">
+                        <div class="education-header">
+                            <p class="institution">University of Santo Tomas</p>
+                            <p class="education-date">Graduated: March 2013</p>
+                        </div>
+                        <p class="degree">Bachelor of Science in Information Technology</p>
+                    </div>
+            
+                    <div class="education-item">
+                        <div class="education-header">
+                            <p class="institution">Don Bosco Technical Institute</p>
+                            <p class="education-date">Graduated: March 2009</p>
+                        </div>
+                        <p class="degree">High School (4-Year Preparatory Technician Course in Computer Technology)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <script>
+        /**
+         * Navigation and DOM Management
+         */
+        
+        /**
+         * Show a specific section and hide others
+         * @param {string} sectionId - The ID of the section to display
+         */
         function showSection(sectionId) {
             const sections = document.querySelectorAll('.section');
             sections.forEach(section => {
@@ -749,10 +898,13 @@
             const activeSection = document.getElementById(sectionId);
             if (activeSection) {
                 activeSection.classList.add('active');
-                document.body.parentElement.scrollTo({ top: 0, behavior: 'smooth' });
+                document.documentElement.scrollTo({ top: 0, behavior: 'smooth' });
             }
         }
 
+        /**
+         * Adjust body padding based on header height
+         */
         function adjustBodyPadding() {
             const header = document.querySelector('.header-container');
             if (header) {
@@ -761,12 +913,47 @@
             }
         }
 
+        /**
+         * Handle keyboard navigation for header name
+         */
+        function handleHeaderKeyPress(event) {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                showSection('summary');
+            }
+        }
+
+        /**
+         * Initialize on page load
+         */
         document.addEventListener('DOMContentLoaded', () => {
             adjustBodyPadding();
             showSection('summary');
+
+            // Add keyboard support to header h1
+            const headerTitle = document.querySelector('.header-container h1');
+            if (headerTitle) {
+                headerTitle.addEventListener('keypress', handleHeaderKeyPress);
+            }
         });
 
+        /**
+         * Recalculate padding on window resize
+         */
         window.addEventListener('resize', adjustBodyPadding);
+
+        /**
+         * Handle focus visible for better keyboard navigation UX
+         */
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Tab') {
+                document.body.classList.add('keyboard-nav');
+            }
+        });
+
+        document.addEventListener('mousedown', () => {
+            document.body.classList.remove('keyboard-nav');
+        });
     </script>
 </body>
 </html>
