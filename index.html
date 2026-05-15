@@ -6,12 +6,12 @@
     <meta name="description" content="Senior Software Engineer with 12+ years of experience in full-stack development, DevOps, and enterprise solutions.">
     <title>Francis Jason Talampas - Senior Software Engineer</title>
     
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
     
     <style>
         /* ========== CSS VARIABLES & THEMING ========== */
@@ -44,6 +44,10 @@
         }
 
         /* ========== GLOBAL STYLES ========== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
         html {
             scroll-behavior: smooth;
         }
@@ -53,10 +57,16 @@
             margin: 0;
             padding: 0;
             padding-bottom: 40px;
+            min-height: 100vh;
             background-color: var(--primary-bg);
             color: var(--text-primary);
-            line-height: 1.7;
+            line-height: 1.75;
             font-weight: 400;
+            text-rendering: optimizeLegibility;
+        }
+
+        main {
+            min-height: calc(100vh - 140px);
         }
 
         /* ========== HEADER ========== */
@@ -84,11 +94,11 @@
 
         .header-container h1 {
             margin: 0;
-            font-size: 1.8em;
+            font-size: 1.75em;
             font-weight: 700;
             color: var(--text-header);
             cursor: pointer;
-            letter-spacing: -1px;
+            letter-spacing: -0.8px;
             transition: transform 0.2s var(--transition-timing);
         }
         
@@ -180,34 +190,35 @@
 
         /* ========== SECTIONS ========== */
         .section {
-            padding: 40px;
+            padding: 38px 36px;
             margin-bottom: 20px;
             background-color: var(--section-bg);
             border-radius: var(--border-radius);
-            box-shadow: 0 5px 25px var(--shadow-color);
-            max-width: 900px;
+            box-shadow: 0 8px 32px rgba(44, 62, 80, 0.08);
+            max-width: 980px;
             margin-left: auto;
             margin-right: auto;
             border: 1px solid var(--border-color);
             text-align: center;
             display: none;
+            scroll-margin-top: 110px;
         }
 
         .section.active {
             display: block;
-            animation: fadeIn 0.6s ease-out;
+            animation: fadeIn 0.55s ease-out;
         }
 
         .section h2 {
             color: var(--text-primary);
             margin-top: 0;
-            margin-bottom: 40px;
-            padding-bottom: 10px;
-            font-size: 2.5em;
+            margin-bottom: 28px;
+            padding-bottom: 8px;
+            font-size: 2rem;
             font-weight: 700;
             position: relative;
             display: inline-block;
-            letter-spacing: -0.5px;
+            letter-spacing: -0.4px;
         }
         
         .section h2::after {
@@ -339,21 +350,22 @@
         
         .experience-tasks ul li {
             position: relative;
-            padding-left: 25px;
-            margin-bottom: 8px;
-            font-size: 1em;
+            padding-left: 26px;
+            margin-bottom: 12px;
+            font-size: 1.02em;
             color: var(--text-secondary);
+            line-height: 1.9;
         }
 
         .experience-tasks ul li::before {
-            content: '\f058';
-            font-family: 'Font Awesome 6 Free';
+            content: '\f00c';
+            font-family: 'Font Awesome 7 Free';
             font-weight: 900;
             color: var(--accent-color);
             position: absolute;
             left: 0;
-            top: 3px;
-            font-size: 0.9em;
+            top: 2px;
+            font-size: 0.85em;
         }
         
         .experience-tasks ul ul { 
@@ -607,7 +619,7 @@
             </nav>
         </div>
         <nav class="nav-buttons" aria-label="Main navigation">
-            <button onclick="showSection('experience')" aria-label="View work experience section">Work Experience</button>
+            <button onclick="showSection('experience')" aria-label="View professional experience section">Professional Experience</button>
             <button onclick="showSection('skills')" aria-label="View skills section">Skills</button>
             <button onclick="showSection('education-certs')" aria-label="View credentials section">Credentials</button>
         </nav>
@@ -618,16 +630,7 @@
             <h2>Summary</h2>
             <img src="images/profile.png" alt="Profile picture of Francis Jason Talampas" class="profile-picture">
             <p>
-                Results-driven Senior Software Engineer with over 12 years of experience building robust, scalable solutions in enterprise software, fintech, and supply chain environments. I bring deep expertise in full-stack and backend development, with a strong focus on modern DevOps practices that enable teams to deliver high-quality software faster and more reliably.
-            </p>
-            <p>
-                I specialize in designing and implementing end-to-end automation — including CI/CD pipelines, containerized development environments, secure configuration management, and cloud infrastructure. These initiatives consistently reduce development friction, eliminate environment-related bottlenecks, accelerate onboarding, and strengthen overall system security and reliability, allowing teams to focus on innovation rather than repetitive tasks.
-            </p>
-            <p>
-                My approach blends technical depth with pragmatic execution: I modernize legacy systems, introduce cleaner and more maintainable architectures, enhance security standards, and deliver business-critical features that users depend on. I prioritize high-impact improvements, collaborate effectively to amplify team results, and maintain a sustainable pace without compromising quality.
-            </p>
-            <p>
-                Passionate about continuous improvement and clean design, I thrive in environments that value clear communication, decisive progress, and measurable outcomes — building the processes and infrastructure that help great teams perform at their best.
+                Senior Software Engineer with 12+ years of experience in full-stack development. Experienced in migrating legacy systems to Spring Boot microservices and containerized platforms while integrating robust DevSecOps practices across the development lifecycle. Passionate about mentoring peers, continuously improving engineering standards, and delivering reliable enterprise solutions that balance performance, security, and long-term maintainability.
             </p>
             <p>
                 <strong>Core Strengths:</strong>
@@ -636,55 +639,50 @@
         </section>
 
         <section id="experience" class="section">
-            <h2>Work Experience</h2>
+            <h2>Professional Experience</h2>
 
             <div class="experience-item">
                 <div class="experience-header">
                     <span class="company">FINASTRA</span>
-                    <span class="domain">Full Stack Development - KTP Corporate Treasury Innovation</span>
+                    <span class="domain">Full Stack - Corporate Treasury Innovation</span>
                 </div>
 
-                <div class="role-entry">
-                    <div class="experience-details">
-                        <span class="role">Senior Software Engineer</span>
-                        <span class="work-years">November 2023 - Present</span>
-                    </div>
-                    <div class="experience-tasks">
-                        <ul>
-                            <li><strong>Development CI/CD Lead</strong>
-                                <ul>
-                                    <li>Coordinated migration of Bitbucket repositories to GitHub, delivering a robust go-live framework to stakeholders</li>
-                                    <li>Led conversion of front-end framework package build from Jenkins to GitHub Actions</li>
-                                    <li>Orchestrated containerized development infrastructure with preconfigured automations, encompassing virtual databases, tools, and local and servers for building and hosting multi-branch application stacks</li>
-                                    <li>Managed task backlogs and development releases while mentoring peers for setup, issues and trainings to CI/CD stack</li>
-                                </ul>
-                            </li>
-                            <li><strong>E-Payment Factory Project</strong>
-                                <ul>
-                                    <li>Implemented non-functional requirements to Spring Boot services including management of configuration properties, Maven build and release packaging via GitHub Actions integrations, Jasypt encryption, integration of Okta UAA</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
+                <div class="experience-details">
+                    <span class="role">Senior Software Engineer</span>
+                    <span class="work-years">November 2023 - Present</span>
+                </div>
+                <div class="experience-tasks">
+                    <ul>
+                        <li><strong>Spring Boot Migration Project Lead</strong>
+                            <ul>
+                                <li>Spearheaded the migration of Reporting and Integration Services to Spring Boot and Spring Data JPA, leveraging LLM-driven analysis to modernize security, logging, and API standards while maintaining full compliance and documentation.</li>
+                            </ul>
+                        </li>
+                        <li><strong>E-Payment Factory Project</strong>
+                            <ul>
+                                <li>Developed Spring Boot microservices for payment processing, implementing file import, validation, and digital signing features for PAIN.003 and MT101 ISO 20022 payment formats.</li>
+                            </ul>
+                        </li>
+                        <li><strong>DevSecOps Lead</strong>
+                            <ul>
+                                <li>Migrated CI/CD from Jenkins to GitHub Actions, integrating CodeQL and Arnica to identify and remediate 150+ vulnerabilities. Engineered Docker-based environments that reduced local setup time from hours to minutes while mentoring peers in orchestration and repository governance.</li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
 
-                <div class="role-entry">
-                    <div class="experience-details">
-                        <span class="role">Software Engineer</span>
-                        <span class="work-years">November 2020 - March 2022</span>
-                    </div>
-                    <div class="experience-tasks">
-                        <ul>
-                            <li><strong>PostgreSQL Integration Project</strong>
-                                <ul>
-                                    <li>Automated Oracle and Postgres database setup using ORA2PG and Docker containers with custom import scripts</li>
-                                    <li>Developed PostgreSQL API implementations, data bindings and configuration properties; scripted equivalent PL/pgSQLs</li>
-                                </ul>
-                            </li>
-                            <li>Incorporated refactoring efforts and OWASP security practices to remedy vulnerabilities, integrating minification and obfuscation into the package deployment process of Node.js front-end framework via Gulp utility scripts</li>
-                            <li>Implemented UI and backend enhancements, and resolved defects in Reporting and Market Data modules</li>
-                        </ul>
-                    </div>
+                <div class="experience-details">
+                    <span class="role">Software Engineer</span>
+                    <span class="work-years">November 2020 - March 2022</span>
+                </div>
+                <div class="experience-tasks">
+                    <ul>
+                        <li><strong>PostgreSQL Integration Project</strong>
+                            <ul>
+                                <li>Expanded database capabilities by integrating PostgreSQL alongside Oracle, developing custom APIs, data bindings, and PL/pgSQL procedures to ensure cross-platform consistency.</li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
@@ -699,8 +697,7 @@
                 </div>
                 <div class="experience-tasks">
                     <ul>
-                        <li>Automated and optimized performance benchmarks for NetSuite Order Management by refactoring scripts for JMeter parameterized tests, integrating to TeamCity and visualizing via OpenSearch dashboards</li>
-                        <li>Provisioned Netsuite stack on Oracle Cloud Infrastructure, leveraging pre-configured Ansible and Terraform automations</li>
+                        <li>Automated NetSuite Order Management performance benchmarks by refactoring JMeter scripts for TeamCity integration and OpenSearch visualization, while provisioning ephemeral stacks on Oracle Cloud Infrastructure using Ansible and Terraform for rapid setup and flexible version testing.</li>
                     </ul>
                 </div>
             </div>
@@ -708,7 +705,7 @@
             <div class="experience-item">
                 <div class="experience-header">
                     <span class="company">DELTEK</span>
-                    <span class="domain">Backend Development - Costpoint Materials Management</span>
+                    <span class="domain">Back-end - Costpoint ERP</span>
                 </div>
                 <div class="experience-details">
                     <span class="role">Software Engineer</span>
@@ -716,12 +713,7 @@
                 </div>
                 <div class="experience-tasks">
                     <ul>
-                        <li><strong>Innovation Summit 2020:</strong> Accelerated test data setup by utilizing SOAP Web Services + LoadRunner</li>
-                        <li><strong>Innovation Summit 2017:</strong> Integrated open-source OCR for reading receipts in expense module</li>
-                        <li>Implemented Standard Costing to inventory and ordering modules</li>
-                        <li>Implemented user-role organizational data security to materials management modules</li>
-                        <li>Implemented data auto-loading features to improve UI experience</li>
-                        <li>Migrated Oracle/MS SQL stored procedures to JDBC API calls to optimize maintainability and testing</li>
+                        <li>Delivered high-impact solutions ranging from Standard Costing and enhanced security protocols for Materials Management to hackathon-driven PoCs like an open-source OCR scanner and automated test data generation tools.</li>
                     </ul>
                 </div>
             </div>
@@ -737,9 +729,7 @@
                 </div>
                 <div class="experience-tasks">
                     <ul>
-                        <li>Managed and optimized critical ordering and forecasting services by fine-tuning application configurations, scripts and job scheduling, resulting to lesser abnormal ends and improved system stability</li>
-                        <li>Provided and executed maintenance plan for interface and database upgrades</li>
-                        <li>Resolved client-reported data inconsistencies in orders and forecasts</li>
+                        <li>Stabilized ordering and forecasting services by tuning back-end jobs, remediating data integrity issues, and designing recovery procedures for mission-critical operations.</li>
                     </ul>
                 </div>
             </div>
@@ -752,23 +742,23 @@
                 <h3>Languages & Frameworks</h3>
                 <div class="skill-list">
                     <div class="skill-item"><i class="fab fa-java" aria-hidden="true"></i> Java</div>
-                    <div class="skill-item"><i class="fas fa-leaf" aria-hidden="true"></i> Spring Boot</div>
-                    <div class="skill-item"><i class="fas fa-database" aria-hidden="true"></i> SQL</div>
-                    <div class="skill-item"><i class="fas fa-exchange-alt" aria-hidden="true"></i> REST APIs</div>
-                    <div class="skill-item"><i class="fab fa-js-square" aria-hidden="true"></i> Javascript</div>
+                    <div class="skill-item"><i class="fas fa-seedling" aria-hidden="true"></i> Spring Boot</div>
+                    <div class="skill-item"><i class="fas fa-plug" aria-hidden="true"></i> REST APIs</div>
+                    <div class="skill-item"><i class="fab fa-js" aria-hidden="true"></i> JavaScript</div>
                     <div class="skill-item"><i class="fab fa-node-js" aria-hidden="true"></i> Node.js</div>
                     <div class="skill-item"><i class="fab fa-html5" aria-hidden="true"></i> HTML</div>
                     <div class="skill-item"><i class="fab fa-css3-alt" aria-hidden="true"></i> CSS</div>
-                    <div class="skill-item"><i class="fas fa-terminal" aria-hidden="true"></i> Bash</div>
-                    <div class="skill-item"><i class="fas fa-terminal" aria-hidden="true"></i> Powershell</div>
+                    <div class="skill-item"><i class="fas fa-terminal" aria-hidden="true"></i> Shell Scripting</div>
+                    <div class="skill-item"><i class="fas fa-file-lines" aria-hidden="true"></i> Batch Scripting</div>
                 </div>
             </div>
 
             <div class="skill-category">
                 <h3>Databases</h3>
                 <div class="skill-list">
-                    <div class="skill-item"><i class="fas fa-database" aria-hidden="true"></i> Oracle</div>
-                    <div class="skill-item"><i class="fas fa-database" aria-hidden="true"></i> PostgreSQL</div>
+                    <div class="skill-item"><i class="fas fa-database" aria-hidden="true"></i> SQL</div>
+                    <div class="skill-item"><i class="fas fa-database" aria-hidden="true"></i> Oracle (PL/SQL)</div>
+                    <div class="skill-item"><i class="fas fa-server" aria-hidden="true"></i> PostgreSQL (PL/pgSQL)</div>
                 </div>
             </div>
 
@@ -777,16 +767,15 @@
                 <div class="skill-list">
                     <div class="skill-item"><i class="fab fa-git-alt" aria-hidden="true"></i> Git</div>
                     <div class="skill-item"><i class="fas fa-box" aria-hidden="true"></i> Maven</div>
-                    <div class="skill-item"><i class="fas fa-wrench" aria-hidden="true"></i> Jenkins</div>
+                    <div class="skill-item"><i class="fas fa-robot" aria-hidden="true"></i> Jenkins</div>
                     <div class="skill-item"><i class="fab fa-github" aria-hidden="true"></i> GitHub Actions</div>
                     <div class="skill-item"><i class="fas fa-diagram-project" aria-hidden="true"></i> GitHub Projects</div>
-                    <div class="skill-item"><i class="fas fa-robot" aria-hidden="true"></i> GitHub Copilot</div>
-                    <div class="skill-item"><i class="fas fa-cloud" aria-hidden="true"></i> TeamCity</div>
+                    <div class="skill-item"><i class="fas fa-server" aria-hidden="true"></i> TeamCity</div>
                     <div class="skill-item"><i class="fas fa-paper-plane" aria-hidden="true"></i> Postman</div>
                     <div class="skill-item"><i class="fab fa-jira" aria-hidden="true"></i> Jira</div>
                     <div class="skill-item"><i class="fab fa-confluence" aria-hidden="true"></i> Confluence</div>
                     <div class="skill-item"><i class="fas fa-code" aria-hidden="true"></i> Visual Studio Code</div>
-                    <div class="skill-item"><i class="fas fa-lightbulb" aria-hidden="true"></i> Jetbrains IntelliJ IDEA</div>
+                    <div class="skill-item"><i class="fas fa-lightbulb" aria-hidden="true"></i> JetBrains IntelliJ IDEA</div>
                 </div>
             </div>
 
@@ -797,10 +786,19 @@
                     <div class="skill-item"><i class="fab fa-apple" aria-hidden="true"></i> macOS</div>
                     <div class="skill-item"><i class="fab fa-linux" aria-hidden="true"></i> Linux</div>
                     <div class="skill-item"><i class="fab fa-ubuntu" aria-hidden="true"></i> Ubuntu</div>
-                    <div class="skill-item"><i class="fas fa-l" aria-hidden="true"></i> Red Hat Enterprise Linux</div>
-                    <div class="skill-item"><i class="fas fa-terminal" aria-hidden="true"></i> Windows Subsystem for Linux</div>
+                    <div class="skill-item"><i class="fab fa-redhat" aria-hidden="true"></i> Red Hat Enterprise Linux (RHEL)</div>
+                    <div class="skill-item"><i class="fas fa-terminal" aria-hidden="true"></i> Windows Subsystem for Linux (WSL)</div>
                     <div class="skill-item"><i class="fab fa-docker" aria-hidden="true"></i> Docker</div>
-                    <div class="skill-item"><i class="fas fa-cloud" aria-hidden="true"></i> Oracle Cloud Infrastructure</div>
+                    <div class="skill-item"><i class="fas fa-cloud" aria-hidden="true"></i> Oracle Cloud Infrastructure (OCI)</div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>AI & Productivity</h3>
+                <div class="skill-list">
+                    <div class="skill-item"><i class="fab fa-github" aria-hidden="true"></i> GitHub Copilot</div>
+                    <div class="skill-item"><i class="fas fa-brain" aria-hidden="true"></i> LLMs</div>
+                    <div class="skill-item"><i class="fas fa-keyboard" aria-hidden="true"></i> Prompt Engineering</div>
                 </div>
             </div>
 
@@ -808,11 +806,14 @@
                 <h3>Methodologies</h3>
                 <div class="skill-list">
                     <div class="skill-item"><i class="fas fa-project-diagram" aria-hidden="true"></i> SDLC</div>
-                    <div class="skill-item"><i class="fas fa-sitemap" aria-hidden="true"></i> System Architecture</div>
-                    <div class="skill-item"><i class="fas fa-cogs" aria-hidden="true"></i> DevOps</div>
-                    <div class="skill-item"><i class="fas fa-sync-alt" aria-hidden="true"></i> CI/CD</div>
+                    <div class="skill-item"><i class="fas fa-sitemap" aria-hidden="true"></i> Systems Engineering</div>
+                    <div class="skill-item"><i class="fas fa-server" aria-hidden="true"></i> System Administration</div>
+                    <div class="skill-item"><i class="fas fa-sync-alt" aria-hidden="true"></i> DevOps</div>
+                    <div class="skill-item"><i class="fas fa-shield-halved" aria-hidden="true"></i> DevSecOps</div>
+                    <div class="skill-item"><i class="fas fa-repeat" aria-hidden="true"></i> CI/CD</div>
                     <div class="skill-item"><i class="fas fa-book" aria-hidden="true"></i> ITIL</div>
                     <div class="skill-item"><i class="fas fa-users" aria-hidden="true"></i> Agile</div>
+                    <div class="skill-item"><i class="fas fa-people-arrows" aria-hidden="true"></i> Scrum</div>
                 </div>
             </div>
         </section>
