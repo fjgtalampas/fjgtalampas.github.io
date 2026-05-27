@@ -632,10 +632,6 @@
             <p>
                 Senior Software Engineer with 12+ years of experience in full-stack development. Experienced in migrating legacy systems to Spring Boot microservices and containerized platforms while integrating robust DevSecOps practices across the development lifecycle. Passionate about mentoring peers, continuously improving engineering standards, and delivering reliable enterprise solutions that balance performance, security, and long-term maintainability.
             </p>
-            <p>
-                <strong>Core Strengths:</strong>
-                Backend &amp; Full-Stack Development • CI/CD Design &amp; Automation • GitHub Actions • Containerization &amp; Reproducible Environments • Cloud Infrastructure &amp; Workflows • Legacy System Modernization • Clean Architecture • High-Impact Process Improvement • Team Enablement &amp; Mentoring
-            </p>
         </section>
 
         <section id="experience" class="section">
@@ -655,7 +651,11 @@
                     <ul>
                         <li><strong>Spring Boot Migration Project Lead</strong>
                             <ul>
-                                <li>Spearheaded the migration of Reporting and Integration Services to Spring Boot and Spring Data JPA, leveraging LLM-driven analysis to modernize security, logging, and API standards while maintaining full compliance and documentation.</li>
+                                <li>Spearheaded the architectural migration of Reporting, Integration, and Commons Services from a legacy Google Guice framework (Java 8) to Spring Boot (Java 21), utilizing LLM-driven code analysis to accelerate refactoring and ensure long-term scalability.</li>
+                                <li>Modernized the persistence layer by replacing legacy stored procedures with Spring Data JPA, standardizing API mappings, and updating dependencies to resolve critical vulnerabilities while meeting licensing and compliance standards.</li>
+                                <li>Elevated code quality and knowledge transfer by leveraging AI-assisted analysis and reviews to produce comprehensive migration guides and robust JavaDocs.</li>
+                            </ul>
+                            </ul>
                             </ul>
                         </li>
                         <li><strong>E-Payment Factory Project</strong>
@@ -665,7 +665,10 @@
                         </li>
                         <li><strong>DevSecOps Lead</strong>
                             <ul>
-                                <li>Migrated CI/CD from Jenkins to GitHub Actions, integrating CodeQL and Arnica to identify and remediate 150+ vulnerabilities. Engineered Docker-based environments that reduced local setup time from hours to minutes while mentoring peers in orchestration and repository governance.</li>
+                                <li>Orchestrated CI/CD modernization, migrating front-end builds from Jenkins to GitHub Actions and architecting automated workflows for Spring Boot microservices.</li>
+                                <li>Engineered Docker-based development environments featuring pre-configured databases and multi-branch stacks, slashing local setup time from hours to minutes and significantly accelerating manual testing cycles.</li>
+                                <li>Integrated security-first practices by embedding CodeQL scans into pipelines and leading security audits via Arnica and Checkmarx, successfully identifying and remediating 150+ vulnerabilities.</li>
+                                <li>Governed repository integrity and package releases while mentoring engineering peers on environment orchestration and DevOps best practices.</li>
                             </ul>
                         </li>
                     </ul>
@@ -677,11 +680,11 @@
                 </div>
                 <div class="experience-tasks">
                     <ul>
-                        <li><strong>PostgreSQL Integration Project</strong>
-                            <ul>
-                                <li>Expanded database capabilities by integrating PostgreSQL alongside Oracle, developing custom APIs, data bindings, and PL/pgSQL procedures to ensure cross-platform consistency.</li>
-                            </ul>
-                        </li>
+                        <li>Implemented custom APIs, data bindings, and PL/pgSQL procedures for the PostgreSQL integration initiative alongside Oracle to establish cross-platform interoperability and data consistency.</li>
+                        <li>Streamlined database provisioning and refresh cycles for local development environments (Oracle and PostgreSQL) by orchestrating Docker containerization and developing custom Bash/Batch automation scripts, accelerating ingestion of new database dumps from clients and QA teams.</li>
+                        <li>Developed aggregation, sorting, and criteria filtering capabilities within the Report Designer preview module, enabling users to generate reports by combining specific criteria, aggregations, and filters to analyze transaction data.</li>
+                        <li>Enhanced application security by embedding OWASP standards and static code analysis directly into the source codebase and Logback logging framework, while proactively refactoring legacy Java modules to improve maintainability and execution efficiency.</li>
+                        <li>Secured the existing Node.js front-end framework by integrating Gulp-driven minification and obfuscation into the build pipeline, effectively protecting client-side assets against reverse engineering.</li>
                     </ul>
                 </div>
             </div>
@@ -697,7 +700,8 @@
                 </div>
                 <div class="experience-tasks">
                     <ul>
-                        <li>Automated NetSuite Order Management performance benchmarks by refactoring JMeter scripts for TeamCity integration and OpenSearch visualization, while provisioning ephemeral stacks on Oracle Cloud Infrastructure using Ansible and Terraform for rapid setup and flexible version testing.</li>
+                        <li>Automated NetSuite Sales Order Management performance benchmarks by refactoring JMeter parameterized scripts for TeamCity integration and OpenSearch visualization.</li>
+                        <li>Provisioned ephemeral NetSuite stacks on Oracle Cloud Infrastructure using Ansible and Terraform, enabling rapid setup and flexible application version selection for performance testing.</li>
                     </ul>
                 </div>
             </div>
@@ -713,7 +717,14 @@
                 </div>
                 <div class="experience-tasks">
                     <ul>
-                        <li>Delivered high-impact solutions ranging from Standard Costing and enhanced security protocols for Materials Management to hackathon-driven PoCs like an open-source OCR scanner and automated test data generation tools.</li>
+                        <li>Engineered Standard Costing functionality across multiple materials modules, enabling dynamic baseline pricing via actual market data while supporting historical averages, which significantly enhanced cost accuracy for raw materials and finished goods.</li>
+                        <li>Architected organization-level security controls to enforce granular access restrictions on material data and transactions based on user assignments, strengthening data integrity and ensuring regulatory compliance.</li>
+                        <li>Led application modernization initiatives by refactoring legacy Oracle and MS SQL stored procedures into inline queries and JDBC calls; further optimized performance by converting SELECT-UPDATE loops into efficient MERGE statements, resulting in improved code maintainability and reduced processing runtime.</li>
+                        <li>Reduced application defects by 50% across three critical modules (2016-2017) through proactive root cause analysis and targeted quality assurance strategies.</li>
+                        <li>Accelerated regression testing cycles by designing an automated data refresh solution using Web Services and LoadRunner at the Global Engineering Innovation Hackathon 2020, significantly improving QE efficiency.</li>
+                        <li>Developed a Proof of Concept (PoC) for an Electronic Acknowledgement Process at Manila Ideafest 2019 to automate manual HR workflows, demonstrating potential for enterprise-wide efficiency gains.</li>
+                        <li>Integrated OCR technology for receipt scanning at the GovCon Engineering Innovation Summit 2017, drastically reducing manual data entry and increasing productivity within the expense management module.</li>
+                        <li>Drove quality assurance for the SQL Server Materials Pre-processor enhancement by performing rigorous unit testing, developing detailed test matrices, and generating accurate CSV input files through precise source code analysis and field mapping.</li>
                     </ul>
                 </div>
             </div>
@@ -729,7 +740,9 @@
                 </div>
                 <div class="experience-tasks">
                     <ul>
-                        <li>Stabilized ordering and forecasting services by tuning back-end jobs, remediating data integrity issues, and designing recovery procedures for mission-critical operations.</li>
+                        <li>Stabilized and optimized critical ordering and forecasting ERP applications by delivering full-cycle support — from designing and deploying production fixes to resolving batch job concurrency issues — while implementing rescheduling strategies via ESP Workload Manager that improved performance, increased throughput, and reduced job abends.</li>
+                        <li>Resolved production incidents reported by business users by correcting order and forecasting data via SQL; troubleshot end-to-end file transfers using Opentext MIM Process Monitor, and coordinated with external vendors as needed.</li>
+                        <li>Partnered with onshore developers and migration teams to support application enhancements and deployments, reverse engineering process flows to produce comprehensive support documentation.</li>
                     </ul>
                 </div>
             </div>
@@ -824,6 +837,15 @@
             <div class="subsection-container">
                 <h3 class="subsection-title">Trainings</h3>
                 <div class="list-container">
+                    <div class="certification-item">
+                        <div class="certification-content">
+                            <div class="certification-details">
+                                <p class="title">Prompt Engineering</p>
+                                <p class="provider">Pluralsight</p>
+                            </div>
+                            <p class="date">Completed: January 2026</p>
+                        </div>
+                    </div>
                     <div class="certification-item">
                         <div class="certification-content">
                             <div class="certification-details">
