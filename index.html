@@ -1,991 +1,235 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Senior Software Engineer with 12+ years of experience in full-stack development, DevOps, and enterprise solutions.">
-    <title>Francis Jason Talampas - Senior Software Engineer</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-    
-    <style>
-        /* ========== CSS VARIABLES & THEMING ========== */
-        :root {
-            --primary-bg: #f8f9fa;
-            --section-bg: #ffffff;
-            --header-bg: #212F3D;
-            --accent-color: #48C9B0;
-            --accent-hover: #40B39E;
-            --text-primary: #2C3E50;
-            --text-secondary: #5D6D7E;
-            --text-header: #fdfdfd;
-            --border-color: #e9ecef;
-            --shadow-color: rgba(44, 62, 80, 0.1);
-            --transition-duration: 0.3s;
-            --transition-timing: ease;
-            --border-radius: 12px;
-        }
-
-        /* ========== ANIMATIONS ========== */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* ========== GLOBAL STYLES ========== */
-        *, *::before, *::after {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            padding: 0;
-            padding-bottom: 40px;
-            min-height: 100vh;
-            background-color: var(--primary-bg);
-            color: var(--text-primary);
-            line-height: 1.75;
-            font-weight: 400;
-            text-rendering: optimizeLegibility;
-        }
-
-        main {
-            min-height: calc(100vh - 140px);
-        }
-
-        /* ========== HEADER ========== */
-        .header-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: var(--header-bg);
-            padding: 20px 0;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            z-index: 1000;
-            transition: padding var(--transition-duration) var(--transition-timing);
-        }
-
-        .header-content-wrapper {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 25px;
-        }
-
-        .header-container h1 {
-            margin: 0;
-            font-size: 1.75em;
-            font-weight: 700;
-            color: var(--text-header);
-            cursor: pointer;
-            letter-spacing: -0.8px;
-            transition: transform 0.2s var(--transition-timing);
-        }
-        
-        .header-container h1:active {
-            transform: scale(0.98);
-        }
-
-        .header-container .header-email {
-            display: inline-flex;
-            align-items: center;
-            margin: 4px 0 10px 0;
-            font-size: 1em;
-            font-weight: 400;
-            color: rgba(253, 253, 253, 0.8);
-            text-decoration: none;
-            transition: all var(--transition-duration) var(--transition-timing);
-            letter-spacing: 0.5px;
-        }
-        
-        .header-container .header-email i {
-            margin-right: 8px;
-            font-size: 0.9em;
-        }
-
-        .header-container .header-email:hover,
-        .header-container .header-email:active {
-            color: var(--accent-color);
-        }
-
-        .header-content-wrapper .social-links {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-        }
-
-        .header-content-wrapper .social-links a {
-            color: var(--text-header);
-            font-size: 1.5em;
-            opacity: 0.8;
-            transition: all var(--transition-duration) var(--transition-timing);
-            display: inline-block;
-            text-decoration: none;
-        }
-
-        .header-content-wrapper .social-links a:hover {
-            opacity: 1;
-            transform: translateY(-2px);
-            color: var(--accent-color);
-        }
-
-        .header-content-wrapper .social-links a:active {
-            transform: scale(0.9);
-            opacity: 1;
-            color: var(--accent-color);
-        }
-
-        .header-container .nav-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 15px;
-        }
-
-        .header-container .nav-buttons button {
-            background-color: transparent;
-            color: var(--text-header);
-            border: 1px solid rgba(253, 253, 253, 0.5);
-            padding: 8px 20px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 0.9em;
-            font-weight: 500;
-            transition: all var(--transition-duration) var(--transition-timing);
-        }
-
-        .header-container .nav-buttons button:hover {
-            background-color: var(--accent-color);
-            border-color: var(--accent-color);
-            color: var(--header-bg);
-        }
-
-        .header-container .nav-buttons button:active {
-            transform: translateY(1px) scale(0.98);
-            background-color: var(--accent-hover);
-            border-color: var(--accent-hover);
-            color: var(--header-bg);
-        }
-
-        /* ========== SECTIONS ========== */
-        .section {
-            padding: 38px 36px;
-            margin-bottom: 20px;
-            background-color: var(--section-bg);
-            border-radius: var(--border-radius);
-            box-shadow: 0 8px 32px rgba(44, 62, 80, 0.08);
-            max-width: 980px;
-            margin-left: auto;
-            margin-right: auto;
-            border: 1px solid var(--border-color);
-            text-align: center;
-            display: none;
-            scroll-margin-top: 110px;
-        }
-
-        .section.active {
-            display: block;
-            animation: fadeIn 0.55s ease-out;
-        }
-
-        .section h2 {
-            color: var(--text-primary);
-            margin-top: 0;
-            margin-bottom: 28px;
-            padding-bottom: 8px;
-            font-size: 2rem;
-            font-weight: 700;
-            position: relative;
-            display: inline-block;
-            letter-spacing: -0.4px;
-        }
-        
-        .section h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 4px;
-            background-color: var(--accent-color);
-            border-radius: 2px;
-        }
-
-        /* ========== SUMMARY SECTION ========== */
-        #summary .profile-picture {
-            display: block;
-            margin: 0 auto 30px auto;
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid var(--accent-color);
-            padding: 5px;
-            background-color: white;
-            box-shadow: 0 4px 15px var(--shadow-color);
-        }
-
-        #summary p {
-            text-align: justify;
-            max-width: 750px;
-            margin: 0 auto 1.5em auto;
-            font-size: 1.1em;
-            color: var(--text-primary);
-            line-height: 1.8;
-        }
-        
-        #summary p:last-child {
-            margin-bottom: 0;
-        }
-
-        #summary p strong {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
-        /* ========== EXPERIENCE SECTION ========== */
-        .experience-item {
-            margin-bottom: 30px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid var(--border-color);
-            text-align: left;
-        }
-
-        .experience-item:last-child { 
-            border-bottom: none; 
-        }
-        
-        .experience-header, 
-        .education-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 5px;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .experience-header .company {
-            font-weight: 600;
-            color: var(--text-primary);
-            font-size: 1.3em;
-        }
-
-        .experience-header .domain,
-        .certification-item .provider {
-            font-style: normal;
-            font-weight: 500;
-            color: var(--text-secondary);
-            font-size: 0.9em;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .experience-details {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 10px;
-            font-size: 1em;
-            color: var(--text-secondary);
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .experience-details .role {
-            font-weight: 500;
-            color: var(--text-primary);
-            font-size: 1.15em;
-        }
-        
-        .experience-details .work-years,
-        .certification-item .date,
-        .education-date {
-            color: var(--text-secondary);
-            font-size: 0.9em;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            white-space: nowrap;
-        }
-
-        .role-entry {
-            margin-top: 0;
-        }
-
-        .role-entry:not(:last-child) {
-            margin-top: 20px;
-            border-top: 1px dashed var(--border-color);
-            padding-top: 15px;
-        }
-        
-        .experience-tasks ul {
-            list-style-type: none;
-            padding-left: 10px;
-            margin-top: 12px;
-            margin-bottom: 0;
-        }
-        
-        .experience-tasks ul li {
-            position: relative;
-            padding-left: 26px;
-            margin-bottom: 12px;
-            font-size: 1.02em;
-            color: var(--text-secondary);
-            line-height: 1.9;
-        }
-
-        .experience-tasks ul li::before {
-            content: '\f00c';
-            font-family: 'Font Awesome 7 Free';
-            font-weight: 900;
-            color: var(--accent-color);
-            position: absolute;
-            left: 0;
-            top: 2px;
-            font-size: 0.85em;
-        }
-        
-        .experience-tasks ul ul { 
-            margin-top: 8px; 
-            margin-bottom: 8px; 
-        }
-
-        .experience-tasks ul ul li::before { 
-            content: '\f105'; 
-        }
-
-        /* ========== SKILLS SECTION ========== */
-        .skill-category {
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .skill-category:last-child { 
-            margin-bottom: 0;
-        }
-
-        .skill-category h3 {
-            color: var(--text-primary);
-            margin-bottom: 20px;
-            font-size: 1.4em;
-            font-weight: 600;
-        }
-
-        .skill-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            justify-content: center;
-        }
-
-        .skill-item {
-            background-color: var(--primary-bg);
-            border: 1px solid var(--border-color);
-            color: var(--text-secondary);
-            padding: 8px 18px;
-            border-radius: 8px;
-            font-size: 0.95em;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            transition: all var(--transition-duration) var(--transition-timing);
-        }
-        
-        .skill-item:hover {
-            transform: translateY(-3px);
-            background-color: var(--accent-color);
-            color: white;
-            border-color: var(--accent-color);
-            box-shadow: 0 4px 10px rgba(72, 201, 176, 0.4);
-        }
-        
-        .skill-item i {
-            color: var(--accent-color);
-            font-size: 1em;
-            margin-right: 8px;
-            transition: color var(--transition-duration) var(--transition-timing);
-        }
-        
-        .skill-item:hover i { 
-            color: white; 
-        }
-
-        /* ========== CREDENTIALS SECTION ========== */
-        .subsection-container { 
-            margin-bottom: 30px; 
-        }
-
-        .subsection-container:last-child { 
-            margin-bottom: 0; 
-        }
-        
-        .subsection-title {
-            color: var(--text-primary);
-            margin-bottom: 20px;
-            font-size: 1.4em;
-            font-weight: 600;
-        }
-        
-        .list-container { 
-            max-width: 800px; 
-            margin: 0 auto; 
-            text-align: left; 
-        }
-        
-        .certification-item, 
-        .education-item {
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        .certification-item:last-child, 
-        .education-item:last-child { 
-            border-bottom: none; 
-        }
-
-        .certification-item .title, 
-        .education-item .institution {
-            font-weight: 600;
-            color: var(--text-primary);
-            font-size: 1.1em;
-            margin-bottom: 4px;
-        }
-        
-        .certification-content {
-            display: flex; 
-            justify-content: space-between; 
-            align-items: baseline; 
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .certification-details {
-            flex: 1;
-        }
-
-        .certification-details p {
-            margin: 0;
-            line-height: 1.6;
-        }
-
-        .certification-details p.provider {
-            margin-top: 4px;
-            font-size: 0.9em;
-        }
-
-        .degree {
-            margin-top: 4px;
-            font-size: 0.95em;
-            color: var(--text-secondary);
-        }
-
-        /* ========== RESPONSIVE DESIGN ========== */
-        @media (max-width: 768px) {
-            body { 
-                line-height: 1.6; 
-            }
-
-            .header-container h1 { 
-                font-size: 1.8em; 
-            }
-
-            .header-container { 
-                padding: 15px 0; 
-            }
-            
-            .header-container .nav-buttons {
-                gap: 8px;
-                margin-top: 15px;
-            }
-
-            .header-container .nav-buttons button { 
-                padding: 7px 15px; 
-                font-size: 0.85em;
-            }
-            
-            .section { 
-                padding: 25px; 
-            }
-
-            .section h2 { 
-                font-size: 2em; 
-                margin-bottom: 30px; 
-            }
-
-            #summary .profile-picture { 
-                width: 140px; 
-                height: 140px; 
-            }
-
-            #summary p { 
-                font-size: 1em; 
-                line-height: 1.7; 
-            }
-
-            .experience-header, 
-            .experience-details, 
-            .certification-content, 
-            .education-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header-container h1 { 
-                font-size: 1.5em; 
-            }
-
-            .header-container .header-email { 
-                font-size: 0.9em; 
-            }
-
-            .header-container .nav-buttons { 
-                flex-direction: column; 
-                align-items: center; 
-                width: 100%;
-            }
-
-            .header-container .nav-buttons button { 
-                width: 80%; 
-                text-align: center; 
-            }
-
-            .section { 
-                padding: 20px 15px; 
-            }
-
-            .section h2 { 
-                font-size: 1.8em; 
-            }
-
-            #summary .profile-picture { 
-                width: 120px; 
-                height: 120px; 
-            }
-            
-            .experience-header .company { 
-                font-size: 1.2em; 
-            }
-
-            .experience-details .role { 
-                font-size: 1.1em; 
-            }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Francis Jason Talampas is a senior software engineer modernizing enterprise Java platforms, delivery pipelines, and developer environments.">
+  <meta name="theme-color" content="#101714">
+  <link rel="canonical" href="https://fjgtalampas.github.io/">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Francis Jason Talampas — Senior Software Engineer">
+  <meta property="og:description" content="Modernizing enterprise platforms with Java, Spring Boot, DevSecOps, and pragmatic engineering leadership.">
+  <meta property="og:url" content="https://fjgtalampas.github.io/">
+  <meta property="og:image" content="https://fjgtalampas.github.io/images/profile.jpg">
+  <meta name="twitter:card" content="summary">
+  <title>Francis Jason Talampas — Senior Software Engineer</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Francis Jason Talampas",
+      "jobTitle": "Senior Software Engineer",
+      "url": "https://fjgtalampas.github.io/",
+      "image": "https://fjgtalampas.github.io/images/profile.jpg",
+      "sameAs": [
+        "https://github.com/fjgtalampas",
+        "https://linkedin.com/in/fjgtalampas"
+      ],
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "University of Santo Tomas"
+      }
+    }
+  </script>
 </head>
 <body>
-    <a href="#main-content" style="position: absolute; top: -40px; left: 0; background: var(--accent-color); color: white; padding: 8px; border-radius: 0 0 4px 0; z-index: 100;">Skip to main content</a>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    <header class="header-container" role="banner">
-        <div class="header-content-wrapper">
-            <h1 onclick="showSection('summary')" tabindex="0" role="button" aria-label="Francis Jason Talampas - Click to view summary">
-                FRANCIS JASON TALAMPAS
-            </h1>
-            <nav class="social-links" aria-label="Social media links">
-                <a href="https://linkedin.com/in/fjgtalampas" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
-                    <i class="fab fa-linkedin" aria-hidden="true"></i>
-                </a>
-                <a href="mailto:fjgtalampas@outlook.com" target="_blank" rel="noopener noreferrer" aria-label="Send email to fjgtalampas@outlook.com">
-                    <i class="fas fa-envelope" aria-hidden="true"></i>
-                </a>
-                <a href="https://github.com/fjgtalampas" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
-                    <i class="fab fa-github" aria-hidden="true"></i>
-                </a>
-            </nav>
+  <header class="site-header">
+    <a class="wordmark" href="#top" aria-label="Francis Jason Talampas, home">
+      <span>FJT</span>
+      <span class="wordmark-name">Francis Jason Talampas</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">
+      <span class="menu-label">Menu</span>
+      <span class="menu-icon" aria-hidden="true"></span>
+    </button>
+    <nav id="site-navigation" class="site-nav" aria-label="Primary navigation">
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#credentials">Credentials</a>
+      <a class="nav-contact" href="mailto:fjgtalampas@outlook.com">Let’s talk</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section id="top" class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Senior Software Engineer · Manila, Philippines</p>
+        <h1 id="hero-title">I modernize enterprise software that teams depend on.</h1>
+        <p class="hero-intro">I transform legacy Java platforms into secure, maintainable services—and improve the delivery systems that help engineering teams ship with confidence.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="mailto:fjgtalampas@outlook.com">Start a conversation <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="#work">See selected impact <span aria-hidden="true">↓</span></a>
         </div>
-        <nav class="nav-buttons" aria-label="Main navigation">
-            <button onclick="showSection('experience')" aria-label="View professional experience section">Professional Experience</button>
-            <button onclick="showSection('skills')" aria-label="View skills section">Skills</button>
-            <button onclick="showSection('education-certs')" aria-label="View credentials section">Credentials</button>
-        </nav>
-    </header>
+        <div class="social-links" aria-label="External profiles">
+          <a href="https://github.com/fjgtalampas" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+          <a href="https://linkedin.com/in/fjgtalampas" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <div class="hero-portrait">
+        <div class="portrait-frame">
+          <img src="images/profile.jpg" width="672" height="720" alt="Francis Jason Talampas" fetchpriority="high">
+        </div>
+        <p><span class="availability-dot" aria-hidden="true"></span> Focused on reliable, long-lived software</p>
+      </div>
+    </section>
 
-    <main id="main-content" role="main">
-        <section id="summary" class="section">
-            <h2>Summary</h2>
-            <img src="images/profile.png" alt="Profile picture of Francis Jason Talampas" class="profile-picture">
-            <p>
-                Senior Software Engineer with 12+ years of experience in full-stack development. Experienced in migrating legacy systems to Spring Boot microservices and containerized platforms while integrating robust DevSecOps practices across the development lifecycle. Passionate about mentoring peers, continuously improving engineering standards, and delivering reliable enterprise solutions that balance performance, security, and long-term maintainability.
-            </p>
-        </section>
+    <section class="proof-strip" aria-label="Career highlights">
+      <div><strong>12+</strong><span>years in software engineering</span></div>
+      <div><strong>150+</strong><span>security findings remediated</span></div>
+      <div><strong>Java 8 → 21</strong><span>platform modernization</span></div>
+      <div><strong>50%</strong><span>defect reduction in key modules</span></div>
+    </section>
 
-        <section id="experience" class="section">
-            <h2>Professional Experience</h2>
+    <section id="work" class="section-shell selected-work" aria-labelledby="work-title">
+      <header class="section-heading">
+        <p class="eyebrow">Selected impact</p>
+        <h2 id="work-title">Practical outcomes from complex engineering.</h2>
+        <p>Selected work across platform modernization, secure delivery, developer experience, and production reliability.</p>
+      </header>
+      <div class="impact-grid">
+        <article class="impact-card impact-featured">
+          <p class="card-index">01 / Modernization</p>
+          <h3>Modernizing a legacy services platform for Java 21</h3>
+          <p>Leading the migration of reporting, integration, and shared services from Java 8 and Google Guice to Spring Boot and Java 21—while replacing stored procedures with Spring Data JPA and improving technical documentation.</p>
+          <ul class="tag-list" aria-label="Technologies">
+            <li>Java 21</li><li>Spring Boot</li><li>Spring Data JPA</li><li>Architecture</li>
+          </ul>
+        </article>
+        <article class="impact-card">
+          <p class="card-index">02 / DevSecOps</p>
+          <h3>Building security into delivery</h3>
+          <p>Modernized CI/CD with GitHub Actions, embedded CodeQL scanning, and led Arnica and Checkmarx audits that identified and remediated more than 150 vulnerabilities.</p>
+          <ul class="tag-list" aria-label="Technologies">
+            <li>GitHub Actions</li><li>CodeQL</li><li>Docker</li>
+          </ul>
+        </article>
+        <article class="impact-card">
+          <p class="card-index">03 / Developer experience</p>
+          <h3>Reducing setup from hours to minutes</h3>
+          <p>Engineered portable Docker environments with ready-to-use databases and multi-branch stacks, accelerating onboarding and shortening manual testing cycles.</p>
+          <ul class="tag-list" aria-label="Technologies">
+            <li>Docker</li><li>Oracle</li><li>PostgreSQL</li>
+          </ul>
+        </article>
+      </div>
+    </section>
 
-            <div class="experience-item">
-                <div class="experience-header">
-                    <span class="company">FINASTRA</span>
-                    <span class="domain">Full Stack - Corporate Treasury Innovation</span>
-                </div>
+    <section id="experience" class="section-shell experience" aria-labelledby="experience-title">
+      <header class="section-heading">
+        <p class="eyebrow">Experience</p>
+        <h2 id="experience-title">Experience across the software lifecycle.</h2>
+      </header>
+      <div class="timeline">
+        <article class="timeline-item">
+          <div class="timeline-meta"><span>2020—Present</span><span>Finastra</span></div>
+          <div class="timeline-content">
+            <h3>Senior Software Engineer</h3>
+            <p class="role-focus">Corporate Treasury Innovation · Full stack / DevSecOps</p>
+            <p>Leading Spring Boot modernization, payment-processing services, security initiatives, and developer-environment improvements. Previously delivered cross-database integrations, reporting capabilities, and application hardening.</p>
+            <details>
+              <summary>Read key contributions</summary>
+              <ul>
+                <li>Architected migration of legacy Guice services to Spring Boot and Java 21.</li>
+                <li>Built payment import, validation, and signing features for PAIN.003 and MT101 formats.</li>
+                <li>Modernized Jenkins workflows and created GitHub Actions pipelines for microservices.</li>
+                <li>Standardized PostgreSQL and Oracle development environments with Docker automation.</li>
+              </ul>
+            </details>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <div class="timeline-meta"><span>2022—2023</span><span>Oracle NetSuite</span></div>
+          <div class="timeline-content">
+            <h3>Software Engineer in Test</h3>
+            <p class="role-focus">Infrastructure Operations · Performance</p>
+            <p>Automated Sales Order Management performance benchmarks and provisioned ephemeral NetSuite stacks on Oracle Cloud Infrastructure.</p>
+            <details>
+              <summary>Read key contributions</summary>
+              <ul>
+                <li>Refactored parameterized JMeter tests for TeamCity and OpenSearch reporting.</li>
+                <li>Automated flexible application stacks with Ansible and Terraform on OCI.</li>
+              </ul>
+            </details>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <div class="timeline-meta"><span>2016—2020</span><span>Deltek</span></div>
+          <div class="timeline-content">
+            <h3>Software Engineer</h3>
+            <p class="role-focus">Costpoint ERP · Backend</p>
+            <p>Engineered costing and organization-security capabilities, modernized legacy database code, and improved quality across business-critical materials modules.</p>
+            <details>
+              <summary>Read key contributions</summary>
+              <ul>
+                <li>Reduced defects by 50% across three critical modules through root-cause analysis.</li>
+                <li>Replaced procedural database code with maintainable JDBC and efficient MERGE operations.</li>
+                <li>Created innovation prototypes for automated testing, HR workflows, and receipt OCR.</li>
+              </ul>
+            </details>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <div class="timeline-meta"><span>2013—2016</span><span>Philtech</span></div>
+          <div class="timeline-content">
+            <h3>Site Reliability Engineer</h3>
+            <p class="role-focus">Supply Chain Operations · Production reliability</p>
+            <p>Stabilized ordering and forecasting applications, resolved production incidents, improved batch throughput, and documented complex operational flows.</p>
+          </div>
+        </article>
+      </div>
+    </section>
 
-                <div class="experience-details">
-                    <span class="role">Senior Software Engineer</span>
-                    <span class="work-years">November 2023 - Present</span>
-                </div>
-                <div class="experience-tasks">
-                    <ul>
-                        <li><strong>Spring Boot Migration Project Lead</strong>
-                            <ul>
-                                <li>Spearheaded the architectural migration of Reporting, Integration, and Commons Services from a legacy Google Guice framework (Java 8) to Spring Boot (Java 21), utilizing LLM-driven code analysis to accelerate refactoring and ensure long-term scalability.</li>
-                                <li>Modernized the persistence layer by replacing legacy stored procedures with Spring Data JPA, standardizing API mappings, and updating dependencies to resolve critical vulnerabilities while meeting licensing and compliance standards.</li>
-                                <li>Elevated code quality and knowledge transfer by leveraging AI-assisted analysis and reviews to produce comprehensive migration guides and robust JavaDocs.</li>
-                            </ul>
-                        </li>
-                        <li><strong>Payment Factory Project</strong>
-                            <ul>
-                                <li>Developed Spring Boot microservices for payment processing, implementing file import, validation, and digital signing features for PAIN.003 and MT101 ISO 20022 payment formats.</li>
-                            </ul>
-                        </li>
-                        <li><strong>DevSecOps Lead</strong>
-                            <ul>
-                                <li>Orchestrated CI/CD modernization, migrating front-end builds from Jenkins to GitHub Actions and architecting automated workflows for Spring Boot microservices.</li>
-                                <li>Engineered Docker-based development environments featuring pre-configured databases and multi-branch stacks, slashing local setup time from hours to minutes and significantly accelerating manual testing cycles.</li>
-                                <li>Integrated security-first practices by embedding CodeQL scans into pipelines and leading security audits via Arnica and Checkmarx, successfully identifying and remediating 150+ vulnerabilities.</li>
-                                <li>Governed repository integrity and package releases while mentoring engineering peers on environment orchestration and DevOps best practices.</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+    <section id="capabilities" class="section-shell capabilities" aria-labelledby="capabilities-title">
+      <header class="section-heading">
+        <p class="eyebrow">Capabilities</p>
+        <h2 id="capabilities-title">Technical depth, applied with purpose.</h2>
+        <p>Enterprise engineering capabilities shaped by the systems I build, secure, modernize, and support.</p>
+      </header>
+      <div class="capability-grid">
+        <article><span class="capability-number">01</span><h3>Backend architecture</h3><p>Java · Spring Boot · REST APIs · Spring Data JPA · Maven · Node.js</p></article>
+        <article><span class="capability-number">02</span><h3>Platform engineering</h3><p>Docker · GitHub Actions · Jenkins · TeamCity · CI/CD · Shell automation</p></article>
+        <article><span class="capability-number">03</span><h3>Data systems</h3><p>Oracle · PostgreSQL · SQL · PL/SQL · PL/pgSQL · Data migrations</p></article>
+        <article><span class="capability-number">04</span><h3>Security & quality</h3><p>DevSecOps · CodeQL · Checkmarx · OWASP · Secure SDLC · Performance testing</p></article>
+        <article><span class="capability-number">05</span><h3>Cloud & operations</h3><p>OCI · Terraform · Ansible · Linux · Production support · Systems engineering</p></article>
+        <article><span class="capability-number">06</span><h3>Engineering leadership</h3><p>Technical mentorship · Architecture guidance · Documentation · Agile delivery · AI-assisted development</p></article>
+      </div>
+    </section>
 
-                <div class="experience-details">
-                    <span class="role">Software Engineer</span>
-                    <span class="work-years">November 2020 - March 2022</span>
-                </div>
-                <div class="experience-tasks">
-                    <ul>
-                        <li>Implemented custom APIs, data bindings, and PL/pgSQL procedures for the PostgreSQL integration initiative alongside Oracle to establish cross-platform interoperability and data consistency.</li>
-                        <li>Streamlined database provisioning and refresh cycles for local development environments (Oracle and PostgreSQL) by orchestrating Docker containerization and developing custom Bash/Batch automation scripts, accelerating ingestion of new database dumps from clients and QA teams.</li>
-                        <li>Developed aggregation, sorting, and criteria filtering capabilities within the Report Designer preview module, enabling users to generate reports by combining specific criteria, aggregations, and filters to analyze transaction data.</li>
-                        <li>Enhanced application security by embedding OWASP standards and static code analysis directly into the source codebase and Logback logging framework, while proactively refactoring legacy Java modules to improve maintainability and execution efficiency.</li>
-                        <li>Secured the existing Node.js front-end framework by integrating Gulp-driven minification and obfuscation into the build pipeline, effectively protecting client-side assets against reverse engineering.</li>
-                    </ul>
-                </div>
-            </div>
+    <section id="credentials" class="section-shell credentials" aria-labelledby="credentials-title">
+      <header class="section-heading">
+        <p class="eyebrow">Credentials</p>
+        <h2 id="credentials-title">Always learning.</h2>
+      </header>
+      <div class="credential-columns">
+        <div>
+          <h3>Education & certification</h3>
+          <article><p>BS Information Technology</p><span>University of Santo Tomas · 2013</span></article>
+          <article><p>OCI Foundations Certified Associate</p><span>Oracle · 2022</span></article>
+        </div>
+        <div>
+          <h3>Recent training</h3>
+          <article><p>Prompt Engineering</p><span>Pluralsight · 2026</span></article>
+          <article><p>Generative AI for Developers</p><span>Pluralsight · 2026</span></article>
+          <article><p>Generative AI Foundations</p><span>Pluralsight · 2025</span></article>
+        </div>
+      </div>
+    </section>
 
-            <div class="experience-item">
-                <div class="experience-header">
-                    <span class="company">ORACLE NETSUITE</span>
-                    <span class="domain">Infrastructure Operations - Performance</span>
-                </div>
-                <div class="experience-details">
-                    <span class="role">Software Engineer in Test</span>
-                    <span class="work-years">April 2022 - October 2023</span>
-                </div>
-                <div class="experience-tasks">
-                    <ul>
-                        <li>Automated NetSuite Sales Order Management performance benchmarks by refactoring JMeter parameterized scripts for TeamCity integration and OpenSearch visualization.</li>
-                        <li>Provisioned ephemeral NetSuite stacks on Oracle Cloud Infrastructure using Ansible and Terraform, enabling rapid setup and flexible application version selection for performance testing.</li>
-                    </ul>
-                </div>
-            </div>
+    <section class="contact-section" aria-labelledby="contact-title">
+      <h2 id="contact-title">Let’s find a way—or make one.<br>Let’s make ends meet.</h2>
+      <a href="mailto:fjgtalampas@outlook.com">fjgtalampas@outlook.com <span aria-hidden="true">↗</span></a>
+    </section>
+  </main>
 
-            <div class="experience-item">
-                <div class="experience-header">
-                    <span class="company">DELTEK</span>
-                    <span class="domain">Back-end - Costpoint ERP</span>
-                </div>
-                <div class="experience-details">
-                    <span class="role">Software Engineer</span>
-                    <span class="work-years">March 2016 - October 2020</span>
-                </div>
-                <div class="experience-tasks">
-                    <ul>
-                        <li>Engineered Standard Costing functionality across multiple materials modules, enabling dynamic baseline pricing via actual market data while supporting historical averages, which significantly enhanced cost accuracy for raw materials and finished goods.</li>
-                        <li>Architected organization-level security controls to enforce granular access restrictions on material data and transactions based on user assignments, strengthening data integrity and ensuring regulatory compliance.</li>
-                        <li>Led application modernization initiatives by refactoring legacy Oracle and MS SQL stored procedures into inline queries and JDBC calls; further optimized performance by converting SELECT-UPDATE loops into efficient MERGE statements, resulting in improved code maintainability and reduced processing runtime.</li>
-                        <li>Reduced application defects by 50% across three critical modules (2016-2017) through proactive root cause analysis and targeted quality assurance strategies.</li>
-                        <li>Accelerated regression testing cycles by designing an automated data refresh solution using Web Services and LoadRunner at the Global Engineering Innovation Hackathon 2020, significantly improving QE efficiency.</li>
-                        <li>Developed a Proof of Concept (PoC) for an Electronic Acknowledgement Process at Manila Ideafest 2019 to automate manual HR workflows, demonstrating potential for enterprise-wide efficiency gains.</li>
-                        <li>Integrated OCR technology for receipt scanning at the GovCon Engineering Innovation Summit 2017, drastically reducing manual data entry and increasing productivity within the expense management module.</li>
-                        <li>Drove quality assurance for the SQL Server Materials Pre-processor enhancement by performing rigorous unit testing, developing detailed test matrices, and generating accurate CSV input files through precise source code analysis and field mapping.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="experience-item">
-                <div class="experience-header">
-                    <span class="company">PHILTECH</span>
-                    <span class="domain">Supply Chain Operations</span>
-                </div>
-                <div class="experience-details">
-                    <span class="role">Site Reliability Engineer</span>
-                    <span class="work-years">August 2013 - March 2016</span>
-                </div>
-                <div class="experience-tasks">
-                    <ul>
-                        <li>Stabilized and optimized critical ordering and forecasting ERP applications by delivering full-cycle support — from designing and deploying production fixes to resolving batch job concurrency issues — while implementing rescheduling strategies via ESP Workload Manager that improved performance, increased throughput, and reduced job abends.</li>
-                        <li>Resolved production incidents reported by business users by correcting order and forecasting data via SQL; troubleshot end-to-end file transfers using Opentext MIM Process Monitor, and coordinated with external vendors as needed.</li>
-                        <li>Partnered with onshore developers and migration teams to support application enhancements and deployments, reverse engineering process flows to produce comprehensive support documentation.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        
-        <section id="skills" class="section">
-            <h2>Skills</h2>
-
-            <div class="skill-category">
-                <h3>Languages & Frameworks</h3>
-                <div class="skill-list">
-                    <div class="skill-item"><i class="fab fa-java" aria-hidden="true"></i> Java</div>
-                    <div class="skill-item"><i class="fas fa-seedling" aria-hidden="true"></i> Spring Boot</div>
-                    <div class="skill-item"><i class="fas fa-plug" aria-hidden="true"></i> REST APIs</div>
-                    <div class="skill-item"><i class="fab fa-js" aria-hidden="true"></i> JavaScript</div>
-                    <div class="skill-item"><i class="fab fa-node-js" aria-hidden="true"></i> Node.js</div>
-                    <div class="skill-item"><i class="fab fa-html5" aria-hidden="true"></i> HTML</div>
-                    <div class="skill-item"><i class="fab fa-css3-alt" aria-hidden="true"></i> CSS</div>
-                    <div class="skill-item"><i class="fas fa-terminal" aria-hidden="true"></i> Shell Scripting</div>
-                    <div class="skill-item"><i class="fas fa-file-lines" aria-hidden="true"></i> Batch Scripting</div>
-                </div>
-            </div>
-
-            <div class="skill-category">
-                <h3>Databases</h3>
-                <div class="skill-list">
-                    <div class="skill-item"><i class="fas fa-database" aria-hidden="true"></i> SQL</div>
-                    <div class="skill-item"><i class="fas fa-database" aria-hidden="true"></i> Oracle (PL/SQL)</div>
-                    <div class="skill-item"><i class="fas fa-server" aria-hidden="true"></i> PostgreSQL (PL/pgSQL)</div>
-                </div>
-            </div>
-
-            <div class="skill-category">
-                <h3>Tools</h3>
-                <div class="skill-list">
-                    <div class="skill-item"><i class="fab fa-git-alt" aria-hidden="true"></i> Git</div>
-                    <div class="skill-item"><i class="fas fa-box" aria-hidden="true"></i> Maven</div>
-                    <div class="skill-item"><i class="fas fa-robot" aria-hidden="true"></i> Jenkins</div>
-                    <div class="skill-item"><i class="fab fa-github" aria-hidden="true"></i> GitHub Actions</div>
-                    <div class="skill-item"><i class="fas fa-diagram-project" aria-hidden="true"></i> GitHub Projects</div>
-                    <div class="skill-item"><i class="fas fa-server" aria-hidden="true"></i> TeamCity</div>
-                    <div class="skill-item"><i class="fas fa-paper-plane" aria-hidden="true"></i> Postman</div>
-                    <div class="skill-item"><i class="fab fa-jira" aria-hidden="true"></i> Jira</div>
-                    <div class="skill-item"><i class="fab fa-confluence" aria-hidden="true"></i> Confluence</div>
-                    <div class="skill-item"><i class="fas fa-code" aria-hidden="true"></i> Visual Studio Code</div>
-                    <div class="skill-item"><i class="fas fa-lightbulb" aria-hidden="true"></i> JetBrains IntelliJ IDEA</div>
-                </div>
-            </div>
-
-            <div class="skill-category">
-                <h3>Platforms</h3>
-                <div class="skill-list">
-                    <div class="skill-item"><i class="fab fa-windows" aria-hidden="true"></i> Windows</div>
-                    <div class="skill-item"><i class="fab fa-apple" aria-hidden="true"></i> macOS</div>
-                    <div class="skill-item"><i class="fab fa-linux" aria-hidden="true"></i> Linux</div>
-                    <div class="skill-item"><i class="fab fa-ubuntu" aria-hidden="true"></i> Ubuntu</div>
-                    <div class="skill-item"><i class="fab fa-redhat" aria-hidden="true"></i> Red Hat Enterprise Linux (RHEL)</div>
-                    <div class="skill-item"><i class="fas fa-terminal" aria-hidden="true"></i> Windows Subsystem for Linux (WSL)</div>
-                    <div class="skill-item"><i class="fab fa-docker" aria-hidden="true"></i> Docker</div>
-                    <div class="skill-item"><i class="fas fa-cloud" aria-hidden="true"></i> Oracle Cloud Infrastructure (OCI)</div>
-                </div>
-            </div>
-
-            <div class="skill-category">
-                <h3>AI & Productivity</h3>
-                <div class="skill-list">
-                    <div class="skill-item"><i class="fab fa-github" aria-hidden="true"></i> GitHub Copilot</div>
-                    <div class="skill-item"><i class="fas fa-brain" aria-hidden="true"></i> LLMs</div>
-                    <div class="skill-item"><i class="fas fa-keyboard" aria-hidden="true"></i> Prompt Engineering</div>
-                </div>
-            </div>
-
-            <div class="skill-category">
-                <h3>Methodologies</h3>
-                <div class="skill-list">
-                    <div class="skill-item"><i class="fas fa-project-diagram" aria-hidden="true"></i> SDLC</div>
-                    <div class="skill-item"><i class="fas fa-sitemap" aria-hidden="true"></i> Systems Engineering</div>
-                    <div class="skill-item"><i class="fas fa-server" aria-hidden="true"></i> System Administration</div>
-                    <div class="skill-item"><i class="fas fa-sync-alt" aria-hidden="true"></i> DevOps</div>
-                    <div class="skill-item"><i class="fas fa-shield-halved" aria-hidden="true"></i> DevSecOps</div>
-                    <div class="skill-item"><i class="fas fa-repeat" aria-hidden="true"></i> CI/CD</div>
-                    <div class="skill-item"><i class="fas fa-book" aria-hidden="true"></i> ITIL</div>
-                    <div class="skill-item"><i class="fas fa-users" aria-hidden="true"></i> Agile</div>
-                    <div class="skill-item"><i class="fas fa-people-arrows" aria-hidden="true"></i> Scrum</div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="education-certs" class="section">
-            <h2>Credentials</h2>
-        
-            <div class="subsection-container">
-                <h3 class="subsection-title">Trainings</h3>
-                <div class="list-container">
-                    <div class="certification-item">
-                        <div class="certification-content">
-                            <div class="certification-details">
-                                <p class="title">Prompt Engineering</p>
-                                <p class="provider">Pluralsight</p>
-                            </div>
-                            <p class="date">Completed: January 2026</p>
-                        </div>
-                    </div>
-                    <div class="certification-item">
-                        <div class="certification-content">
-                            <div class="certification-details">
-                                <p class="title">Generative AI for Developers</p>
-                                <p class="provider">Pluralsight</p>
-                            </div>
-                            <p class="date">Completed: January 2026</p>
-                        </div>
-                    </div>
-                    <div class="certification-item">
-                        <div class="certification-content">
-                            <div class="certification-details">
-                                <p class="title">Generative AI Foundations</p>
-                                <p class="provider">Pluralsight</p>
-                            </div>
-                            <p class="date">Completed: October 2025</p>
-                        </div>
-                    </div>
-                    <div class="certification-item">
-                        <div class="certification-content">
-                            <div class="certification-details">
-                                <p class="title">Master Agile Software Development</p>
-                                <p class="provider">Linkedin Learning</p>
-                            </div>
-                            <p class="date">Completed: July 2020</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="subsection-container">
-                <h3 class="subsection-title">Certifications</h3>
-                <div class="list-container">
-                    <div class="certification-item">
-                        <div class="certification-content">
-                            <div class="certification-details">
-                                <p class="title">Oracle Cloud Infrastructure Foundations 2021 Certified Associate</p>
-                                <p class="provider">Oracle</p>
-                            </div>
-                            <p class="date">Issued: March 2022</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-            <div class="subsection-container">
-                <h3 class="subsection-title">Education</h3>
-                <div class="list-container">
-                    <div class="education-item">
-                        <div class="education-header">
-                            <p class="institution">University of Santo Tomas</p>
-                            <p class="education-date">Graduated: March 2013</p>
-                        </div>
-                        <p class="degree">Bachelor of Science in Information Technology</p>
-                    </div>
-            
-                    <div class="education-item">
-                        <div class="education-header">
-                            <p class="institution">Don Bosco Technical Institute</p>
-                            <p class="education-date">Graduated: March 2009</p>
-                        </div>
-                        <p class="degree">High School (4-Year Preparatory Technician Course in Computer Technology)</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <script>
-        /**
-         * Navigation and DOM Management
-         */
-        
-        /**
-         * Show a specific section and hide others
-         * @param {string} sectionId - The ID of the section to display
-         */
-        function showSection(sectionId) {
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
-
-            const activeSection = document.getElementById(sectionId);
-            if (activeSection) {
-                activeSection.classList.add('active');
-                document.documentElement.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-        }
-
-        /**
-         * Adjust body padding based on header height
-         */
-        function adjustBodyPadding() {
-            const header = document.querySelector('.header-container');
-            if (header) {
-                const headerHeight = header.offsetHeight;
-                document.body.style.paddingTop = `${headerHeight + 20}px`;
-            }
-        }
-
-        /**
-         * Handle keyboard navigation for header name
-         */
-        function handleHeaderKeyPress(event) {
-            if (event.key === 'Enter' || event.key === ' ') {
-                event.preventDefault();
-                showSection('summary');
-            }
-        }
-
-        /**
-         * Initialize on page load
-         */
-        document.addEventListener('DOMContentLoaded', () => {
-            adjustBodyPadding();
-            showSection('summary');
-
-            // Add keyboard support to header h1
-            const headerTitle = document.querySelector('.header-container h1');
-            if (headerTitle) {
-                headerTitle.addEventListener('keypress', handleHeaderKeyPress);
-            }
-        });
-
-        /**
-         * Recalculate padding on window resize
-         */
-        window.addEventListener('resize', adjustBodyPadding);
-
-        /**
-         * Handle focus visible for better keyboard navigation UX
-         */
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'Tab') {
-                document.body.classList.add('keyboard-nav');
-            }
-        });
-
-        document.addEventListener('mousedown', () => {
-            document.body.classList.remove('keyboard-nav');
-        });
-    </script>
+  <footer class="site-footer">
+    <p>© <span id="current-year">2026</span> Francis Jason Talampas</p>
+    <p>Designed and built with care in Manila.</p>
+    <a href="#top">Back to top ↑</a>
+  </footer>
 </body>
 </html>
