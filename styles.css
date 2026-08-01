@@ -95,7 +95,7 @@ img { display: block; max-width: 100%; }
   font-weight: 650;
   text-decoration: none;
 }
-.site-nav a:not(.nav-contact)::after {
+.site-nav a::after {
   content: "";
   position: absolute;
   left: 0;
@@ -106,12 +106,6 @@ img { display: block; max-width: 100%; }
   transition: right .25s var(--ease);
 }
 .site-nav a:hover::after, .site-nav a[aria-current="true"]::after { right: 0; }
-.nav-contact {
-  padding: .65rem 1rem;
-  border-radius: 999px;
-  background: var(--ink);
-  color: var(--white);
-}
 .menu-toggle { display: none; }
 
 .hero {
@@ -137,20 +131,7 @@ h1, h2, h3, p { margin-top: 0; }
 h1, h2, h3 { line-height: 1.1; letter-spacing: -.035em; }
 h1 { max-width: 12.5ch; margin-bottom: 1.5rem; font-size: clamp(3rem, 6.8vw, 6.3rem); font-weight: 750; }
 .hero-intro { max-width: 58ch; color: var(--muted); font-size: clamp(1.08rem, 1.7vw, 1.3rem); }
-.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1.4rem; margin-top: 2.2rem; }
-.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: .8rem;
-  min-height: 3.4rem;
-  padding: .85rem 1.25rem;
-  border-radius: 999px;
-  font-weight: 700;
-  text-decoration: none;
-}
-.button-primary { background: var(--green); color: var(--white); transition: transform .2s var(--ease), background .2s; }
-.button-primary:hover { background: var(--ink); transform: translateY(-2px); }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; margin-top: 2.2rem; }
 .text-link, .social-links a { font-weight: 700; text-underline-offset: .3em; }
 .social-links { display: flex; gap: 1.5rem; margin-top: clamp(2.75rem, 6vw, 4.75rem); font-size: .94rem; }
 .hero-portrait { justify-self: end; width: min(100%, 23rem); }
@@ -279,7 +260,6 @@ details li + li { margin-top: .6rem; }
   }
   .site-nav.is-open { display: flex; }
   .site-nav a { padding: .9rem 0; font-size: 1.05rem; }
-  .nav-contact { margin-top: .5rem; padding: .8rem 1rem !important; text-align: center; }
   .hero { grid-template-columns: 1fr .48fr; min-height: auto; }
   .proof-strip { grid-template-columns: repeat(2, 1fr); }
   .proof-strip > div:nth-child(2) { border-right: 0; }
@@ -302,7 +282,6 @@ details li + li { margin-top: .6rem; }
   .hero-portrait { justify-self: center; width: min(84vw, 20rem); }
   .portrait-frame img { aspect-ratio: 14 / 15; }
   .hero-actions { align-items: stretch; flex-direction: column; }
-  .button { width: 100%; }
   .text-link { align-self: flex-start; min-height: 2.75rem; padding-top: .6rem; }
   .social-links { margin-top: 3rem; }
   .proof-strip { grid-template-columns: 1fr 1fr; }
