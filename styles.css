@@ -153,11 +153,12 @@ h1 { max-width: 12.5ch; margin-bottom: 1.5rem; font-size: clamp(3rem, 6.8vw, 6.3
 .availability-dot { display: inline-block; width: .55rem; height: .55rem; margin-right: .45rem; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 .3rem rgba(47,111,85,.12); }
 
 .proof-strip {
+  --proof-line: var(--line);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  border-block: 1px solid var(--line);
+  border-block: 1px solid var(--proof-line);
 }
-.proof-strip > div { min-height: 9rem; padding: 1.75rem var(--page-pad); border-right: 1px solid var(--line); }
+.proof-strip > div { min-height: 9rem; padding: 1.75rem clamp(1.25rem, 2.5vw, 2rem); border-right: 1px solid var(--proof-line); }
 .proof-strip > div:last-child { border: 0; }
 .proof-strip strong { display: block; margin-bottom: .6rem; font-size: clamp(1.7rem, 3vw, 2.8rem); letter-spacing: -.05em; }
 .proof-strip span { display: block; max-width: 18ch; color: var(--muted); font-size: .92rem; line-height: 1.45; }
@@ -177,6 +178,11 @@ h1 { max-width: 12.5ch; margin-bottom: 1.5rem; font-size: clamp(3rem, 6.8vw, 6.3
 .selected-work > * { max-width: calc(var(--max-width) - (var(--page-pad) * 2)); margin-left: auto; margin-right: auto; }
 .selected-work .section-heading > p:last-child { color: #aeb8b0; }
 .selected-work .eyebrow { color: var(--green-bright); }
+.impact-stats {
+  --proof-line: rgba(255,255,255,.2);
+  margin-bottom: clamp(2.5rem, 5vw, 4.25rem);
+}
+.impact-stats span { color: #aeb8b0; }
 .impact-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid rgba(255,255,255,.2); border-left: 1px solid rgba(255,255,255,.2); }
 .impact-card { display: flex; flex-direction: column; min-height: 24rem; padding: clamp(1.5rem, 4vw, 3rem); border-right: 1px solid rgba(255,255,255,.2); border-bottom: 1px solid rgba(255,255,255,.2); }
 .impact-featured { grid-row: span 2; min-height: 48rem; justify-content: flex-end; background: var(--green); }
@@ -263,7 +269,7 @@ details li + li { margin-top: .6rem; }
   .hero { grid-template-columns: 1fr .48fr; min-height: auto; }
   .proof-strip { grid-template-columns: repeat(2, 1fr); }
   .proof-strip > div:nth-child(2) { border-right: 0; }
-  .proof-strip > div:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+  .proof-strip > div:nth-child(-n+2) { border-bottom: 1px solid var(--proof-line); }
   .section-heading { grid-template-columns: 1fr; }
   .impact-card { min-height: 22rem; }
   .impact-featured { min-height: 42rem; }
