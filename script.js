@@ -17,8 +17,17 @@ menuButton?.addEventListener("click", () => {
 navLinks.forEach((link) => link.addEventListener("click", closeMenu));
 
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") closeMenu();
+  if (event.key === "Escape" && menuButton?.getAttribute("aria-expanded") === "true") {
+    closeMenu();
+    menuButton.focus();
+  }
 });
+
+document.addEventListener("click", (event) => {
+  if (!event.target.closest(".site-header")) closeMenu();
+});
+
+window.matchMedia("(max-width: 880px)").addEventListener("change", closeMenu);
 
 const sectionObserver = new IntersectionObserver(
   (entries) => {
@@ -39,3 +48,4 @@ const sectionObserver = new IntersectionObserver(
 sections.forEach((section) => sectionObserver.observe(section));
 
 document.getElementById("current-year").textContent = new Date().getFullYear();
+document.documentElement.classList.add("js");
