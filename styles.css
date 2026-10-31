@@ -217,14 +217,14 @@ details li + li { margin-top: .6rem; }
 .capability-grid h3 { margin: 3rem 0 1rem; font-size: 1.45rem; }
 .capability-grid p { margin: 0; color: var(--muted); font-size: 1rem; }
 
-.credential-columns { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(3rem, 10vw, 9rem); }
-.credential-columns h3 { padding-bottom: 1.2rem; border-bottom: 2px solid var(--ink); font-size: 1rem; letter-spacing: 0; }
-.credential-columns article { display: flex; justify-content: space-between; gap: 1.5rem; padding: 1.2rem 0; border-bottom: 1px solid var(--line); }
-.credential-columns p { margin: 0; font-weight: 700; }
-.credential-columns span { color: var(--muted); font-size: .88rem; text-align: right; }
+.credential-list { display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(2.5rem, 5vw, 3.5rem); }
+.credential-list h3 { padding-bottom: 1.2rem; border-bottom: 2px solid var(--ink); font-size: 1rem; letter-spacing: 0; }
+.credential-list article { display: flex; flex-direction: column; gap: .25rem; padding: 1.2rem 0; border-bottom: 1px solid var(--line); overflow-wrap: anywhere; }
+.credential-list p { margin: 0; font-weight: 700; }
+.credential-list span { color: var(--muted); font-size: .88rem; }
 
 .contact-section { padding: clamp(5rem, 10vw, 9rem) var(--page-pad); background: var(--green-bright); text-align: center; scroll-margin-top: 5.75rem; }
-.contact-section h2 { max-width: 18ch; margin: 0 auto 2.5rem; font-size: clamp(2.7rem, 6.2vw, 5.8rem); }
+.contact-section h2 { max-width: 26ch; margin: 0 auto 2.5rem; font-size: clamp(2.4rem, 5.4vw, 5rem); }
 .contact-section a { font-size: clamp(1.05rem, 2.2vw, 1.4rem); font-weight: 800; text-underline-offset: .3em; }
 .site-footer { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; padding: 2rem var(--page-pad); background: var(--green); color: var(--white); font-size: .84rem; }
 .site-footer p { margin: 0; }
@@ -302,9 +302,6 @@ details li + li { margin-top: .6rem; }
   .capability-grid { grid-template-columns: 1fr; }
   .capability-grid article { min-height: 15rem; }
   .capability-grid h3 { margin-top: 3rem; }
-  .credential-columns { grid-template-columns: 1fr; gap: 3.5rem; }
-  .credential-columns article { flex-direction: column; gap: .25rem; }
-  .credential-columns span { text-align: left; }
   .site-footer { grid-template-columns: 1fr auto; }
   .site-footer p:nth-child(2) { display: none; }
 }
