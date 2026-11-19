@@ -4,18 +4,31 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Connect with Francis Jason Talampas. Find my full profile, LinkedIn, GitHub, Instagram, and Facebook in one place.">
-  <meta name="theme-color" content="#f3f0e8">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f3f0e8" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0b100e" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="canonical" href="https://fjgtalampas.github.io/">
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Francis Jason Talampas | Links">
   <meta property="og:description" content="Senior Software Engineer · DevOps · Systems. My profile and places to connect.">
   <meta property="og:url" content="https://fjgtalampas.github.io/">
-  <meta property="og:image" content="https://fjgtalampas.github.io/images/profile-px.jpeg">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://fjgtalampas.github.io/images/og-image.jpeg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Francis Jason Talampas, Senior Software Engineer: DevOps, Systems, Modernization">
+  <meta property="profile:first_name" content="Francis Jason">
+  <meta property="profile:last_name" content="Talampas">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image:alt" content="Francis Jason Talampas, Senior Software Engineer: DevOps, Systems, Modernization">
   <title>Francis Jason Talampas | Links</title>
+  <link rel="preload" href="fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="links.css">
-  <script src="links.js" defer></script>
+  <script src="site.js" defer></script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -23,7 +36,7 @@
       "name": "Francis Jason Talampas",
       "jobTitle": "Senior Software Engineer",
       "url": "https://fjgtalampas.github.io/",
-      "image": "https://fjgtalampas.github.io/images/profile-px.jpeg",
+      "image": "https://fjgtalampas.github.io/images/avatar-432.jpeg",
       "sameAs": [
         "https://github.com/fjgtalampas",
         "https://linkedin.com/in/fjgtalampas",
@@ -38,7 +51,10 @@
 
   <main id="main-content" class="link-hub">
     <header class="hub-intro">
-      <img class="hub-portrait" src="images/profile-px.jpeg" width="144" height="144" alt="Francis Jason Talampas" fetchpriority="high">
+      <picture>
+        <source type="image/webp" srcset="images/avatar-288.webp 288w, images/avatar-432.webp 432w" sizes="144px">
+        <img class="hub-portrait" src="images/avatar-288.jpeg" srcset="images/avatar-288.jpeg 288w, images/avatar-432.jpeg 432w" sizes="144px" width="288" height="288" alt="Francis Jason Talampas" fetchpriority="high">
+      </picture>
       <h1>Francis Jason Talampas</h1>
       <p class="hub-role">Senior Software Engineer · DevOps · Systems</p>
       <p class="hub-description">Learning how things work.<br>Finding ways to make them better.</p>
@@ -88,7 +104,7 @@
 
     <footer class="hub-footer">
       <p>Let’s find a way, or make one.</p>
-      <p>Let’s make ends meet.</p>
+      <p>Let’s make it happen.</p>
       <span>© <span id="current-year">2026</span> Francis Jason Talampas</span>
     </footer>
   </main>

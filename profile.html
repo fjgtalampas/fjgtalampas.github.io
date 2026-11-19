@@ -4,34 +4,52 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Francis Jason Talampas is a senior software engineer and adaptable generalist focused on DevOps, systems, modernization, automation, and reliable operations.">
-  <meta name="theme-color" content="#101714">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f3f0e8" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0b100e" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="canonical" href="https://fjgtalampas.github.io/profile.html">
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Francis Jason Talampas | Senior Software Engineer">
   <meta property="og:description" content="Learning how systems work, then modernizing, automating, and optimizing them for reliable operation.">
   <meta property="og:url" content="https://fjgtalampas.github.io/profile.html">
-  <meta property="og:image" content="https://fjgtalampas.github.io/images/profile.jpeg">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://fjgtalampas.github.io/images/og-image.jpeg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Francis Jason Talampas, Senior Software Engineer: DevOps, Systems, Modernization">
+  <meta property="profile:first_name" content="Francis Jason">
+  <meta property="profile:last_name" content="Talampas">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image:alt" content="Francis Jason Talampas, Senior Software Engineer: DevOps, Systems, Modernization">
   <title>Francis Jason Talampas | Senior Software Engineer</title>
+  <link rel="preload" href="fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
+  <script src="site.js" defer></script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Francis Jason Talampas",
-      "jobTitle": "Senior Software Engineer",
-      "url": "https://fjgtalampas.github.io/",
-      "image": "https://fjgtalampas.github.io/images/profile.jpeg",
-      "sameAs": [
-        "https://github.com/fjgtalampas",
-        "https://linkedin.com/in/fjgtalampas",
-        "https://www.instagram.com/fjgtalampas",
-        "https://www.facebook.com/fjgtalampas"
-      ],
-      "alumniOf": {
-        "@type": "CollegeOrUniversity",
-        "name": "University of Santo Tomas"
+      "@type": "ProfilePage",
+      "url": "https://fjgtalampas.github.io/profile.html",
+      "name": "Francis Jason Talampas | Senior Software Engineer",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Francis Jason Talampas",
+        "jobTitle": "Senior Software Engineer",
+        "url": "https://fjgtalampas.github.io/",
+        "image": "https://fjgtalampas.github.io/images/profile-800.jpeg",
+        "sameAs": [
+          "https://github.com/fjgtalampas",
+          "https://linkedin.com/in/fjgtalampas",
+          "https://www.instagram.com/fjgtalampas",
+          "https://www.facebook.com/fjgtalampas"
+        ],
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "University of Santo Tomas"
+        }
       }
     }
   </script>
@@ -72,7 +90,10 @@
       </div>
       <div class="hero-portrait">
         <div class="portrait-frame">
-          <img src="images/profile.jpeg" width="1094" height="1368" alt="Francis Jason Talampas" fetchpriority="high">
+          <picture>
+            <source type="image/webp" srcset="images/profile-400.webp 400w, images/profile-800.webp 800w" sizes="(max-width: 640px) 320px, 368px">
+            <img src="images/profile-400.jpeg" srcset="images/profile-400.jpeg 400w, images/profile-800.jpeg 800w" sizes="(max-width: 640px) 320px, 368px" width="800" height="1000" alt="Francis Jason Talampas" fetchpriority="high">
+          </picture>
         </div>
         <p>Francis Jason Talampas</p>
       </div>
@@ -85,7 +106,7 @@
         <p>Selected work across platform modernization, secure delivery, developer experience, and production reliability.</p>
       </header>
       <div class="proof-strip impact-stats" aria-label="Career highlights">
-        <div><strong>12+</strong><span>years in software engineering</span></div>
+        <div><strong data-years-since="2013-08">13+</strong><span>years in software engineering</span></div>
         <div><strong>150+</strong><span>vulnerabilities remediated</span></div>
         <div><strong class="platform-version">Java 8 → 25</strong><span>platform modernization</span></div>
         <div><strong>50%</strong><span>defect reduction across three ERP modules</span></div>
@@ -130,14 +151,11 @@
             <h3>Senior Software Engineer</h3>
             <p class="role-focus">Corporate Treasury Innovation · Full Stack / DevSecOps</p>
             <p>Returned to Finastra in November 2023. Leading the Treasury Platform migration to Spring Boot and Java 25, alongside DevSecOps, security, and developer-environment initiatives.</p>
-            <details>
+            <details open>
               <summary>Key Contributions</summary>
               <ul>
-                <li>Led the Treasury Platform migration from Google Guice and Java 8 to Spring Boot and Java 25, using LLM-assisted analysis and agentic workflows.</li>
-                <li>Replaced legacy stored procedures with Spring Data JPA, standardized API mappings, and upgraded dependencies for security, licensing, and compliance requirements.</li>
-                <li>Migrated front-end builds from Jenkins to GitHub Actions and designed automated pipelines for Spring Boot microservices.</li>
-                <li>Embedded CodeQL, Checkmarx, Arnica, and Trivy scanning controls and drove remediation of 150+ vulnerabilities.</li>
-                <li>Built reusable Docker-based environments with preconfigured databases and multi-branch stacks, reducing local setup from hours to minutes.</li>
+                <li>Standardized API mappings and upgraded dependencies for security, licensing, and compliance requirements alongside the migration to Spring Data JPA.</li>
+                <li>Delivered the DevSecOps pipelines, security scanning, and Docker-based developer environments described under <a href="#work">Impact</a>.</li>
                 <li>Established a unified multi-repository workspace for agentic impact analysis and coordinated changes, and built reusable AI skills documenting migration patterns and engineering standards.</li>
                 <li>Administered GitHub Enterprise access, branch permissions, service accounts, onboarding, and package releases, while mentoring engineers on secure development and DevOps practices.</li>
               </ul>
@@ -248,7 +266,7 @@
     </section>
 
     <section class="contact-section" aria-labelledby="contact-title">
-      <h2 id="contact-title">Let’s find a way, or make one.<br>Let’s make ends meet.</h2>
+      <h2 id="contact-title">Let’s find a way, or make one.<br>Let’s make it happen.</h2>
       <a class="contact-link" href="index.html">Connect <span aria-hidden="true">↗</span></a>
     </section>
   </main>

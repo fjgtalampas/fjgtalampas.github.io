@@ -1,0 +1,43 @@
+name: Checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    # Weekly, to catch external links that rot over time.
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  html:
+    name: Validate HTML
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate HTML
+        run: npx --yes html-validate@9 --config .htmlvalidate.json index.html profile.html 404.html
+
+  links:
+    name: Check links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check local and external links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          # Social networks routinely answer bots with 403/429/999, so those count as "reachable".
+          # The site's own absolute URLs are skipped: they don't exist until the push is deployed.
+          args: >-
+            --no-progress
+            --accept 200..=299,403,429,999
+            --exclude '^https://fjgtalampas\.github\.io'
+            --root-dir "${{ github.workspace }}"
+            index.html profile.html 404.html
+          fail: true

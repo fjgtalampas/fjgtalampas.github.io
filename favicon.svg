@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <style>
+    circle { fill: #101714; }
+    text { fill: #f3f0e8; }
+    @media (prefers-color-scheme: dark) {
+      circle { fill: #f3f0e8; }
+      text { fill: #101714; }
+    }
+  </style>
+  <circle cx="32" cy="32" r="32"/>
+  <text x="32" y="32" text-anchor="middle" dominant-baseline="central" font-family="Inter, ui-sans-serif, -apple-system, 'Segoe UI', Arial, sans-serif" font-size="23" font-weight="750" letter-spacing="1">FJT</text>
+</svg>

@@ -1,6 +1,6 @@
 .links-page {
   min-height: 100svh;
-  background: radial-gradient(ellipse at 50% 0, rgba(199, 230, 206, .35), transparent 65%), var(--paper);
+  background: radial-gradient(ellipse at 50% 0, var(--glow), transparent 65%), var(--grain), var(--paper);
 }
 
 .link-hub {
@@ -15,7 +15,7 @@
   height: auto;
   aspect-ratio: 1;
   margin: 0 auto 1.5rem;
-  border: 4px solid var(--white);
+  border: 4px solid var(--card);
   border-radius: 50%;
   object-fit: cover;
   object-position: center;
@@ -27,7 +27,7 @@
   font-size: clamp(1.85rem, 6vw, 2.5rem);
   line-height: 1.15;
 }
-.hub-role { margin-bottom: 1rem; color: var(--green); font-size: .86rem; font-weight: 650; }
+.hub-role { margin-bottom: 1rem; color: var(--accent-text); font-size: .86rem; font-weight: 650; }
 .hub-description { margin-bottom: 1.75rem; color: var(--muted); font-size: 1rem; line-height: 1.55; }
 
 .hub-links { display: grid; gap: .8rem; }
@@ -39,7 +39,7 @@
   padding: 1rem 1.25rem;
   border: 1px solid var(--line);
   border-radius: 1rem;
-  background: var(--white);
+  background: var(--card);
   text-decoration: none;
   transition: transform .2s var(--ease), border-color .2s var(--ease), box-shadow .2s var(--ease);
 }
@@ -53,13 +53,16 @@
 .hub-arrow { flex-shrink: 0; margin-left: auto; font-size: 1.35rem; }
 .hub-link:focus-visible { outline-offset: 5px; }
 @media (hover: hover) {
-  .hub-link[href]:hover { transform: translateY(-2px); border-color: var(--green); box-shadow: 0 5px 16px rgba(16, 23, 20, .07); }
+  .hub-link:hover { transform: translateY(-2px); border-color: var(--accent-text); box-shadow: 0 5px 16px rgba(16, 23, 20, .07); }
 }
 
 .hub-footer { margin-top: 2rem; color: var(--muted); text-align: center; font-size: .75rem; }
-.hub-footer p { margin-bottom: .5rem; color: var(--green); font-size: .88rem; }
+.hub-footer p { margin-bottom: .5rem; color: var(--accent-text); font-size: .88rem; }
 
 @media (max-width: 380px) {
   .hub-role { max-width: 27ch; margin-inline: auto; }
   .hub-link { gap: .8rem; padding-inline: 1rem; }
 }
+
+.not-found .eyebrow { margin-bottom: 1rem; }
+.not-found .hub-intro { margin-bottom: 1.5rem; }
